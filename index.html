@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title> Week Planner </title>
+  <!--LovinTasks, -->
+  <title> LovinPlans </title>
 
 
   <meta name="description" content="Purrfecto. A haven for cat enthusiasts." />
@@ -40,7 +41,7 @@
   <header id="header">
 
     <a href="index.html">
-      <h1 id="logo"> Purrfecto </h1>
+      <h1 id="logo"> LovinPlans </h1>
     </a>
 
     <input id="nav-toggle" type="checkbox" name="nav-toggle">
@@ -50,8 +51,10 @@
 
     <nav id="navbar">
       <div class="menu-item"> <a href="index.html" class="active"> Home </a> </div>
-      <div class="menu-item"> <a href="gallery.html"> Gallery </a> </div>
-      <div class="menu-item"> <a href="contact.html"> Join us! </a> </div>
+      <div class="menu-item"> <a href="gallery.html"> My Tasks </a> </div>
+      <div class="menu-item"> <a href="completed.html"> Completed </a> </div>
+      <div class="menu-item"> <a href="help.html"> Help </a> </div>
+      <div class="menu-item"> <a href="contact.html"> Contact </a> </div>
     </nav>
 
 
@@ -59,16 +62,54 @@
 
   <main>
 
-    <section id="hero" aria-label="Hero Section"> <!-- CHECK ARIA ELEMENTS-->
+    <section id="hero" aria-label="Hero Section">
       <div id="cover-text">
-        <h2> <i class="fa-solid fa-cat"> </i> Purrfect Companions </h2>
+        <h2> <i class="fa-solid fa-rectangle-list"></i>  </i> Streamline Your Tasks, Supercharge Your Efficiency! </h2>
       </div>
     </section>
     <br>
 
     <div id="cats-header">
-      <h2>Why do we love cats?</h2>
+      <h2>
+        Welcome to LovinPlans - your ultimate solution for effortless task management. 
+      </h2>
+      <br>
+      <h3>
+        Stay organized, maintain focus, and take charge of your daily agenda with ease.
+      </h3>
     </div>
+
+
+    
+ 
+
+    <div class="submit-btn">
+      <button type="submit" id="submit">
+          Get started!
+      </button>
+    </div>
+
+
+    <section id="add-tasks">
+      <h2 id="add-task-header">Add new tasks:</h2>
+      <div class="new-task">
+        <label for="task-name" id="task-name-label">Add: </label>
+        <input autofocus type="text" name="task-name" id="task-name" class="task-name"
+          aria-label="Enter a new task item" placeholder="E.g., Learn JS?" required>
+        <button id="add-task"></button>
+        </button>
+      </div>
+
+      <div class="how-to-example">
+        <label for="task-name">Add:</label>
+        <input autofocus type="text" name="task-name" id="task-name" title="must be a valid email address"
+          class="text-input" placeholder="E.g., Learn JS?" required>
+        <p>(exemple@domain.com)</p>
+      </div>
+
+    </section>
+
+
 
     <section id="additional-content" aria-label="General facts about cats">
       <h2 class="hidden-heading">Reasons for loving cats</h2>
@@ -137,31 +178,9 @@
 
     </section>
 
-    <section id="call-to-action">
 
-      <a href="gallery3.html" target="_blank">
-        <h2> Visit our image gallery! </h2>
-      </a>
 
-      <div id="cats-collage">
-        <img src="assets//images/cats/collage.webp" alt="collage with cats" loading="lazy">
-      </div>
 
-    </section>
-
-    <section id="call-to-travel">
-      <a href="https://en.wikipedia.org/wiki/Aoshima,_Ehime" target="_blank">
-        <h2> Visit Ainoshima! </h2>
-        <h3> - The Cat's Heaven Island - </h3>
-      </a>
-
-      <iframe id="map"
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11855466.393614946!2d132.38621517131475!3d34.29671697765648!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3545615a1e5be903%3A0xa6a816cd520f72b0!2sAo%20Island!5e0!3m2!1sen!2sse!4v1710351719730!5m2!1sen!2sse"
-        width="280" height="280" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-
-    </section>
 
   </main>
 
@@ -201,9 +220,8 @@
   </footer>
 
   <script src="https://kit.fontawesome.com/498c29f243.js" crossorigin="anonymous"></script>
-
-
   <script src="assets/js/script.js"></script>
+
 </body>
 
 

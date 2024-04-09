@@ -178,9 +178,12 @@ main {
 
 #hero {
     position: relative;
-    height: 40rem;
+    height: 45rem;
     width: 100%;
-    background: url("../images/cats/hero-image-3.webp") no-repeat center center/cover;
+    background: url("/assets/images/surja-sen-das-raj-y16ku6si6xI-unsplash.jpg") no-repeat center center/cover; 
+    /* 
+    https://unsplash.com/photos/a-notebook-with-a-pen-on-top-of-it-y16ku6si6xI?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
+    */
 }
 
 #cover-text {
@@ -202,6 +205,20 @@ main {
 }
 
 
+#add-tasks{
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    justify-content: baseline;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+#add-task-header{
+    padding-bottom: 2rem;
+}
+#task-name-label{
+    font-size: 2rem;
+}
 
 #cats-header {
     margin: 1rem 0.5rem;
@@ -401,6 +418,18 @@ main {
     margin-bottom: 0;
 }
 
+table{
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 2rem;
+    th, td {
+        padding: 15px;
+        text-align: left;
+        min-width: 4rem;
+        border-bottom: 1px solid #ddd;
+      }
+
+}
 .text-input {
     margin-top: 0.5rem;
     margin-bottom: 1.5rem;
