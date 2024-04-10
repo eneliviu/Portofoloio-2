@@ -70,5 +70,8 @@ The app is inspired by the existing Outlook or Google Calendar functionality con
 ### Structure
 The main page structure is defined in the index.html file. The page has   
 
+# Javascript coding
+The developement was done in VSCode using the Live Server extension for running the app, and the JS code was also run in the Chrome developer tool Console. 
+ 
 
 
