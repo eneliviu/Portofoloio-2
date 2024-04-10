@@ -8,7 +8,44 @@ newSection.style.backgroundColor = "yellow";
 mainDoc.appendChild(newSection);
 
 
+function makeTaskTable(){
 
+
+
+
+
+}
+
+
+// Write your code here
+function makeTaskTable(tasks){
+    
+    let html = `<table>
+                <thead>
+                <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Published</th>
+                </tr>
+                </thead>
+                <tbody>`;
+      for(let book of books){
+          let rowHTML = `<tr>
+                          <td>${book.title}</td>
+                          <td>${book.author}</td>
+                          <td>${book.published}</td>
+                          </tr>`;
+          html += rowHTML;
+      }
+      html += `</tbody>
+              </table>`;
+      
+      return html;
+      
+  }
+  
+  let table = buildTable(books);
+  document.getElementById('books-table').innerHTML = table;
 
 
 

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<!-- UPDATE DESCRIPTION AND KEYWORDS -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> Purrfecto </title>
+    <title> LovinPlans </title>
 
 
+    <!-- UPDATE DESCRIPTION AND KEYWORDS -->
     <meta name="description" content="Purrfecto. A haven for cat enthusiasts." />
     <meta name="keywords" content="Cat photos, adorable kittens, feline cuteness, 
                     cat lovers' community, whiskers and paws, charming kitty moments, 
@@ -42,10 +46,11 @@
 
 <body>
 
+    <!-- DONE -->
     <header id="header">
 
         <a href="index.html">
-            <h1 id="logo"> Purrfecto </h1>
+            <h1 id="logo"> LovinPlans </h1>
         </a>
 
         <input id="nav-toggle" type="checkbox" name="nav-toggle">
@@ -54,116 +59,91 @@
         </label>
 
         <nav id="navbar">
-            <div class="menu-item"> <a href="index.html" class="active"> Home </a> </div>
-            <div class="menu-item"> <a href="myTasks.html" class="active"> My Tasks </a> </div>
+            <div class="menu-item"> <a href="index.html"> Home </a> </div>
+            <div class="menu-item"> <a href="tasks.html" class="active"> My Tasks </a> </div>
             <div class="menu-item"> <a href="completed.html"> Completed </a> </div>
             <div class="menu-item"> <a href="help.html"> Help </a> </div>
             <div class="menu-item"> <a href="contact.html"> Contact </a> </div>
-          </nav>
-      
-
+        </nav>
 
     </header>
 
-    <main>
 
-        <section id="table">
-            <h1> ToDo List</h1>
+    <main id="main-tasks">
+        <h1 id="todo-header"> <i class="fa-solid fa-list-check"></i> ToDo List</h1>
+        <hr>
 
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Rating</th>
-                            <th>Review</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Bob</td>
-                            <td>5/5</td>
-                            <td>This product is so good, I bought 5 more!</td>
-                        </tr>
-                        <tr>
-                            <td>Jane</td>
-                            <td>4/5</td>
-                            <td>Good value for the price.</td>
-                        </tr>
-                        <tr>
-                            <td>David</td>
-                            <td>1/5</td>
-                            <td>Arrived broken :(</td>
-                        </tr>
-                        <tr>
-                            <td>Fiona</td>
-                            <td>5/5</td>
-                            <td>I love it!</td>
-                        </tr>
-                        <tr>
-                            <td>Michael</td>
-                            <td>3/5</td>
-                            <td>Doesn't live up to expectations.</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <button class='btn btn--task'>
+            Add task <i class="fa-solid fa-plus"></i>
+        </button>
+
+        <section id="task-cards-section">
+
+            <div class="task-card">
+                <div class="input-field">
+                    <input autofocus type="text" class="task-def" id="task-name" name="task-name" 
+                        aria-label="Enter a new task item" placeholder="Enter task name: e.g., Groceries" required>
+                </div>
+                <div class="input-field">
+                    <input autofocus type="text" class="task-def" name="task-descriptiom" id="task-descriptiom" 
+                        aria-label="Enter task description" placeholder="Enter task description: e.g., Buy groceries"
+                        required>
+                </div>
+
+                <!--
+                <button class='btn btn--categ'>
+                    Add activity: <i class="fa-solid fa-plus"></i>
+                </button>
+
+
+                <div id="task-activity-div">
+                    <div class="categ work--categ">Work</div>
+                    <div class="categ home--categ">Home</div>
+                    <div class="categ chores--categ">Chores</div>
+                    <div class="categ errands--categ">Errands</div>
+                </div>
+
+                <button class='btn btn--categ'>
+                    Add relevance: <i class="fa-solid fa-plus"></i>
+                </button>
+                <div id="task-importance-div">
+                    <div class="categ urgent--categ">Urgent</div>
+                    <div class="categ important--categ">Important</div>
+                    <div class="categ normal--categ">Normal</div>
+                </div>
+
+                -->
+
+
+                <button class='btn btn--categ'>
+                    Add activity: <i class="fa-solid fa-plus"></i>
+                </button>
+
+                <div id="task-activity-div">
+                    <button class='btn btn--categ btn--work--categ'>Work</button>
+                    <button class='btn categ home--categ'>Home</button>
+                    <button class='btn categ chores--categ'>Chores</button>
+                    <button class='btn categ errands--categ'>Errands </button>
+                </div>
+
+                <button class='btn btn--categ'>
+                    Add relevance: <i class="fa-solid fa-plus"></i>
+                </button>
+                <div id="task-importance-div">
+                    <button class="btn categ urgent--categ">Urgent</button>
+                    <button class="btn categ important--categ">Important</button>
+                    <button class="btn categ normal--categ">Normal</button>
+                </div>
+
+
             </div>
+
 
         </section>
 
-
-        <section id="img-container">
-
-            <div class="card">
-
-                <img class="img-cats" src="" alt="orange-tabby-kitten-in-grasses" loading="lazy">
-                <div class="likes">
-                    <a href="likes.html">
-                        <i class="fa-solid fa-thumbs-up"></i>
-                    </a>
-                    <a href="assets/images/" download="">
-                        <i class="fa-solid fa-download"> </i>
-                    </a>
-                </div>
-                <div class="moreinfo">
-                    <div class="info-box">
-                        <h4 class="info-heading">Views</h4>
-                        <p class="info-number">286,160</p>
-                    </div>
-                    <div class="info-box">
-                        <h4 class="info-heading">Downloads</h4>
-                        <p class="info-number">2,194</p>
-                    </div>
-                    <div class="info-box">
-                        <a href="" target="_blank">
-                            <h4 class="info-source">Source</h4>
-                        </a>
-                    </div>
-
-
-                </div>
-            </div>
-
-
-
-
-
-            <div class="task">
-
-            </div>
-
-            <div class="day">
-
-            </div>
-
-
-
-
-
-        </section>
     </main>
 
-
+    <!-- DONE -->
     <footer>
 
 
