@@ -1,10 +1,10 @@
 
 function taskCardDisplay(event) {
     let taskCard = document.getElementById("task-cards-section");
-    if(taskCard.style.display === 'block'){
-        taskCard.style.display = 'none';
-    } else{
+    if(taskCard.style.display === 'none'){
         taskCard.style.display = 'block';
+    } else{
+        taskCard.style.display = 'none';
     }
 }
 

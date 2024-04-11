@@ -297,7 +297,6 @@ main {
 #task-cards-section{
     padding-top: 1rem;
     padding-bottom: 1rem;
-    display: block; 
 }
 
 .task-card{
@@ -366,7 +365,7 @@ main {
 
 #task-activity-div,
 #task-importance-div {
-    display: flex;
+    display: none;
     flex-direction: row;
     flex-wrap: wrap;
     row-gap: 0.5rem;
