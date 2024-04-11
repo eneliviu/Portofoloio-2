@@ -300,6 +300,9 @@ main {
 }
 
 .task-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin: 0 auto;
@@ -359,6 +362,10 @@ main {
     border-radius: 2rem;
     font-size: 150%;
     margin: 1rem;
+}
+
+#add-task-ok-btn{
+    width: 95%;
 }
 
 

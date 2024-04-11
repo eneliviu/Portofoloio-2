@@ -1,7 +1,7 @@
 
 function taskCardDisplay(event) {
     let taskCard = document.getElementById("task-cards-section");
-    if(taskCard.style.display === 'none'){
+    if(taskCard.style.display !== 'block'){
         taskCard.style.display = 'block';
     } else{
         taskCard.style.display = 'none';
@@ -10,7 +10,7 @@ function taskCardDisplay(event) {
 
 function taskActivityDisplay(event) {
     let taskActiv = document.getElementById("task-activity-div");
-    if(taskActiv.style.display === 'none'){
+    if(taskActiv.style.display !== 'flex'){
         taskActiv.style.display = 'flex';
     } else{
         taskActiv.style.display = 'none';
@@ -19,7 +19,7 @@ function taskActivityDisplay(event) {
 
 function taskRelevanceDisplay(event) {
     let taskRelev = document.getElementById("task-importance-div");
-    if(taskRelev.style.display === 'none'){
+    if(taskRelev.style.display !== 'flex'){
         taskRelev.style.display = 'flex';
     } else{
         taskRelev.style.display = 'none';
@@ -31,3 +31,7 @@ document.getElementById('add-activity-btn').addEventListener('click', taskActivi
 document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay);
 
 
+function addTaskToSet(){
+
+
+}
