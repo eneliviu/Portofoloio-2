@@ -175,7 +175,7 @@ main {
 }
 
 /*=====================================================================*/
-/* INDEX.HTML
+/* INDEX.HTML */
 
 #hero {
     position: relative;
@@ -293,6 +293,10 @@ main {
     padding-bottom: 2rem;
 }
 
+#text-container{
+    width: 95%
+}
+
 #task-cards-section{
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -328,6 +332,19 @@ main {
             border-radius: 1rem;
         }
     }
+}
+
+.task-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0 auto;
+    height: auto;
+    max-width: 280px;
+    background-color: #8ccde7;
+    border-radius: 1.5rem;
 }
 
 .btn {

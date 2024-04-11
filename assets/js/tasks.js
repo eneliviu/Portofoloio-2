@@ -31,7 +31,26 @@ document.getElementById('add-activity-btn').addEventListener('click', taskActivi
 document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay);
 
 
-function addTaskToSet(){
+document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToSet);
+function addTaskToSet(event){
+    
+    let taskName = document.getElementById("task-name-field").value;
+    let taskDescription = document.getElementById("task-description-field").value;
+    
 
+    let taskList = document.getElementById("text-container");
+    let newTask = document.createElement("div");
+    newTask.className = 'task-list';
+    newTask.id = Date.now();
+    newTask.innerHTML = `<p>${taskDescription}</p>`;
+    taskList.appendChild(newTask);
+    
+
+    document.getElementById('add-task-btn').click();
+    
+}
+
+document.getElementsByClassName('remove-task-btn').addEventListener('click', removeTasks);
+function removeTasks(event){
 
 }

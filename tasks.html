@@ -77,19 +77,21 @@
             Add task <i class="fa-solid fa-plus"></i>
         </button>
 
-        
+        <div class="task-list " id="text-container"></div>
+
         <section id="task-cards-section">
 
             <div class="task-card">
-                
-                <div class="input-field">
-                    <input autofocus type="text" class="task-def" id="task-name" name="task-name" maxlength="40"
+
+
+                <div class="input-field" id="task-name">
+                    <input autofocus type="text" class="task-def" id="task-name-field" name="task-name" maxlength="40"
                         aria-label="Enter a new task item" placeholder="Enter task name: e.g., Groceries" 
                         required>
                 </div>
                 
-                <div class="input-field">
-                    <input autofocus type="text" class="task-def" name="task-descriptiom" id="task-descriptiom" 
+                <div class="input-field"  id="task-description">
+                    <input autofocus type="text" class="task-def" name="task-description" id="task-description-field" 
                         aria-label="Enter task description" placeholder="Enter task description: e.g., Buy groceries"
                         maxlength="40" required>
                 </div>
