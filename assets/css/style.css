@@ -299,23 +299,8 @@ main {
     padding-bottom: 2rem;
 }
 
-.task-table{
-    border-collapse: collapse;
-    width: 150rem;
-    font-size: 2rem;
-    margin: 0 auto;
-    th, td {
-        padding: 15px;
-        text-align: left;
-        min-width: 4rem;
-        border-bottom: 1px solid #ddd;
-    }
-
-}
-
-#main-tasks > hr{
-    border-top: 1px solid var(--font-col);
-    margin: 0.5rem 0.5rem;
+#task-cards-section{
+    display: block;
 }
 
 .task-card{
