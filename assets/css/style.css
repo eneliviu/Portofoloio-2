@@ -338,7 +338,7 @@ main {
         .task-def {
             font-size: 130%;
             width: 260px;
-            height:3rem;
+            min-height:3rem;
             text-wrap: wrap;
             overflow: scroll;
         }
