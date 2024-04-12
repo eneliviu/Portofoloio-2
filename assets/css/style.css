@@ -293,8 +293,33 @@ main {
     padding-bottom: 2rem;
 }
 
-#text-container{
-    width: 95%
+.task-list{
+    
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0 auto;
+    height: auto;
+    max-width: 280px;
+    background-color: rgb(179, 179, 90);
+    border-radius: 1.5rem;
+}
+
+
+#text-container {
+    text-align: left;   
+    text-wrap: wrap;
+    background-color: #cee0de;
+    margin-bottom: 1rem;
+
+    div {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        font-size: 110%;
+        background-color: #393E46;  
+    }
 }
 
 #task-cards-section{
@@ -314,6 +339,7 @@ main {
     max-width: 280px;
     background-color: #ede576;
     border-radius: 1.5rem;
+    
 
     .input-field{
         display: flex;
@@ -334,18 +360,6 @@ main {
     }
 }
 
-.task-list{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    margin: 0 auto;
-    height: auto;
-    max-width: 280px;
-    background-color: #8ccde7;
-    border-radius: 1.5rem;
-}
 
 .btn {
     background-color: #fafafa;
