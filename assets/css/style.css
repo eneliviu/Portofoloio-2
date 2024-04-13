@@ -293,45 +293,14 @@ main {
     padding-bottom: 2rem;
 }
 
-.task-list{
-    
-    flex-direction: column;
-    align-items: center;
+#task-cards-section{
+    display: none;
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin: 0 auto;
-    height: auto;
-    max-width: 280px;
-    background-color: rgb(179, 179, 90);
-    border-radius: 1.5rem;
-}
-
-
-#text-container {
-    text-align: left;   
-    text-wrap: wrap;
-    background-color: #cee0de;
-    margin-bottom: 1rem;
-
-    div {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        line-height: 1.5;
-        font-size: 110%;
-        background-color: #393E46;  
-    }
-}
-
-#task-cards-section{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    display: none;
 }
 
 .task-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin: 0 auto;
@@ -339,7 +308,6 @@ main {
     max-width: 280px;
     background-color: #ede576;
     border-radius: 1.5rem;
-    
 
     .input-field{
         display: flex;
@@ -360,7 +328,6 @@ main {
     }
 }
 
-
 .btn {
     background-color: #fafafa;
     color: #202020;
@@ -379,6 +346,7 @@ main {
     color: #fafafa;
 }
 
+
 .btn--task{
     margin-top: 1rem;
     width: 15rem;
@@ -395,12 +363,9 @@ main {
     margin: 1rem;
 }
 
-#add-task-ok-btn{
-    width: 95%;
+#add-task-btn{
+    margin-bottom: 1rem;
 }
-
-
-
 #task-activity-div,
 #task-importance-div {
     display: none;
@@ -413,58 +378,90 @@ main {
     width:95%;
     height: auto;
     margin: 0 auto;
-    
-    .categ {
-        width: 100%;
-        border-radius: 1rem;
-        flex-basis: 50%;
-        padding: 0 1rem;
-        color: #fafafa;
-        font-size: 150%;
-    }
-    .work--categ{
-        padding:  0.5rem 0;
-        background-color: rgba(184, 70, 29, .63);
-        border: 3px solid #3e3b3b; 
-        max-width: 13rem;
-    }
-    .home--categ{
-        padding:  0.5rem 0;
-        background-color: rgba(35, 145, 188, .63);
-        border: 3px solid #3e3b3b;
-        max-width: 13rem; 
-    }
-    .chores--categ{
-        padding:  0.5rem 0;
-        background-color: rgba(140, 53, 211, .63);
-        border: 3px solid #3e3b3b; 
-        max-width: 13rem;   
-    }
-    .errands--categ{
-        padding:  0.5rem 0;
-        background-color: rgba(37, 106, 29, .63);
-        border: 3px solid #3e3b3b;
-        max-width: 13rem;  
-    }
-    .urgent--categ{
-        padding:  0.5rem 0;
-        background-color: rgba(227, 19, 19, .63);
-        border: 3px solid #3e3b3b; 
-        max-width: 13rem;  
-    }
-    .important--categ{
-        padding:  0.5rem 0;
-        background-color: rgba(215, 131, 20, .63);
-        border: 3px solid #3e3b3b;
-        max-width: 13rem;   
-    }
-    .normal--categ{
-        padding:  0.5rem 0;
-        background-color: rgba(156, 129, 223, 0.993);
-        border: 3px solid #3e3b3b; 
-        max-width: 13rem;  
-    }
+}
+#add-task-ok-btn{
+    width: 95%;
+}
 
+
+.categ {
+    width: 100%;
+    border-radius: 1rem;
+    flex-basis: 50%;
+    padding: 0 1rem;
+    color: #202020;
+    font-size: 150%;
+}
+#work-categ-btn{
+    padding:  0.5rem 0;
+    background-color: #fafafa; /*rgba(184, 70, 29, .63);*/
+    border: 0.2rem solid #202020; 
+    max-width: 13rem;
+}
+#home-categ-btn{
+    padding:  0.5rem 0;
+    background-color: #fafafa; /*rgba(35, 145, 188, .63);*/
+    border: 0.2rem solid #202020;
+    max-width: 13rem; 
+}
+#chores-categ-btn{
+    padding:  0.5rem 0;
+    background-color: #fafafa; /* rgba(140, 53, 211, .63)*/;
+    border: 0.2rem solid #202020; 
+    max-width: 13rem;   
+}
+#errands-categ-btn{
+    padding:  0.5rem 0;
+    background-color: #fafafa; /* rgba(37, 106, 29, .63)*/;
+    border: 0.2rem solid #202020;
+    max-width: 13rem;  
+}
+#urgent-categ-btn{
+    padding:  0.5rem 0;
+    background-color: #fafafa; /*rgba(227, 19, 19, .63);*/
+    border: 0.2rem solid #202020; 
+    max-width: 13rem;  
+}
+#important-categ-btn{
+    padding:  0.5rem 0;
+    background-color: #fafafa; /*rgba(215, 131, 20, .63);*/
+    border: 0.2rem solid #202020;
+    max-width: 13rem;   
+}
+#normal-categ-btn{
+    padding:  0.5rem 0;
+    background-color: #fafafa; /* rgba(156, 129, 223, 0.993);*/
+    border: 0.2rem solid #202020; 
+    max-width: 13rem;  
+}
+
+#text-container {
+    text-align: left;
+    text-wrap: wrap;
+    background-color: #cee0de;
+    min-width: 28rem;
+    height: auto;
+    margin: 0 auto;
+
+    div {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+        font-size: 110%;
+        background-color: #393E46;
+        h2{
+            text-align: center;
+        }
+        h3{
+            padding-left: 1rem;
+        }   
+    }
+}
+
+.innerHTML-task-category{
+    display: flex;
+    justify-content: space-around;
+    background-color: #5473d0;
 }
 /*=====================================================================*/
 
