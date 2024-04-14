@@ -144,6 +144,14 @@ for (let i = 0; i < activityBtns.length; i++) {
         namesRelevance[0] = this.innerText;
     });
 }
+/*
+const namesRelevanceList = ['urgent', 'important','normal'].toLowerCase();
+console.log(namesRelevanceList.includes(namesRelevance[0]))
+if (!namesRelevanceList.includes(namesRelevance[0])){
+    namesRelevance[0] = 'not specified';
+    colorRelevance[0] = ''
+}
+*/
 
 //===================================================================================================//
 // --------- REMOVE SELECTED TASKS:
