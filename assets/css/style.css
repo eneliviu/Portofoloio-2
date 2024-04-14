@@ -293,6 +293,13 @@ main {
     padding-bottom: 2rem;
 }
 
+.score-area {
+    margin: 0.5rem auto;
+    width: 60%;
+    font-size: 1.2rem;
+}
+
+
 #task-cards-section{
     display: none;
     padding-top: 1rem;
@@ -460,8 +467,17 @@ main {
 
 .innerHTML-task-category{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #5473d0;
+    
+    span{
+        border-radius: 1rem;
+        margin-bottom: 0.3rem;
+        margin-top: 0.3rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
 }
 /*=====================================================================*/
 

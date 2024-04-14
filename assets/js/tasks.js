@@ -79,22 +79,21 @@ function addTaskToTaskList(event) {
     //newTaskTypeSeparator.innerHTML = ` <span> --|-- </span>`
     //newTaskRelevance.innerHTML = `<span id="relevance-span">${colorRelevance[0]}</span>`;
 
-    newTaskActivity.innerHTML = `${colorActivities[0]}`;
-    newTaskTypeSeparator.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>'
-    newTaskRelevance.innerHTML = `${colorRelevance[0]}`;
-
-
-    //newTaskActivity.className = 'innerHTML-task-category';
+    newTaskActivity.innerHTML = namesActivities[0];
     newTaskActivity.style.backgroundColor = colorActivities[0];
-    newTaskRelevance.style.backgroundColor = colorRelevance[0];
 
+    newTaskTypeSeparator.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>'
+    
+    newTaskRelevance.innerHTML = namesRelevance[0];
+    newTaskRelevance.style.backgroundColor = colorRelevance[0];
 
     newTaskType.appendChild(newTaskActivity);
     newTaskType.appendChild(newTaskTypeSeparator);
     newTaskType.appendChild(newTaskRelevance);
+    
     newTask.appendChild(newTaskType);
+    
     taskList.appendChild(newTask);
-
 
 }
 
@@ -105,12 +104,6 @@ document.getElementById('add-activity-btn').addEventListener('click', taskActivi
 document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay);
 document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList);
 
-/*document.getElementsByClassName('remove-task-btn').addEventListener('click', removeTasks);
-function removeTasks(event){
-
-}
-*/
-
 //===================================================================================================//
 //--------------- Handle events for Task Category buttons:
 //https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time
@@ -118,23 +111,9 @@ function removeTasks(event){
 
 const colorActivitiesList = ['rgba(184, 70, 29, .63)', 'rgba(35, 145, 188, .63)',
     'rgba(140, 53, 211, .63)', 'rgba(37, 106, 29, .63)']
-var colorActivities = [];
-let relevanceBtns = document.getElementById('task-importance-div').children;
-for (let i = 0; i < relevanceBtns.length; i++) {
-    relevanceBtns[i].addEventListener('click', function (event) {
-        for (let j = 0; j < relevanceBtns.length; j++) {
-            relevanceBtns[j].classList.remove('selected');
-            relevanceBtns[j].style.backgroundColor = '';
-        }
-        this.style.backgroundColor = colorRelevanceList[i];
-        colorRelevance[0] = this.style.backgroundColor;
-    });
 
-}
-
-const colorRelevanceList = ['rgba(227, 19, 19, .63)', 'rgba(215, 131, 20, .63)',
-    'rgba(156, 129, 223, 0.993)']
-var colorRelevance = [];
+let colorActivities = [];
+let namesActivities = [];
 let activityBtns = document.getElementById('task-activity-div').children;
 for (let i = 0; i < activityBtns.length; i++) {
     activityBtns[i].addEventListener('click', function (event) {
@@ -144,12 +123,36 @@ for (let i = 0; i < activityBtns.length; i++) {
         }
         this.style.backgroundColor = colorActivitiesList[i];
         colorActivities[0] = this.style.backgroundColor;
+        namesActivities[0] = this.innerText;
+    });
 
+}
+
+const colorRelevanceList = ['rgba(227, 19, 19, .63)', 'rgba(215, 131, 20, .63)',
+    'rgba(156, 129, 223, 0.993)']
+let colorRelevance = [];
+let namesRelevance = [];
+let relevanceBtns = document.getElementById('task-importance-div').children;
+for (let i = 0; i < activityBtns.length; i++) {
+    relevanceBtns[i].addEventListener('click', function (event) {
+        for (let j = 0; j < relevanceBtns.length; j++) {
+            relevanceBtns[j].classList.remove('selected');
+            relevanceBtns[j].style.backgroundColor = '';
+        }
+        this.style.backgroundColor = colorRelevanceList[i];
+        colorRelevance[0] = this.style.backgroundColor;
+        namesRelevance[0] = this.innerText;
     });
 }
 
 //===================================================================================================//
+// --------- REMOVE SELECTED TASKS:
+/*
+document.getElementsByClassName('remove-task-btn').addEventListener('click', removeTasks);
+function removeTasks(event){
 
+}
+*/
 
 
 
