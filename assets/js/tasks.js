@@ -16,7 +16,7 @@ function taskRelevanceDisplay(event) {
 
 function addTaskToTaskList(event) {
 
-    let taskName = document.getElementById("task-name-field").value;
+    //let taskName = document.getElementById("task-name-field").value;
     let taskDescription = document.getElementById("task-description-field").value;
     let taskList = document.getElementById("text-container");
 
@@ -31,23 +31,6 @@ function addTaskToTaskList(event) {
     let newTaskTypeSeparator = document.createElement("span");
     let newTaskRelevance = document.createElement("span");
 
-
-    /*
-    newTask.innerHTML = `<div>
-                            <h2>${taskName}</h2>
-                            <h3>${taskDescription}</h3>
-                        </div>
-                        `;
-    newTaskType.innerHTML = `<span id="activity-span">${'Category'}</span>
-                            <span> | </span>
-                            <span id="relevance-span">${'Relevance'}</span>
-                            `;
-    newTaskType.className = 'innerHTML-task-category';
-
-    newTask.appendChild(newTaskType);
-    taskList.appendChild(newTask);
-    */
-
     //----- AT EXIT: ------------ 
     // Close settings and collapse fields:
     document.getElementById('add-task-btn').click();
@@ -55,9 +38,17 @@ function addTaskToTaskList(event) {
     document.getElementById('add-relevance-btn').click();
 
     // Reset default text entry::
-    document.getElementById("task-name-field").value = '';
+    //document.getElementById("task-name-field").value = '';
     document.getElementById("task-description-field").value = '';
     document.getElementById("task-description-field").value = '';
+
+    let spansElem = document.getElementsByClassName("'innerHTML-task-category'").children;
+    console.log(spansElem)
+    /*
+    for (let i = 0; i <spansElem.length; i++ ){
+        spansElem[i].innerHTML = '';
+    }
+    */
 
     // Reset background colors for the category buttons:
     let activityBtns = document.getElementById("task-activity-div").children;
@@ -70,29 +61,19 @@ function addTaskToTaskList(event) {
     }
 
     //---------------------------------------------------------
-    newTask.innerHTML = `<div>
-                            <h2>${taskName}</h2>
-                            <h3>${taskDescription}</h3>
-                        </div>
-                        `;
-    //newTaskActivity.innerHTML = `<span id="activity-span">${colorActivities[0]}</span>`;
-    //newTaskTypeSeparator.innerHTML = ` <span> --|-- </span>`
-    //newTaskRelevance.innerHTML = `<span id="relevance-span">${colorRelevance[0]}</span>`;
+    //newTask.innerHTML = `<div><h2>${taskName}</h2><h3>${taskDescription}</h3></div>`;
+    newTask.innerHTML = `<div><h3>${taskDescription}</h3></div>`;
 
-    newTaskActivity.innerHTML = namesActivities[0];
+    newTaskActivity.innerText = namesActivities[0];
     newTaskActivity.style.backgroundColor = colorActivities[0];
-
     newTaskTypeSeparator.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>'
-    
-    newTaskRelevance.innerHTML = namesRelevance[0];
+    newTaskRelevance.innerText = namesRelevance[0];
     newTaskRelevance.style.backgroundColor = colorRelevance[0];
 
     newTaskType.appendChild(newTaskActivity);
     newTaskType.appendChild(newTaskTypeSeparator);
     newTaskType.appendChild(newTaskRelevance);
-    
     newTask.appendChild(newTaskType);
-    
     taskList.appendChild(newTask);
 
 }
@@ -147,16 +128,18 @@ for (let i = 0; i < activityBtns.length; i++) {
 
 //===================================================================================================//
 // UPDATED SCORES ON OK-CLICK:
-function updateScores(event){
-    let oldScore = parseInt(document.getElementById('score').innerText);
+function incrementScores(event){
+    let oldScoreWork = parseInt(document.getElementById('work-score').innerText);
+    let oldScoreHome = parseInt(document.getElementById('home-score').innerText);
+    let oldScoreChores = parseInt(document.getElementById('chores-score').innerText);
+    let oldScoreErrands = parseInt(document.getElementById('errands-score').innerText);
 
+    document.getElementById('work-score').innerText = ++oldScoreWork;
+    document.getElementById('home-score').innerText = ++oldScoreHome;
+    document.getElementById('chores-score').innerText = ++oldScoreChores;
+    document.getElementById('errands-score').innerText = ++oldScoreErrands;
 }
-document.getElementById('add-task-ok-btn').addEventListener('click', updateScores);
-
-function incrementScore(){
-    let oldScore = parseInt(document.getElementById('score').innerText);
-    document.getElementById('score').innerText = ++oldScore;
-}
+document.getElementById('add-task-ok-btn').addEventListener('click', incrementScores);
 
 //===================================================================================================//
 

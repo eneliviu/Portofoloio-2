@@ -298,10 +298,12 @@ main {
     padding-bottom: 1rem;
 }
 .score-area-list{
-    display: flex;
     margin: 0 auto;
-    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-items: center;
     width: 80%;
+    padding-bottom: 1rem;
     font-size: 1.5rem;
     color: #fafafa;
 }
