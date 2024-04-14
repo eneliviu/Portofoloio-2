@@ -36,13 +36,9 @@
     list-style: none;
 }
 
-
-
 html {
     font-size: 62.5%;
 }
-
-
 
 body {
     display: flex;
@@ -52,8 +48,6 @@ body {
     color: var(--font-col);
     min-height: 100vh;
 }
-
-
 
 a {
     text-decoration: none;
@@ -181,7 +175,7 @@ main {
     position: relative;
     height: 45rem;
     width: 100%;
-    background: url("/assets/images/surja-sen-das-raj-y16ku6si6xI-unsplash.jpg") no-repeat center center/cover; 
+    background: url("/assets/images/surja-sen-das-raj-y16ku6si6xI-unsplash.jpg") no-repeat center center/cover;
     /* 
     https://unsplash.com/photos/a-notebook-with-a-pen-on-top-of-it-y16ku6si6xI?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
     */
@@ -206,20 +200,15 @@ main {
 }
 
 
-#add-tasks{
+#add-tasks {
     display: flex;
     flex-direction: column;
-    align-items:baseline;
+    align-items: baseline;
     justify-content: baseline;
     margin: 0 auto;
     padding-bottom: 3rem;
 }
-#add-task-header{
-    padding-bottom: 2rem;
-}
-#task-name-label{
-    font-size: 2rem;
-}
+
 
 #tasks-header {
     margin: 1rem 0.5rem;
@@ -236,6 +225,7 @@ main {
     width: 100%;
     margin: 1rem 0;
 }
+
 .reason {
     display: flex;
     flex-direction: column;
@@ -243,18 +233,22 @@ main {
     padding: 0 0.25rem;
     min-height: 30rem;
 }
-.reason  h3 {
+
+.reason h3 {
     color: var(--font-col-h);
     padding-left: 1rem;
     font-size: 200%;
 }
-.reason  h3 > i {
+
+.reason h3>i {
     color: var(--favi-hearts-col);
 }
+
 .reason hr {
     border-top: 1px solid var(--font-col);
     margin: 0.5rem 0.5rem;
 }
+
 .reason ul {
     text-align: left;
     padding-left: 2rem;
@@ -262,7 +256,8 @@ main {
     max-width: 280px;
 
 }
-.reason ul > li {
+
+.reason ul>li {
     padding: 0.5rem 0;
     list-style-type: disc;
 }
@@ -286,18 +281,23 @@ main {
 /*=====================================================================*/
 /* TASKS.HTML*/
 
-#todo-header{
+#todo-header {
     font-size: 3rem;
     margin: 0 auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
-#score-area{
+#score-area {
     padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    h2{
+        text-align: center;
+        padding-bottom: 0.5rem;
+    }
 }
-.score-area-list{
+
+.score-area-list {
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -307,22 +307,23 @@ main {
     font-size: 1.5rem;
     color: #fafafa;
 }
-.score-item{
+
+.score-item {
     display: inline-block;
     padding: 0 0.5rem;
-    span{
+
+    span {
         color: lime;
     }
 }
 
-#task-cards-section{
+#task-cards-section {
     display: none;
-    padding-top: 1rem;
     padding-bottom: 1rem;
     margin: 0 auto;
 }
 
-.task-card{
+.task-card {
     padding-top: 1rem;
     padding-bottom: 1rem;
     margin: 0 auto;
@@ -331,7 +332,7 @@ main {
     background-color: #ede576;
     border-radius: 1.5rem;
 
-    .input-field{
+    .input-field {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -339,10 +340,11 @@ main {
         flex: 1;
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
+
         .task-def {
             font-size: 130%;
             width: 260px;
-            min-height:3rem;
+            min-height: 3rem;
             text-wrap: wrap;
             overflow: scroll;
             border-radius: 1rem;
@@ -369,15 +371,15 @@ main {
 }
 
 
-.btn--task{
-    margin-top: 1rem;
+.btn--task {
+    margin-top: 0.5rem;
     width: 15rem;
     height: 5rem;
     border-radius: 2rem;
     font-size: 200%;
 }
 
-.btn--categ{
+.btn--categ {
     width: 15rem;
     height: 3rem;
     border-radius: 2rem;
@@ -385,9 +387,10 @@ main {
     margin: 1rem;
 }
 
-#add-task-btn{
+#add-task-btn {
     margin-bottom: 1rem;
 }
+
 #task-activity-div,
 #task-importance-div {
     display: none;
@@ -397,11 +400,12 @@ main {
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    width:95%;
+    width: 95%;
     height: auto;
     margin: 0 auto;
 }
-#add-task-ok-btn{
+
+#add-task-ok-btn {
     width: 95%;
 }
 
@@ -414,47 +418,63 @@ main {
     color: #202020;
     font-size: 150%;
 }
-#work-categ-btn{
-    padding:  0.5rem 0;
-    background-color: #fafafa; /*rgba(184, 70, 29, .63);*/
-    border: 0.2rem solid #202020; 
+
+#work-categ-btn {
+    padding: 0.5rem 0;
+    background-color: #fafafa;
+    /*rgba(184, 70, 29, .63);*/
+    border: 0.2rem solid #202020;
     max-width: 13rem;
 }
-#home-categ-btn{
-    padding:  0.5rem 0;
-    background-color: #fafafa; /*rgba(35, 145, 188, .63);*/
+
+#home-categ-btn {
+    padding: 0.5rem 0;
+    background-color: #fafafa;
+    /*rgba(35, 145, 188, .63);*/
     border: 0.2rem solid #202020;
-    max-width: 13rem; 
+    max-width: 13rem;
 }
-#chores-categ-btn{
-    padding:  0.5rem 0;
-    background-color: #fafafa; /* rgba(140, 53, 211, .63)*/;
-    border: 0.2rem solid #202020; 
-    max-width: 13rem;   
-}
-#errands-categ-btn{
-    padding:  0.5rem 0;
-    background-color: #fafafa; /* rgba(37, 106, 29, .63)*/;
+
+#chores-categ-btn {
+    padding: 0.5rem 0;
+    background-color: #fafafa;
+    /* rgba(140, 53, 211, .63)*/
+    ;
     border: 0.2rem solid #202020;
-    max-width: 13rem;  
+    max-width: 13rem;
 }
-#urgent-categ-btn{
-    padding:  0.5rem 0;
-    background-color: #fafafa; /*rgba(227, 19, 19, .63);*/
-    border: 0.2rem solid #202020; 
-    max-width: 13rem;  
-}
-#important-categ-btn{
-    padding:  0.5rem 0;
-    background-color: #fafafa; /*rgba(215, 131, 20, .63);*/
+
+#errands-categ-btn {
+    padding: 0.5rem 0;
+    background-color: #fafafa;
+    /* rgba(37, 106, 29, .63)*/
+    ;
     border: 0.2rem solid #202020;
-    max-width: 13rem;   
+    max-width: 13rem;
 }
-#normal-categ-btn{
-    padding:  0.5rem 0;
-    background-color: #fafafa; /* rgba(156, 129, 223, 0.993);*/
-    border: 0.2rem solid #202020; 
-    max-width: 13rem;  
+
+#urgent-categ-btn {
+    padding: 0.5rem 0;
+    background-color: #fafafa;
+    /*rgba(227, 19, 19, .63);*/
+    border: 0.2rem solid #202020;
+    max-width: 13rem;
+}
+
+#important-categ-btn {
+    padding: 0.5rem 0;
+    background-color: #fafafa;
+    /*rgba(215, 131, 20, .63);*/
+    border: 0.2rem solid #202020;
+    max-width: 13rem;
+}
+
+#normal-categ-btn {
+    padding: 0.5rem 0;
+    background-color: #fafafa;
+    /* rgba(156, 129, 223, 0.993);*/
+    border: 0.2rem solid #202020;
+    max-width: 13rem;
 }
 
 #text-container {
@@ -465,27 +485,44 @@ main {
     height: auto;
     margin: 0 auto;
 
+    /*
     div {
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
         line-height: 1.5;
         font-size: 110%;
         background-color: #393E46;
-        h2{
+
+        h2 {
             text-align: center;
         }
-        h3{
+
+        h3 {
             padding-left: 1rem;
-        }   
+        }
+    }
+    */
+}
+
+.task-item {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    font-size: 120%;
+    background-color: #393E46;
+    h2 {
+        text-align: center;
+    }
+    h3 {
+        padding-left: 1rem;
     }
 }
 
-
-.innerHTML-task-category{
+.innerHTML-task-category {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     /*background-color: #fafafa;*/
-    span{
+    span {
         border-radius: 1rem;
         margin-bottom: 0.3rem;
         margin-top: 0.3rem;
