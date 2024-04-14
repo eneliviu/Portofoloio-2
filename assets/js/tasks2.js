@@ -25,12 +25,9 @@ function addTaskToTaskList(event) {
 
     let newTaskType = document.createElement("div");
     newTaskType.id = newTask.id;
-    newTaskType.className = 'innerHTML-task-category';
 
-    let newTaskActivity = document.createElement("span");
-    let newTaskTypeSeparator = document.createElement("span");
-    let newTaskRelevance = document.createElement("span");
-
+    let newTCkb = document.createElement("checkbox");
+    newTCkb.innerHTML
 
     /*
     newTask.innerHTML = `<div>
@@ -70,28 +67,46 @@ function addTaskToTaskList(event) {
     }
 
     //---------------------------------------------------------
+    const colorActivitiesList = ['rgba(184, 70, 29, .63)', 'rgba(35, 145, 188, .63)',
+        'rgba(140, 53, 211, .63)', 'rgba(37, 106, 29, .63)']
+    let colorActivities = [];
+    for (let i = 0; i < relevanceBtns.length; i++) {
+        relevanceBtns[i].addEventListener('click', function (event) {
+            for (let j = 0; j < relevanceBtns.length; j++) {
+                relevanceBtns[j].classList.remove('selected');
+                relevanceBtns[j].style.backgroundColor = '';
+            }
+            this.style.backgroundColor = colorRelevanceList[i];
+            colorRelevance[0] = this.value;
+        });
+
+    }
+
+    const colorRelevanceList = ['rgba(227, 19, 19, .63)', 'rgba(215, 131, 20, .63)',
+        'rgba(156, 129, 223, 0.993)']
+    let colorRelevance = [];
+    for (let i = 0; i < activityBtns.length; i++) {
+        activityBtns[i].addEventListener('click', function (event) {
+            for (let j = 0; j < activityBtns.length; j++) {
+                activityBtns[j].classList.remove('selected');
+                activityBtns[j].style.backgroundColor = '';
+            }
+            this.style.backgroundColor = colorActivitiesList[i];
+            colorActivities[0] = this.value;
+        });
+    }
+
     newTask.innerHTML = `<div>
                             <h2>${taskName}</h2>
                             <h3>${taskDescription}</h3>
                         </div>
                         `;
-    //newTaskActivity.innerHTML = `<span id="activity-span">${colorActivities[0]}</span>`;
-    //newTaskTypeSeparator.innerHTML = ` <span> --|-- </span>`
-    //newTaskRelevance.innerHTML = `<span id="relevance-span">${colorRelevance[0]}</span>`;
+    newTaskType.innerHTML = `<span id="activity-span">${colorActivities[0]}</span>
+                                <span> | </span>
+                            <span id="relevance-span">${colorRelevance[0]}</span>
+                            `;
+    newTaskType.className = 'innerHTML-task-category';
 
-    newTaskActivity.innerHTML = `${colorActivities[0]}`;
-    newTaskTypeSeparator.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>'
-    newTaskRelevance.innerHTML = `${colorRelevance[0]}`;
-
-
-    //newTaskActivity.className = 'innerHTML-task-category';
-    newTaskActivity.style.backgroundColor = colorActivities[0];
-    newTaskRelevance.style.backgroundColor = colorRelevance[0];
-
-
-    newTaskType.appendChild(newTaskActivity);
-    newTaskType.appendChild(newTaskTypeSeparator);
-    newTaskType.appendChild(newTaskRelevance);
     newTask.appendChild(newTaskType);
     taskList.appendChild(newTask);
 
@@ -114,8 +129,7 @@ function removeTasks(event){
 //===================================================================================================//
 //--------------- Handle events for Task Category buttons:
 //https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time
-
-
+/*
 const colorActivitiesList = ['rgba(184, 70, 29, .63)', 'rgba(35, 145, 188, .63)',
     'rgba(140, 53, 211, .63)', 'rgba(37, 106, 29, .63)']
 var colorActivities = [];
@@ -144,9 +158,12 @@ for (let i = 0; i < activityBtns.length; i++) {
         }
         this.style.backgroundColor = colorActivitiesList[i];
         colorActivities[0] = this.style.backgroundColor;
-
     });
 }
+
+*/
+////document.getElementById("activity-span").style.color = colorActivities[0];
+//document.getElementById("relevance-span").style.color = colorRelevance[0];
 
 //===================================================================================================//
 
