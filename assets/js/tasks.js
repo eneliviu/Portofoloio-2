@@ -144,6 +144,22 @@ for (let i = 0; i < activityBtns.length; i++) {
         namesRelevance[0] = this.innerText;
     });
 }
+
+//===================================================================================================//
+// UPDATED SCORES ON OK-CLICK:
+function updateScores(event){
+    let oldScore = parseInt(document.getElementById('score').innerText);
+
+}
+document.getElementById('add-task-ok-btn').addEventListener('click', updateScores);
+
+function incrementScore(){
+    let oldScore = parseInt(document.getElementById('score').innerText);
+    document.getElementById('score').innerText = ++oldScore;
+}
+
+//===================================================================================================//
+
 /*
 const namesRelevanceList = ['urgent', 'important','normal'].toLowerCase();
 console.log(namesRelevanceList.includes(namesRelevance[0]))

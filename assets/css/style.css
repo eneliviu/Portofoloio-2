@@ -293,14 +293,25 @@ main {
     padding-bottom: 2rem;
 }
 
-.score-area {
-    margin: 0.5rem auto;
-    width: 60%;
+#score-area{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.score-area-list{
+    display: flex;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+    width: 80%;
     font-size: 1.5rem;
-    
     color: #fafafa;
 }
-
+.score-item{
+    display: inline-block;
+    padding: 0 0.5rem;
+    span{
+        color: lime;
+    }
+}
 
 #task-cards-section{
     display: none;
