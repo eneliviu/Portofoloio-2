@@ -87,16 +87,16 @@
                 <li class='score-item'>Errands: <span id="errands-score">0</span> </li>
             </ul>
             <ul class="score-area-list">
-                <li class='score-item'>Urgent:    <span id="work-score">   0</span> </li>
-                <li class='score-item'>Important:  <span id="chores-score"> 0</span> </li>
-                <li class='score-item'>Normal: <span id="errands-score">0</span> </li>
+                <li class='score-item'>Urgent:    <span id="urgent-score">   0</span> </li>
+                <li class='score-item'>Important: <span id="important-score"> 0</span> </li>
+                <li class='score-item'>Normal:    <span id="normal-score">0</span> </li>
             </ul>
         </section>
         <br>
 
 
 
-        <button class='btn btn--task' id="add-task-btn">
+        <button  type="submit" class='btn btn--task' id="add-task-btn">
             Add task <i class="fa-solid fa-plus"></i>
         </button>
 
@@ -115,29 +115,29 @@
                 <div class="input-field" id="task-description">
                     <input autofocus type="text" class="task-def" name="task-description" id="task-description-field"
                         aria-label="Enter task description" placeholder="Enter task description: e.g., Buy groceries"
-                        value= ''  maxlength="140" required>
+                        value= '' autocomplete="on" maxlength="140" required>
                 </div>
 
                 <button class='btn btn--categ' id="add-activity-btn">
                     Add activity: <i class="fa-solid fa-plus"></i>
                 </button>
                 <div id="task-activity-div">
-                    <button class='btn categ' id="work-categ-btn">Work</button>
-                    <button class='btn categ' id="home-categ-btn">Home</button>
-                    <button class='btn categ' id="chores-categ-btn">Chores</button>
-                    <button class='btn categ' id="errands-categ-btn">Errands </button>
+                    <button type="submit" class='btn categ' id="work-categ-btn">Work</button>
+                    <button type="submit"class='btn categ' id="home-categ-btn">Home</button>
+                    <button type="submit"class='btn categ' id="chores-categ-btn">Chores</button>
+                    <button type="submit"class='btn categ' id="errands-categ-btn">Errands </button>
                 </div>
 
                 <button class='btn btn--categ' id="add-relevance-btn">
                     Add relevance: <i class="fa-solid fa-plus"></i>
                 </button>
                 <div id="task-importance-div">
-                    <button class="btn categ" id="urgent-categ-btn">Urgent</button>
-                    <button class="btn categ" id="important-categ-btn">Important</button>
-                    <button class="btn categ" id="normal-categ-btn">Normal</button>
+                    <button  type="submit" class="btn categ" id="urgent-categ-btn">Urgent</button>
+                    <button  type="submit" class="btn categ" id="important-categ-btn">Important</button>
+                    <button  type="submit" class="btn categ" id="normal-categ-btn">Normal</button>
                 </div>
 
-                <button class='btn btn--categ' id="add-task-ok-btn">
+                <button  type="submit" class='btn btn--categ' id="add-task-ok-btn">
                     OK
                 </button>
 
