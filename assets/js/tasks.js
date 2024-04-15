@@ -39,7 +39,6 @@ let tempStorage = function () {
 
 function addTaskToTaskList(event) {
 
-
     document.getElementById("task-description-field").focus();
     let taskDescription = document.getElementById("task-description-field").value;
     let taskList = document.getElementById("text-container");
@@ -47,7 +46,6 @@ function addTaskToTaskList(event) {
     let newTask = document.createElement("div");
     newTask.id = Date.now();
     newTask.className = 'task-item';
-
 
     let newTaskType = document.createElement("div");
     newTaskType.id = newTask.id;
@@ -71,7 +69,6 @@ function addTaskToTaskList(event) {
     document.getElementById("task-description-field").value = '';
 
     // Reset background colors for the category buttons:
-
     let activityBtns = document.getElementById("task-activity-div").children;
     for (let i = 0; i < activityBtns.length; i++) {
         activityBtns[i].style.backgroundColor = '';
@@ -80,9 +77,6 @@ function addTaskToTaskList(event) {
     for (let i = 0; i < relevanceBtns.length; i++) {
         relevanceBtns[i].style.backgroundColor = '';
     }
-
-    //---------------------------------------------------------
-
 
     //---------------------------------------------------------
     //newTask.innerHTML = `<div><h2>${taskName}</h2><h3>${taskDescription}</h3></div>`;
@@ -111,7 +105,7 @@ function addTaskToTaskList(event) {
 
     if (namesActivities.length > 0) {
         //sessionStorage.getItemItem("last_task_entered");
-        namesActivitiesTmp = namesActivities;
+        namesActivitiesTmp = [...namesActivities]; // copy by value
         incrementActivityScores()
         newTaskActivity.innerText = namesActivities.shift();// return the firstelem and remove it - empty the array
         newTaskActivity.style.backgroundColor = colorActivities.shift();
@@ -125,7 +119,7 @@ function addTaskToTaskList(event) {
     }
 
     if (namesRelevance.length > 0) {
-        namesRelevanceTmp = namesRelevance;
+        namesRelevanceTmp = [...namesRelevance]; // copy by value
         incrementRelevanceScores()
         newTaskRelevance.innerText = namesRelevance.shift();
         newTaskRelevance.style.backgroundColor = colorRelevance.shift();
@@ -138,15 +132,12 @@ function addTaskToTaskList(event) {
         throw 'Unknown activity - Aborting!';
     }
 
-
-
     newTaskTypeSeparator.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>'
     newTaskType.appendChild(newTaskActivity);
     newTaskType.appendChild(newTaskTypeSeparator);
     newTaskType.appendChild(newTaskRelevance);
     newTask.appendChild(newTaskType);
     taskList.appendChild(newTask);
-
 
     let removeTaskSpan = document.getElementsByClassName('remove-span');
     for (let i = 0; i < removeTaskSpan.length; i++) {
@@ -156,7 +147,6 @@ function addTaskToTaskList(event) {
     for (let i = 0; i < editTaskSpan.length; i++) {
         editTaskSpan[i].addEventListener('click', editTasks);
     }
-
 
 }
 
@@ -335,7 +325,7 @@ function incrementActivityScores() {
     }
 }
 
-function decrementActivityScores(namesActivitiesTmp) {
+function decrementActivityScores() {
     console.log(namesActivitiesTmp) // why undefined?
     if (namesActivitiesTmp[0] === 'Personal') {
         document.getElementById('personal-score').innerText--;
@@ -358,7 +348,7 @@ function incrementRelevanceScores() {
     }
 }
 
-function decrementRelevanceScores(namesActivitiesTmp) {
+function decrementRelevanceScores() {
     console.log(namesRelevanceTmp[0])
     if (namesRelevanceTmp[0] === 'Urgent') {
         document.getElementById('urgent-score').innerText--;
@@ -372,11 +362,12 @@ function decrementRelevanceScores(namesActivitiesTmp) {
 
 //===================================================================================================//
 // --------- REMOVE SELECTED TASKS AND DECREMENT SCORES:
+// USE TASK ID TO DECREMENT THE SCORES 
 function removeTasks(event) {
     if(confirm('Remove task?')===true){
         this.parentNode.parentNode.remove();
         decrementActivityScores();
-        //decrementRelevanceScores();    
+        decrementRelevanceScores();    
     }
 }
 
