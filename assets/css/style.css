@@ -422,60 +422,10 @@ main {
 #work-categ-btn {
     padding: 0.5rem 0;
     background-color: #fafafa;
-    /*rgba(184, 70, 29, .63);*/
     border: 0.2rem solid #202020;
     max-width: 13rem;
 }
 
-#home-categ-btn {
-    padding: 0.5rem 0;
-    background-color: #fafafa;
-    /*rgba(35, 145, 188, .63);*/
-    border: 0.2rem solid #202020;
-    max-width: 13rem;
-}
-
-#chores-categ-btn {
-    padding: 0.5rem 0;
-    background-color: #fafafa;
-    /* rgba(140, 53, 211, .63)*/
-    ;
-    border: 0.2rem solid #202020;
-    max-width: 13rem;
-}
-
-#errands-categ-btn {
-    padding: 0.5rem 0;
-    background-color: #fafafa;
-    /* rgba(37, 106, 29, .63)*/
-    ;
-    border: 0.2rem solid #202020;
-    max-width: 13rem;
-}
-
-#urgent-categ-btn {
-    padding: 0.5rem 0;
-    background-color: #fafafa;
-    /*rgba(227, 19, 19, .63);*/
-    border: 0.2rem solid #202020;
-    max-width: 13rem;
-}
-
-#important-categ-btn {
-    padding: 0.5rem 0;
-    background-color: #fafafa;
-    /*rgba(215, 131, 20, .63);*/
-    border: 0.2rem solid #202020;
-    max-width: 13rem;
-}
-
-#normal-categ-btn {
-    padding: 0.5rem 0;
-    background-color: #fafafa;
-    /* rgba(156, 129, 223, 0.993);*/
-    border: 0.2rem solid #202020;
-    max-width: 13rem;
-}
 
 #text-container {
     text-align: left;
@@ -484,29 +434,10 @@ main {
     min-width: 28rem;
     height: auto;
     margin: 0 auto;
-
-    /*
-    div {
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-        line-height: 1.5;
-        font-size: 110%;
-        background-color: #393E46;
-
-        h2 {
-            text-align: center;
-        }
-
-        h3 {
-            padding-left: 1rem;
-        }
-    }
-    */
 }
 
 .task-item {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem auto;
     line-height: 1.5;
     font-size: 120%;
     background-color: #393E46;
@@ -516,18 +447,22 @@ main {
     h3 {
         padding-left: 1rem;
     }
+    
+}
+.edit-span, 
+.remove-span{
+    margin:0 1rem;
+    float:right;
+    cursor: pointer;
 }
 
 .innerHTML-task-category {
     display: flex;
     justify-content: space-around;
-    /*background-color: #fafafa;*/
     span {
         border-radius: 1rem;
-        margin-bottom: 0.3rem;
-        margin-top: 0.3rem;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        margin: 0.5rem;
+        padding: 0.2rem 0.75rem;
     }
 }
 

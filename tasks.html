@@ -80,16 +80,24 @@
         <section id="score-area">
             <h2> Tasks left:</h2>
           
+            <!---
+            Personal
+            Professional 
+            Errands
+            -->
             <ul class="score-area-list">
-                <li class='score-item'>Work:    <span id="work-score">   0</span> </li>
-                <li class='score-item'>Home:    <span id="home-score">   0</span> </li>
-                <li class='score-item'>Chores:  <span id="chores-score"> 0</span> </li>
-                <li class='score-item'>Errands: <span id="errands-score">0</span> </li>
+                <li class='score-item'>Personal:<span id="personal-score">0</span></li>
+                <li class='score-item'>Professional:<span id="professional-score">0</span></li>
+                <li class='score-item'>Errands:<span id="errands-score">0</span></li>
             </ul>
+
+            <!--
+            Urgent 
+            side tasks/chore/nagging
+            -->
             <ul class="score-area-list">
-                <li class='score-item'>Urgent:    <span id="urgent-score">   0</span> </li>
-                <li class='score-item'>Important: <span id="important-score"> 0</span> </li>
-                <li class='score-item'>Normal:    <span id="normal-score">0</span> </li>
+                <li class='score-item'>Urgent: <span id="urgent-score">0</span></li>
+                <li class='score-item'>Chore:  <span id="chores-score">0</span></li>
             </ul>
         </section>
         <br>
@@ -122,10 +130,9 @@
                     Add activity: <i class="fa-solid fa-plus"></i>
                 </button>
                 <div id="task-activity-div">
-                    <button type="submit" class='btn categ' id="work-categ-btn">Work</button>
-                    <button type="submit"class='btn categ' id="home-categ-btn">Home</button>
-                    <button type="submit"class='btn categ' id="chores-categ-btn">Chores</button>
-                    <button type="submit"class='btn categ' id="errands-categ-btn">Errands </button>
+                    <button type="submit" class='btn categ' id="personal-categ-btn">Personal</button>
+                    <button type="submit"class='btn categ' id="professional-categ-btn">Professional</button>
+                    <button type="submit"class='btn categ' id="errands-categ-btn">Errands</button>
                 </div>
 
                 <button class='btn btn--categ' id="add-relevance-btn">
@@ -133,8 +140,7 @@
                 </button>
                 <div id="task-importance-div">
                     <button  type="submit" class="btn categ" id="urgent-categ-btn">Urgent</button>
-                    <button  type="submit" class="btn categ" id="important-categ-btn">Important</button>
-                    <button  type="submit" class="btn categ" id="normal-categ-btn">Normal</button>
+                    <button  type="submit" class="btn categ" id="chores-categ-btn">Chore</button>
                 </div>
 
                 <button  type="submit" class='btn btn--categ' id="add-task-ok-btn">
