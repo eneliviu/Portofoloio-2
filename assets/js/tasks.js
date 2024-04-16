@@ -2,6 +2,7 @@
 function taskCardDisplay(event) {
     let taskCard = document.getElementById("task-cards-section");
     taskCard.style.display = (taskCard.style.display !== 'block' ? 'block' : 'none');
+    document.getElementById("task-description-field").focus();
 }
 
 function taskActivityDisplay(event) {
@@ -41,10 +42,13 @@ function addTaskToTaskList(event) {
 
     document.getElementById("task-description-field").focus();
     let taskDescription = document.getElementById("task-description-field").value;
+    console.log(taskDescription)
+
     let taskList = document.getElementById("text-container");
 
     let newTask = document.createElement("div");
     newTask.id = Date.now();
+    taskObject.taskId = [...newTask.id];
     newTask.className = 'task-item';
 
     let newTaskType = document.createElement("div");
@@ -56,108 +60,6 @@ function addTaskToTaskList(event) {
     let newTaskTypeSeparator = document.createElement("span");
     let newTaskRelevance = document.createElement("span");
     newTaskRelevance.className = 'relevance-span';
-    //--------------------------------------------------------
-    //----- At OK click: ------------ 
-    // Close settings and collapse fields:
-    document.getElementById('add-task-btn').click();
-    document.getElementById('add-activity-btn').click();
-    document.getElementById('add-relevance-btn').click();
-
-    // Reset default text entry::
-    //document.getElementById("task-name-field").value = '';
-    document.getElementById("task-description-field").value = '';
-    document.getElementById("task-description-field").value = '';
-
-    // Reset background colors for the category buttons:
-    let activityBtns = document.getElementById("task-activity-div").children;
-    for (let i = 0; i < activityBtns.length; i++) {
-        activityBtns[i].style.backgroundColor = '';
-    }
-    let relevanceBtns = document.getElementById("task-importance-div").children;
-    for (let i = 0; i < relevanceBtns.length; i++) {
-        relevanceBtns[i].style.backgroundColor = '';
-    }
-
-    //---------------------------------------------------------
-    //newTask.innerHTML = `<div><h2>${taskName}</h2><h3>${taskDescription}</h3></div>`;
-    taskDescriptionText.push(taskDescription);
-    if (taskDescription.length >= 3) {
-        //sessionStorage.setItem("last_task_entered", taskDescriptionText);
-        newTask.innerHTML = `<h3>
-                                ${taskDescriptionText.shift()}
-                                    <span class="edit-span">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </span>
-                                    <span class="remove-span">
-                                        <i class="fa-regular fa-trash-can"></i>
-                                    </span>
-                            </h3>
-                            `;
-    } else {
-        alert(`Please enter a task using at least three characters:`);
-        // Reset:
-        document.getElementById('add-task-btn').click();
-        document.getElementById('add-activity-btn').click();
-        document.getElementById('add-relevance-btn').click();
-        document.getElementById("task-description-field").focus();
-        throw 'Unknown task - Aborting!';
-    }
-
-    if (namesActivities.length > 0) {
-        //sessionStorage.getItemItem("last_task_entered");
-        namesActivitiesTmp = [...namesActivities]; // copy by value
-        incrementActivityScores()
-        newTaskActivity.innerText = namesActivities.shift();// return the firstelem and remove it - empty the array
-        newTaskActivity.style.backgroundColor = colorActivities.shift();
-    } else {
-        alert('Please enter the activity category:');
-        // Reset:
-        document.getElementById('add-task-btn').click();
-        document.getElementById('add-activity-btn').click();
-        document.getElementById('add-relevance-btn').click();
-        throw 'Unknown activity - Aborting!';
-    }
-
-    if (namesRelevance.length > 0) {
-        namesRelevanceTmp = [...namesRelevance]; // copy by value
-        incrementRelevanceScores()
-        newTaskRelevance.innerText = namesRelevance.shift();
-        newTaskRelevance.style.backgroundColor = colorRelevance.shift();
-    } else {
-        alert('Please enter the task relevance:');
-        // Reset:
-        document.getElementById('add-task-btn').click();
-        document.getElementById('add-activity-btn').click();
-        document.getElementById('add-relevance-btn').click();
-        throw 'Unknown activity - Aborting!';
-    }
-
-    newTaskTypeSeparator.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>'
-    newTaskType.appendChild(newTaskActivity);
-    newTaskType.appendChild(newTaskTypeSeparator);
-    newTaskType.appendChild(newTaskRelevance);
-    newTask.appendChild(newTaskType);
-    taskList.appendChild(newTask);
-
-    let removeTaskSpan = document.getElementsByClassName('remove-span');
-    for (let i = 0; i < removeTaskSpan.length; i++) {
-        removeTaskSpan[i].addEventListener('click', removeTasks);
-    }
-    let editTaskSpan = document.getElementsByClassName('edit-span');
-    for (let i = 0; i < editTaskSpan.length; i++) {
-        editTaskSpan[i].addEventListener('click', editTasks);
-    }
-
-}
-
-//=================================================================================
-//TODO:
-function addEditedTaskToTaskList(event) {
-
-
-    document.getElementById("task-description-field").focus();
-    let taskDescription = document.getElementById("task-description-field").value;
-    let taskList = document.getElementById("text-container");
 
     //--------------------------------------------------------
     //----- At OK click: ------------ 
@@ -183,11 +85,20 @@ function addEditedTaskToTaskList(event) {
 
     //---------------------------------------------------------
     //newTask.innerHTML = `<div><h2>${taskName}</h2><h3>${taskDescription}</h3></div>`;
-    taskDescriptionText.push(taskDescription);
+    
+    /*
+    taskObject = {taskDescription:[],
+        taskCategories: {namesActivities:[],  namesRelevance:[]},
+        taskScores:{Personal:[], Professional:[], Errands:[], Urgent:[], Chore:[]},
+        taskId:[]
+    };
+    */
+
+
     if (taskDescription.length >= 3) {
-        //sessionStorage.setItem("last_task_entered", taskDescriptionText);
+        taskObject.taskDescription = [...taskDescription];
         newTask.innerHTML = `<h3>
-                                ${taskDescriptionText.shift()}
+                                ${taskDescription}
                                     <span class="edit-span">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </span>
@@ -196,6 +107,7 @@ function addEditedTaskToTaskList(event) {
                                     </span>
                             </h3>
                             `;
+                    
     } else {
         alert(`Please enter a task using at least three characters:`);
         // Reset:
@@ -207,10 +119,9 @@ function addEditedTaskToTaskList(event) {
     }
 
     if (namesActivities.length > 0) {
-        //sessionStorage.getItemItem("last_task_entered");
-        namesActivitiesTmp = namesActivities;
+        taskObject.taskCategories.namesActivities = [...namesActivities]; // copy by value
         incrementActivityScores()
-        newTaskActivity.innerText = namesActivities.shift();// return the firstelem and remove it - empty the array
+        newTaskActivity.innerText = namesActivities.shift(); // return the first elem and remove it (empty the array) -> undefined 
         newTaskActivity.style.backgroundColor = colorActivities.shift();
     } else {
         alert('Please enter the activity category:');
@@ -222,7 +133,7 @@ function addEditedTaskToTaskList(event) {
     }
 
     if (namesRelevance.length > 0) {
-        namesRelevanceTmp = namesRelevance;
+        taskObject.taskCategories.namesRelevance = [...namesRelevance]; // copy by value
         incrementRelevanceScores()
         newTaskRelevance.innerText = namesRelevance.shift();
         newTaskRelevance.style.backgroundColor = colorRelevance.shift();
@@ -235,15 +146,15 @@ function addEditedTaskToTaskList(event) {
         throw 'Unknown activity - Aborting!';
     }
 
-
-
     newTaskTypeSeparator.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>'
     newTaskType.appendChild(newTaskActivity);
     newTaskType.appendChild(newTaskTypeSeparator);
     newTaskType.appendChild(newTaskRelevance);
     newTask.appendChild(newTaskType);
     taskList.appendChild(newTask);
-
+    
+    taskObjectsArray.push(taskObject); // add the the new object to container 
+    console.log(taskObjectsArray)
 
     let removeTaskSpan = document.getElementsByClassName('remove-span');
     for (let i = 0; i < removeTaskSpan.length; i++) {
@@ -254,9 +165,7 @@ function addEditedTaskToTaskList(event) {
         editTaskSpan[i].addEventListener('click', editTasks);
     }
 
-
 }
-
 
 //=================================================================================
 // Add callbacks to the task entry form buttons events:
@@ -265,18 +174,16 @@ document.getElementById('add-activity-btn').addEventListener('click', taskActivi
 document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
 document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
 
-
 //===================================================================================================//
 //--------------- Callbacks to Handle events for Task Category buttons:
 //https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time
 
 
-let taskDescriptionText = [];
 const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
 
 let colorActivities = [];
 let namesActivities = [];
-let namesActivitiesTmp = [];
+//let namesActivitiesTmp = [];
 let activityBtns = document.getElementById('task-activity-div').children;
 
 for (let i = 0; i < activityBtns.length; i++) {
@@ -294,7 +201,7 @@ for (let i = 0; i < activityBtns.length; i++) {
 const colorRelevanceList = ['rgba(235, 16, 16, 0.81)','rgba(61, 175, 60, 0.81)']
 let colorRelevance = [];
 let namesRelevance = [];
-let namesRelevanceTmp = [];
+//let namesRelevanceTmp = [];
 let relevanceBtns = document.getElementById('task-importance-div').children;
 for (let i = 0; i < relevanceBtns.length; i++) {
     relevanceBtns[i].addEventListener('click', function (event) {
@@ -312,8 +219,42 @@ for (let i = 0; i < relevanceBtns.length; i++) {
 //===================================================================================================//
 //---------------------------------------------------------
 // UPDATED SCORES ON OK-CLICK:
+let taskObjectsArray = []
+let taskObject = {taskDescription:[],
+                    taskCategories: {namesActivities:[],  namesRelevance:[]},
+                    taskScores:{Personal:[], Professional:[], Errands:[], Urgent:[], Chore:[]},
+                    taskId:[]
+                };
+
+function extractTaskObjToRemove(event){
+    console.log(taskObject)
+    let idx = 0;
+    for(let i = 0; i < taskObject.taskId.length; i++ ){
+        if (this.id === taskObject.taskId[i]){
+            idx = i; 
+        }
+    }
+
+    let newScore = taskObject.taskScores[namesActivitiesTmp[0]][idx];
+    taskObject.taskScores[namesActivitiesTmp[0]][idx] = 
+    console.log(taskObject)
+
+    return
+}
+                    
 
 function incrementActivityScores() {
+
+    if (taskObject.taskCategories.namesActivities[0] === 'Personal') {
+        document.getElementById('personal-score').innerText++;
+    } else if (taskObject.taskCategories.namesActivities[0] === 'Professional') {
+        document.getElementById('professional-score').innerText++;//oldScoreHome;
+    } else if (taskObject.taskCategories.namesActivities[0] === 'Errands') {
+        document.getElementById('errands-score').innerText++;//oldScoreChores;
+    } else {
+        alert('Unknown category 1');
+    }
+/*
     if (namesActivities[0] === 'Personal') {
         document.getElementById('personal-score').innerText++;
     } else if (namesActivities[0] === 'Professional') {
@@ -323,41 +264,40 @@ function incrementActivityScores() {
     } else {
         alert('Unknown category 1');
     }
+    */
 }
 
 function decrementActivityScores() {
-    console.log(namesActivitiesTmp) // why undefined?
-    if (namesActivitiesTmp[0] === 'Personal') {
+
+    if (taskObject.taskCategories.namesActivities[0] === 'Personal') {
         document.getElementById('personal-score').innerText--;
-    } else if (namesActivitiesTmp[0] === 'Professional') {
-        document.getElementById('professional-score').innerText--;//oldScoreHome;
-    } else if (namesActivitiesTmp[0] === 'Errands') {
-        document.getElementById('errands-score').innerText--;//oldScoreChores;
+    } else if (taskObject.taskCategories.namesActivities[0] === 'Professional') {
+        document.getElementById('professional-score').innerText--;
+    } else if (taskObject.taskCategories.namesActivities[0] === 'Errands') {
+        document.getElementById('errands-score').innerText--;
     } else {
         alert('Unknown category 2');
     }
 }
 
 function incrementRelevanceScores() {
-    if (namesRelevance[0] === 'Urgent') {
-        document.getElementById('urgent-score').innerText++;//oldScoreUrgent;
-    } else if (namesRelevance[0] === 'Chore') {
-        document.getElementById('chores-score').innerText++;//oldScoreImportant;
+    if (taskObject.taskCategories.namesRelevance[0] === 'Urgent') {
+        document.getElementById('urgent-score').innerText++;
+    } else if (taskObject.taskCategories.namesRelevance[0] === 'Chore') {
+        document.getElementById('chores-score').innerText++;
     } else {
         alert('Unknown category 3');
     }
 }
 
 function decrementRelevanceScores() {
-    console.log(namesRelevanceTmp[0])
-    if (namesRelevanceTmp[0] === 'Urgent') {
+    if (taskObject.taskCategories.namesRelevance[0] === 'Urgent') {
         document.getElementById('urgent-score').innerText--;
-    } else if (namesRelevanceTmp[0] === 'Chore') {
+    } else if (taskObject.taskCategories.namesRelevance[0] === 'Chore') {
         document.getElementById('chores-score').innerText--;
     } else {
         alert('Unknown category 4');
-    }
-    
+    }    
 }
 
 //===================================================================================================//
