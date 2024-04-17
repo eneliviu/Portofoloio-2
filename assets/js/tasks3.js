@@ -33,7 +33,7 @@ function taskRelevanceDisplay(event) {
 }
 
 /**
- * Dispplays the task.
+ * Displays the task.
  * Creates object containing task details and adds it to the task array.
  * Calls the functions for updating the task counters and task list header
  * Passes the callabks to 'Remove' and 'Edit' task buttons.    
@@ -161,6 +161,9 @@ function addTaskToTaskList() {
     }
 
     document.getElementById('list-title').innerText = "Today's task list:'";
+
+    let mainDOM = document.getElementById('main-tasks').outerHTML;
+    sessionStorage.setItem('main', JSON.stringify(mainDOM));
 
 }
 
@@ -292,10 +295,13 @@ function incrementRelevanceScores(relevance) {
  */
 document.addEventListener('DOMContentLoaded', function () {
     // Add callbacks to the task entry form buttons events:
-    document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
-    document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
-    document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
-    document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
+    if(!sessionStorage.getItem('main')){
+        document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
+        document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
+        document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
+        document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
+    }
+    
 });
 
 /**

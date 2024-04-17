@@ -296,7 +296,9 @@ main {
         padding-bottom: 0.5rem;
     }
 }
-
+#list-title{
+    font-size: 200%;
+}
 .score-area-list {
     margin: 0 auto;
     display: flex;
