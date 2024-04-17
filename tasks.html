@@ -61,13 +61,11 @@
         <nav id="navbar">
             <div class="menu-item"> <a href="index.html"> Home </a> </div>
             <div class="menu-item"> <a href="tasks.html" class="active"> My Tasks </a> </div>
-            <div class="menu-item"> <a href="completed.html"> Completed </a> </div>
             <div class="menu-item"> <a href="help.html"> Help </a> </div>
             <div class="menu-item"> <a href="contact.html"> Contact </a> </div>
         </nav>
 
     </header>
-
 
     <main id="main-tasks">
 
@@ -78,31 +76,19 @@
 
 
         <section id="score-area">
-            <h2> Tasks left:</h2>
-          
-            <!---
-            Personal
-            Professional 
-            Errands
-            -->
+            <h2 id="list-title"> Add Your tasks for today:</h2>
             <ul class="score-area-list">
-                <li class='score-item'>Personal:<span id="personal-score">0</span></li>
-                <li class='score-item'>Professional:<span id="professional-score">0</span></li>
-                <li class='score-item'>Errands:<span id="errands-score">0</span></li>
+                <li class='score-item'>Personal:<span class='score-activity-span' id="personal-score">0</span></li>
+                <li class='score-item'>Professional:<span class='score-activity-span' id="professional-score">0</span></li>
+                <li class='score-item'>Errands:<span class='score-item-activity' id="errands-score">0</span></li>
             </ul>
-
-            <!--
-            Urgent 
-            side tasks/chore/nagging
-            -->
+            <!--side tasks/chore/nagging-->
             <ul class="score-area-list">
-                <li class='score-item'>Urgent: <span id="urgent-score">0</span></li>
-                <li class='score-item'>Chore:  <span id="chores-score">0</span></li>
+                <li class='score-item'>Urgent: <span class='score-relevance-span' id="urgent-score">0</span></li>
+                <li class='score-item'>Chore:  <span class='score-relevance-span' id="chores-score">0</span></li>
             </ul>
         </section>
         <br>
-
-
 
         <button  type="submit" class='btn btn--task' id="add-task-btn">
             Add task <i class="fa-solid fa-plus"></i>
@@ -115,7 +101,7 @@
                 <div class="input-field" id="task-description">
                     <input autofocus type="text" class="task-def" name="task-description" id="task-description-field"
                         aria-label="Enter task description" placeholder="Enter task description: e.g., Buy groceries"
-                        value= '' autocomplete="on" maxlength="140" required>
+                        value= '' autocomplete="on" maxlength="70" required>
                 </div>
 
                 <button class='btn btn--categ' id="add-activity-btn">

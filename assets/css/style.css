@@ -311,10 +311,10 @@ main {
 .score-item {
     display: inline-block;
     padding: 0 0.5rem;
-
-    span {
-        color: lime;
-    }
+}
+.score-activity-span,
+.score-relevance-span {
+    color: lime;
 }
 
 #task-cards-section {
