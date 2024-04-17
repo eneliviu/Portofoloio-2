@@ -1,7 +1,8 @@
 
-// 'DOMContentLoaded'
 
-
+/**
+ * Display task card on click on 'Add Task +" button" 
+ */
 function taskCardDisplay() {
 
     let taskCard = document.getElementById("task-cards-section");
@@ -15,24 +16,29 @@ function taskCardDisplay() {
     });
 }
 
+/**
+ * Display activity selection buttons on click on 'Add Activity' button
+ */
 function taskActivityDisplay() {
     let taskActiv = document.getElementById("task-activity-div");
     taskActiv.style.display = (taskActiv.style.display !== 'flex' ? 'flex' : 'none');
 }
 
-function taskRelevanceDisplay() {
+/**
+ * Display task relevance selection buttons on click on 'Add relevance' button
+ */
+function taskRelevanceDisplay(event) {
     let taskRelevance = document.getElementById("task-importance-div");
     taskRelevance.style.display = (taskRelevance.style.display !== 'flex' ? 'flex' : 'none');
 }
 
-
-function displayElement(elemIdString) {
-    let taskRelevance = document.getElementById(elemIdString);
-    taskRelevance.style.display = (taskRelevance.style.display !== 'flex' ? 'flex' : 'none');
-}
-
-
-function addTaskToTaskList(event) {
+/**
+ * Dispplays the task.
+ * Creates object containing task details and adds it to the task array.
+ * Calls the functions for updating the task counters and task list header
+ * Passes the callabks to 'Remove' and 'Edit' task buttons.    
+ */
+function addTaskToTaskList() {
 
     document.getElementById("task-description-field").focus();
 
@@ -158,7 +164,6 @@ function addTaskToTaskList(event) {
 
 }
 
-
 /**
  * This function removes a selected task on click event.
  * Internally it calls the function for decrementing the counters for 
@@ -281,9 +286,10 @@ function incrementRelevanceScores(relevance) {
 //=================================================================================
 //=================================================================================
 
-
-// Wait for the DOM to finish loading before running the game
-// Get the button elements and add event listeners to them:
+/**
+ * Wait for the DOM to finish loading before running the game
+ * Get the button elements and add event listeners to them:
+ */
 document.addEventListener('DOMContentLoaded', function () {
     // Add callbacks to the task entry form buttons events:
     document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
@@ -292,6 +298,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
 });
 
+/**
+ * Declare the Array for storing the task data objects
+ * Declare the data structure for creating the task HTML elements
+ */
 let taskObjectsArray = [];
 let taskObjectTemplate = {
     taskDescription: [],
@@ -299,9 +309,11 @@ let taskObjectTemplate = {
     taskScores: { Personal: [], Professional: [], Errands: [], Urgent: [], Chore: [] },
     taskId: []
 };
-//--------------- Callbacks to Handle events for Task Category buttons:
-//https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time
 
+/**
+ * Callbacks to Handle events for Task Category buttons:
+ * (https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time)
+ */
 const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
 let colorActivities = [];
 let namesActivities = [];
