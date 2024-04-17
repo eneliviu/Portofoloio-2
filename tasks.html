@@ -78,9 +78,9 @@
         <section id="score-area">
             <h2 id="list-title"> Add Your tasks for today:</h2>
             <ul class="score-area-list">
-                <li class='score-item'>Personal:<span class='score-activity-span' id="personal-score">0</span></li>
-                <li class='score-item'>Professional:<span class='score-activity-span' id="professional-score">0</span></li>
-                <li class='score-item'>Errands:<span class='score-item-activity' id="errands-score">0</span></li>
+                <li class='score-item'>Personal:<span class='score-activity-span' id="personal-score"> 0</span></li>
+                <li class='score-item'>Professional:<span class='score-activity-span' id="professional-score"> 0</span></li>
+                <li class='score-item'>Errands:<span class='score-activity-span' id="errands-score"> 0</span></li>
             </ul>
             <!--side tasks/chore/nagging-->
             <ul class="score-area-list">
@@ -99,9 +99,11 @@
             <div class="task-card">
 
                 <div class="input-field" id="task-description">
-                    <input autofocus type="text" class="task-def" name="task-description" id="task-description-field"
+                    <input type="text" class="task-def" name="task-description" id="task-description-field"
                         aria-label="Enter task description" placeholder="Enter task description: e.g., Buy groceries"
-                        value= '' autocomplete="on" maxlength="70" required>
+                        value= '' autocomplete="on" maxlength="70" 
+                        
+                        required>
                 </div>
 
                 <button class='btn btn--categ' id="add-activity-btn">

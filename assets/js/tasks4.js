@@ -7,17 +7,12 @@ function taskCardDisplay() {
     let taskCard = document.getElementById("task-cards-section");
     taskCard.style.display = (taskCard.style.display !== 'block' ? 'block' : 'none');
     document.getElementById("task-description-field").focus();
-    document.getElementById("task-description-field").addEventListener('keydown', function (event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            document.getElementById("add-activity-btn").focus();
-        }
-    });
 }
 
 function taskActivityDisplay() {
     let taskActiv = document.getElementById("task-activity-div");
     taskActiv.style.display = (taskActiv.style.display !== 'flex' ? 'flex' : 'none');
+    
 }
 
 function taskRelevanceDisplay() {
@@ -99,11 +94,18 @@ function addTaskToTaskList(event) {
         document.getElementById('add-task-btn').click();
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
-        //document.getElementById("task-description-field").focus();
+        document.getElementById("task-description-field").focus();
         throw 'Unknown task - Aborting!';
     }
 
     // Add the task activity:
+    selectOneCategoryBtn()
+    let selected = JSON.parse(sessionStorage.getItem("selected"));
+    console.log(selected)
+
+    let namesActivities = selected.namesActivities;
+    let colorActivities = selected.colorActivities;
+   
     if (namesActivities.length > 0) {
         taskObject.taskCategories.namesActivities = namesActivities.slice(); // copy by value
         newTaskActivity.innerText = namesActivities.shift(); // return the first elem and remove it (empty the array) -> undefined 
@@ -120,6 +122,9 @@ function addTaskToTaskList(event) {
     }
 
     // Add the task relevance:
+    let namesRelevance = selected.namesRelevance;
+    let colorRelevance = selected.colorRelevance;
+
     if (namesRelevance.length > 0) {
         taskObject.taskCategories.namesRelevance = namesRelevance.slice(); // copy by value
         newTaskRelevance.innerText = namesRelevance.shift();
@@ -240,10 +245,10 @@ function updateListTitle() {
     //console.log(runningTotal)
     if (runningTotal === 0) {
         document.getElementById('list-title').innerText = 'All tasks completed!';
-        sessionStorage.removeItem('selected');
     } else {
         document.getElementById('list-title').innerText = `${runningTotal} Tasks left:`;
     }
+
 }
 
 /**
@@ -292,6 +297,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
 });
 
+
+let selected
 let taskObjectsArray = [];
 let taskObjectTemplate = {
     taskDescription: [],
@@ -302,6 +309,75 @@ let taskObjectTemplate = {
 //--------------- Callbacks to Handle events for Task Category buttons:
 //https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time
 
+
+
+function selectOneCategoryBtn() {
+    const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
+    let colorActivities = [];
+    let namesActivities = [];
+    let activityBtns = document.getElementById('task-activity-div').children;
+
+    for (let i = 0; i < activityBtns.length; i++) {
+        activityBtns[i].addEventListener('click', function () {
+            for (let j = 0; j < activityBtns.length; j++) {
+                // on click, remove event from the previously selected button and reset
+                activityBtns[j].classList.remove('selected');
+                activityBtns[j].style.backgroundColor = '';
+            }
+            this.style.backgroundColor = colorActivitiesList[i];
+            colorActivities[0] = this.style.backgroundColor;
+            namesActivities[0] = this.innerText;
+        });
+    }
+
+    const colorRelevanceList = ['rgba(235, 16, 16, 0.81)', 'rgba(61, 175, 60, 0.81)']
+    let colorRelevance = [];
+    let namesRelevance = [];
+    let relevanceBtns = document.getElementById('task-importance-div').children;
+    for (let i = 0; i < relevanceBtns.length; i++) {
+        relevanceBtns[i].addEventListener('click', function () {
+            for (let j = 0; j < relevanceBtns.length; j++) {
+                relevanceBtns[j].classList.remove('selected');
+                relevanceBtns[j].style.backgroundColor = '';
+            }
+            this.style.backgroundColor = colorRelevanceList[i];
+            colorRelevance[0] = this.style.backgroundColor;
+            namesRelevance[0] = this.innerText;
+        });
+    }
+
+    sessionStorage.setItem("selected", JSON.stringify(
+        {colorActivities: colorActivities, 
+        namesActivities: namesActivities,
+        colorRelevance: colorRelevance, 
+        namesRelevance: namesRelevance}
+    ));
+}
+
+
+function selectOneRelevanceBtn() {
+    const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
+    let colorActivities = [];
+    let namesActivities = [];
+    let activityBtns = document.getElementById('task-activity-div').children;
+
+    for (let i = 0; i < activityBtns.length; i++) {
+        activityBtns[i].addEventListener('click', function () {
+            for (let j = 0; j < activityBtns.length; j++) {
+                // on click, remove event from the previously selected button and reset
+                activityBtns[j].classList.remove('selected');
+                activityBtns[j].style.backgroundColor = '';
+            }
+            this.style.backgroundColor = colorActivitiesList[i];
+            colorActivities[0] = this.style.backgroundColor;
+            namesActivities[0] = this.innerText;
+        });
+    }
+
+    sessionStorage.setItem("selected", JSON.stringify({ colorActivities: colorActivities, namesActivities: namesActivities }));
+}
+
+/*
 const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
 let colorActivities = [];
 let namesActivities = [];
@@ -319,6 +395,7 @@ for (let i = 0; i < activityBtns.length; i++) {
         namesActivities[0] = this.innerText;
     });
 }
+*/
 
 const colorRelevanceList = ['rgba(235, 16, 16, 0.81)', 'rgba(61, 175, 60, 0.81)']
 let colorRelevance = [];
