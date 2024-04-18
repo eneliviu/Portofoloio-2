@@ -85,7 +85,6 @@ function addTaskToTaskList() {
         relevanceBtns[i].style.backgroundColor = '';
     }
 
-
     // Add the task description to DOM:
     if (taskDescription.length >= 3) {
         taskObject.taskDescription = taskDescription.slice();
@@ -106,7 +105,6 @@ function addTaskToTaskList() {
         document.getElementById('add-task-btn').click();
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
-        //document.getElementById("task-description-field").focus();
         throw 'Unknown task - Aborting!';
     }
 
@@ -123,7 +121,6 @@ function addTaskToTaskList() {
         document.getElementById('add-relevance-btn').click();
         console.log(taskObjectsArray);
         throw 'Unknown activity - Aborting!';
-
     }
 
     // Add the task relevance:
@@ -152,22 +149,21 @@ function addTaskToTaskList() {
     newTaskType.appendChild(newTaskRelevance);
     newTask.appendChild(newTaskType);
     taskList.appendChild(newTask);
+    document.getElementById('list-title').innerText = "Today's task list:";
+
     taskObjectsArray = [...taskObjectsArray, taskObject];
 
-    
+    //debugger
+    /*
     for (let elem of document.getElementsByClassName('remove-span')) {
         elem.addEventListener('click', removeTasks);
     }
     for (let elem of document.getElementsByClassName('edit-span')) {
         elem.addEventListener('click', editTasks);
     }
-
-
-    document.getElementById('list-title').innerText = "Today's task list:";
-
-    //sessionStorage.setItem('taskList', taskList.innerHTML);
-    sessionStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
-    
+    */
+    //localStorage.clear();
+    //localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
 
 }
 
@@ -198,7 +194,8 @@ function removeTasks() {
             // Update scores
             decrementActivityScores(objToRemove);
             decrementRelevanceScores(objToRemove);
-            sessionStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
+            updateListTitle();
+            localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
         }
     }
 }
@@ -219,9 +216,7 @@ function decrementActivityScores(removedObj) {
     } else {
         alert('Unknown activity');
     }
-
-    updateListTitle();
-
+    
 }
 
 /**
@@ -243,24 +238,22 @@ function decrementRelevanceScores(removedObj) {
  * This function changes the title of the task list upon the task completion. 
  */
 function updateListTitle() {
-    let oldScores = [];
+    
     let runningTotal = 0;
     let scoreItemList = document.getElementsByClassName('score-activity-span');
     for (let elem of scoreItemList) {
-        oldScores.push(parseInt(elem.innerText));
         runningTotal += parseInt(elem.innerText);
     }
 
-    //debugger
     if (runningTotal === 0) {
         document.getElementById('list-title').innerText = 'All tasks completed!';
-
-        sessionStorage.removeItem('main-tasks');
-
+        localStorage.clear();
     } else {
         document.getElementById('list-title').innerText = `${runningTotal} Tasks left:`;
     }
 }
+
+// localStorage.removeItem('main-tasks');
 
 /**
  * This function increments the counters for task activities.
@@ -299,46 +292,46 @@ function incrementRelevanceScores(relevance) {
 
 
 // Add callbacks to the task entry form buttons events:
-if (!sessionStorage.getItem('main-tasks')) {
+if (!localStorage.getItem('main-tasks')) {
 
     /** 
     * Wait for the DOM to finish loading before running the game
     * Get the button elements and add event listeners to them:
     */
 
-   //let oldMain = document.getElementById('main-tasks').innerHTML;
-    
-   document.addEventListener('DOMContentLoaded', function () {
+    //let oldMain = document.getElementById('main-tasks').innerHTML;
+
+    document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
         document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
         document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
         document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
-
+        for (let elem of document.getElementsByClassName('remove-span')) {
+            elem.addEventListener('click', removeTasks);
+        }
+        for (let elem of document.getElementsByClassName('edit-span')) {
+            elem.addEventListener('click', editTasks);
+        }
+        localStorage.clear();
+        localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
     })
 
 } else {
-    
-    document.getElementById('main-tasks').innerHTML = sessionStorage.getItem('main-tasks');
+
+    document.getElementById('main-tasks').innerHTML = localStorage.getItem('main-tasks');
+
+    document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
+    document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
+    document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
+    document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
+
+  
     for (let elem of document.getElementsByClassName('remove-span')) {
         elem.addEventListener('click', removeTasks);
     }
     for (let elem of document.getElementsByClassName('edit-span')) {
         elem.addEventListener('click', editTasks);
     }
-    
-    document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
-    document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
-    document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
-    document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
-    
-    
-
-   
-    
-
-
-    
-
 
 }
 
