@@ -166,7 +166,7 @@ function addTaskToTaskList() {
     document.getElementById('list-title').innerText = "Today's task list:";
 
     //sessionStorage.setItem('taskList', taskList.innerHTML);
-    localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
+    sessionStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
     
 
 }
@@ -198,7 +198,7 @@ function removeTasks() {
             // Update scores
             decrementActivityScores(objToRemove);
             decrementRelevanceScores(objToRemove);
-            localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
+            sessionStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
         }
     }
 }
@@ -251,11 +251,11 @@ function updateListTitle() {
         runningTotal += parseInt(elem.innerText);
     }
 
-    debugger
+    //debugger
     if (runningTotal === 0) {
         document.getElementById('list-title').innerText = 'All tasks completed!';
 
-        localStorage.removeItem('main-tasks');
+        sessionStorage.removeItem('main-tasks');
 
     } else {
         document.getElementById('list-title').innerText = `${runningTotal} Tasks left:`;
@@ -299,7 +299,7 @@ function incrementRelevanceScores(relevance) {
 
 
 // Add callbacks to the task entry form buttons events:
-if (!localStorage.getItem('main-tasks')) {
+if (!sessionStorage.getItem('main-tasks')) {
 
     /** 
     * Wait for the DOM to finish loading before running the game
@@ -318,7 +318,7 @@ if (!localStorage.getItem('main-tasks')) {
 
 } else {
     
-    document.getElementById('main-tasks').innerHTML = localStorage.getItem('main-tasks');
+    document.getElementById('main-tasks').innerHTML = sessionStorage.getItem('main-tasks');
     for (let elem of document.getElementsByClassName('remove-span')) {
         elem.addEventListener('click', removeTasks);
     }
