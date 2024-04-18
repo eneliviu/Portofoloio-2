@@ -75,24 +75,27 @@
         </h1>
 
 
+
         <section id="score-area">
             <h2 id="list-title"> Add Your tasks for today:</h2>
             <ul class="score-area-list">
                 <li class='score-item'>Personal:<span class='score-activity-span' id="personal-score"> 0</span></li>
-                <li class='score-item'>Professional:<span class='score-activity-span' id="professional-score"> 0</span></li>
+                <li class='score-item'>Professional:<span class='score-activity-span' id="professional-score"> 0</span>
+                </li>
                 <li class='score-item'>Errands:<span class='score-activity-span' id="errands-score"> 0</span></li>
             </ul>
             <!--side tasks/chore/nagging-->
             <ul class="score-area-list">
                 <li class='score-item'>Urgent: <span class='score-relevance-span' id="urgent-score">0</span></li>
-                <li class='score-item'>Chore:  <span class='score-relevance-span' id="chores-score">0</span></li>
+                <li class='score-item'>Chore: <span class='score-relevance-span' id="chores-score">0</span></li>
             </ul>
         </section>
         <br>
 
-        <button  type="submit" class='btn btn--task' id="add-task-btn">
+        <button type="submit" class='btn btn--task' id="add-task-btn">
             Add task <i class="fa-solid fa-plus"></i>
         </button>
+
 
         <section id="task-cards-section">
 
@@ -101,9 +104,7 @@
                 <div class="input-field" id="task-description">
                     <input type="text" class="task-def" name="task-description" id="task-description-field"
                         aria-label="Enter task description" placeholder="Enter task description: e.g., Buy groceries"
-                        value= '' autocomplete="on" maxlength="70" 
-                        
-                        required>
+                        value='' autocomplete="on" maxlength="70" required>
                 </div>
 
                 <button class='btn btn--categ' id="add-activity-btn">
@@ -111,19 +112,19 @@
                 </button>
                 <div id="task-activity-div">
                     <button type="submit" class='btn categ' id="personal-categ-btn">Personal</button>
-                    <button type="submit"class='btn categ' id="professional-categ-btn">Professional</button>
-                    <button type="submit"class='btn categ' id="errands-categ-btn">Errands</button>
+                    <button type="submit" class='btn categ' id="professional-categ-btn">Professional</button>
+                    <button type="submit" class='btn categ' id="errands-categ-btn">Errands</button>
                 </div>
 
                 <button class='btn btn--categ' id="add-relevance-btn">
                     Add relevance: <i class="fa-solid fa-plus"></i>
                 </button>
                 <div id="task-importance-div">
-                    <button  type="submit" class="btn categ" id="urgent-categ-btn">Urgent</button>
-                    <button  type="submit" class="btn categ" id="chores-categ-btn">Chore</button>
+                    <button type="submit" class="btn categ" id="urgent-categ-btn">Urgent</button>
+                    <button type="submit" class="btn categ" id="chores-categ-btn">Chore</button>
                 </div>
 
-                <button  type="submit" class='btn btn--categ' id="add-task-ok-btn">
+                <button type="submit" class='btn btn--categ' id="add-task-ok-btn">
                     OK
                 </button>
 
@@ -138,12 +139,12 @@
         <section id="text-container">
 
         </section>
-  
+
 
 
     </main>
 
-    
+
     <!-- DONE -->
     <footer>
 
