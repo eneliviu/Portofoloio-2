@@ -85,6 +85,7 @@ function addTaskToTaskList() {
         relevanceBtns[i].style.backgroundColor = '';
     }
 
+
     // Add the task description to DOM:
     if (taskDescription.length >= 3) {
         taskObject.taskDescription = taskDescription.slice();
@@ -153,6 +154,7 @@ function addTaskToTaskList() {
     taskList.appendChild(newTask);
     taskObjectsArray = [...taskObjectsArray, taskObject];
 
+    
     for (let elem of document.getElementsByClassName('remove-span')) {
         elem.addEventListener('click', removeTasks);
     }
@@ -160,10 +162,11 @@ function addTaskToTaskList() {
         elem.addEventListener('click', editTasks);
     }
 
-    document.getElementById('list-title').innerText = "Today's task list:'";
 
-    let mainDOM = document.getElementById('main-tasks').outerHTML;
-    sessionStorage.setItem('main', JSON.stringify(mainDOM));
+    document.getElementById('list-title').innerText = "Today's task list:";
+
+    //sessionStorage.setItem('taskList', taskList.innerHTML);
+    //sessionStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
 
 }
 
@@ -171,7 +174,8 @@ function addTaskToTaskList() {
  * This function removes a selected task on click event.
  * Internally it calls the function for decrementing the counters for 
  * task activities and relevance.  
- */
+*/
+
 function removeTasks() {
     if (confirm('Remove task?') === true) {
         //console.log(taskObjectsArray)
@@ -190,13 +194,15 @@ function removeTasks() {
             let objToRemove = taskObjectsArray.splice(idx, 1)[0];
             // remove task from DOM
             this.parentNode.parentNode.remove();
-            console.log(objToRemove)
+            //console.log(objToRemove)
             // Update scores
             decrementActivityScores(objToRemove);
             decrementRelevanceScores(objToRemove);
+            sessionStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
         }
     }
 }
+
 
 /**
  * This function decrements the counters for task activities
@@ -211,7 +217,7 @@ function decrementActivityScores(removedObj) {
     } else if (removedObj.taskCategories.namesActivities[0] === 'Errands') {
         document.getElementById('errands-score').innerText--;
     } else {
-        alert('Unknown category 2');
+        alert('Unknown activity');
     }
 
     updateListTitle();
@@ -229,7 +235,7 @@ function decrementRelevanceScores(removedObj) {
     } else if (removedObj.taskCategories.namesRelevance[0] === 'Chore') {
         document.getElementById('chores-score').innerText--;
     } else {
-        alert('Unknown category 4');
+        alert('Unknown relevance category');
     }
 }
 
@@ -244,11 +250,10 @@ function updateListTitle() {
         oldScores.push(parseInt(elem.innerText));
         runningTotal += parseInt(elem.innerText);
     }
-    //console.log(oldScores)
-    //console.log(runningTotal)
+
     if (runningTotal === 0) {
         document.getElementById('list-title').innerText = 'All tasks completed!';
-        sessionStorage.removeItem('selected');
+        //sessionStorage.clear();
     } else {
         document.getElementById('list-title').innerText = `${runningTotal} Tasks left:`;
     }
@@ -267,7 +272,7 @@ function incrementActivityScores(activity) {
     } else if (activity === 'Errands') {
         document.getElementById('errands-score').innerText++;
     } else {
-        alert('Unknown category 1');
+        alert('Unknown activity');
     }
 }
 
@@ -282,27 +287,48 @@ function incrementRelevanceScores(relevance) {
     } else if (relevance === 'Chore') {
         document.getElementById('chores-score').innerText++;
     } else {
-        alert('Unknown category 3');
+        alert('Unknown relevance category');
     }
 }
 
 //=================================================================================
 //=================================================================================
 
-/**
- * Wait for the DOM to finish loading before running the game
- * Get the button elements and add event listeners to them:
- */
-document.addEventListener('DOMContentLoaded', function () {
-    // Add callbacks to the task entry form buttons events:
-    if(!sessionStorage.getItem('main')){
+
+// Add callbacks to the task entry form buttons events:
+if (!sessionStorage.getItem('main-tasks')) {
+
+    /** 
+    * Wait for the DOM to finish loading before running the game
+    * Get the button elements and add event listeners to them:
+    */
+    document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
         document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
         document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
         document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
-    }
+
+    })
+
+} else {
     
-});
+    document.getElementById('main-tasks').innerHTML = sessionStorage.getItem('main-tasks');
+    for (let elem of document.getElementsByClassName('remove-span')) {
+        elem.addEventListener('click', removeTasks);
+    }
+    for (let elem of document.getElementsByClassName('edit-span')) {
+        elem.addEventListener('click', editTasks);
+    }
+
+    document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
+    document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
+    document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
+    document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
+
+
+}
+
+
 
 /**
  * Declare the Array for storing the task data objects
@@ -353,6 +379,8 @@ for (let i = 0; i < relevanceBtns.length; i++) {
         namesRelevance[0] = this.innerText;
     });
 }
+
+
 
 //===================================================================================================//
 /**
