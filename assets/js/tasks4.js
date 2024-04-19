@@ -1,33 +1,44 @@
 
-// 'DOMContentLoaded'
 
-
+/**
+ * Display task card on click on 'Add Task +" button" 
+ */
 function taskCardDisplay() {
 
     let taskCard = document.getElementById("task-cards-section");
     taskCard.style.display = (taskCard.style.display !== 'block' ? 'block' : 'none');
     document.getElementById("task-description-field").focus();
+    document.getElementById("task-description-field").addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.getElementById("add-activity-btn").focus();
+        }
+    });
 }
 
+/**
+ * Display activity selection buttons on click on 'Add Activity' button
+ */
 function taskActivityDisplay() {
     let taskActiv = document.getElementById("task-activity-div");
     taskActiv.style.display = (taskActiv.style.display !== 'flex' ? 'flex' : 'none');
-    
 }
 
-function taskRelevanceDisplay() {
+/**
+ * Display task relevance selection buttons on click on 'Add relevance' button
+ */
+function taskRelevanceDisplay(event) {
     let taskRelevance = document.getElementById("task-importance-div");
     taskRelevance.style.display = (taskRelevance.style.display !== 'flex' ? 'flex' : 'none');
 }
 
-
-function displayElement(elemIdString) {
-    let taskRelevance = document.getElementById(elemIdString);
-    taskRelevance.style.display = (taskRelevance.style.display !== 'flex' ? 'flex' : 'none');
-}
-
-
-function addTaskToTaskList(event) {
+/**
+ * Displays the task.
+ * Creates object containing task details and adds it to the task array.
+ * Calls the functions for updating the task counters and task list header
+ * Passes the callabks to 'Remove' and 'Edit' task buttons.    
+ */
+function addTaskToTaskList() {
 
     document.getElementById("task-description-field").focus();
 
@@ -94,18 +105,10 @@ function addTaskToTaskList(event) {
         document.getElementById('add-task-btn').click();
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
-        document.getElementById("task-description-field").focus();
         throw 'Unknown task - Aborting!';
     }
 
     // Add the task activity:
-    selectOneCategoryBtn()
-    let selected = JSON.parse(sessionStorage.getItem("selected"));
-    console.log(selected)
-
-    let namesActivities = selected.namesActivities;
-    let colorActivities = selected.colorActivities;
-   
     if (namesActivities.length > 0) {
         taskObject.taskCategories.namesActivities = namesActivities.slice(); // copy by value
         newTaskActivity.innerText = namesActivities.shift(); // return the first elem and remove it (empty the array) -> undefined 
@@ -118,13 +121,9 @@ function addTaskToTaskList(event) {
         document.getElementById('add-relevance-btn').click();
         console.log(taskObjectsArray);
         throw 'Unknown activity - Aborting!';
-
     }
 
     // Add the task relevance:
-    let namesRelevance = selected.namesRelevance;
-    let colorRelevance = selected.colorRelevance;
-
     if (namesRelevance.length > 0) {
         taskObject.taskCategories.namesRelevance = namesRelevance.slice(); // copy by value
         newTaskRelevance.innerText = namesRelevance.shift();
@@ -150,25 +149,30 @@ function addTaskToTaskList(event) {
     newTaskType.appendChild(newTaskRelevance);
     newTask.appendChild(newTaskType);
     taskList.appendChild(newTask);
+    document.getElementById('list-title').innerText = "Today's task list:";
+
     taskObjectsArray = [...taskObjectsArray, taskObject];
 
+    //debugger
+    /*
     for (let elem of document.getElementsByClassName('remove-span')) {
         elem.addEventListener('click', removeTasks);
     }
     for (let elem of document.getElementsByClassName('edit-span')) {
         elem.addEventListener('click', editTasks);
     }
-
-    document.getElementById('list-title').innerText = "Today's task list:'";
+    */
+    //localStorage.clear();
+    //localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
 
 }
-
 
 /**
  * This function removes a selected task on click event.
  * Internally it calls the function for decrementing the counters for 
  * task activities and relevance.  
- */
+*/
+
 function removeTasks() {
     if (confirm('Remove task?') === true) {
         //console.log(taskObjectsArray)
@@ -187,13 +191,15 @@ function removeTasks() {
             let objToRemove = taskObjectsArray.splice(idx, 1)[0];
             // remove task from DOM
             this.parentNode.parentNode.remove();
-            console.log(objToRemove)
             // Update scores
             decrementActivityScores(objToRemove);
             decrementRelevanceScores(objToRemove);
+            updateListTitle();
+            localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
         }
     }
 }
+
 
 /**
  * This function decrements the counters for task activities
@@ -208,11 +214,9 @@ function decrementActivityScores(removedObj) {
     } else if (removedObj.taskCategories.namesActivities[0] === 'Errands') {
         document.getElementById('errands-score').innerText--;
     } else {
-        alert('Unknown category 2');
+        alert('Unknown activity');
     }
-
-    updateListTitle();
-
+    
 }
 
 /**
@@ -226,7 +230,7 @@ function decrementRelevanceScores(removedObj) {
     } else if (removedObj.taskCategories.namesRelevance[0] === 'Chore') {
         document.getElementById('chores-score').innerText--;
     } else {
-        alert('Unknown category 4');
+        alert('Unknown relevance category');
     }
 }
 
@@ -234,22 +238,22 @@ function decrementRelevanceScores(removedObj) {
  * This function changes the title of the task list upon the task completion. 
  */
 function updateListTitle() {
-    let oldScores = [];
+    
     let runningTotal = 0;
     let scoreItemList = document.getElementsByClassName('score-activity-span');
     for (let elem of scoreItemList) {
-        oldScores.push(parseInt(elem.innerText));
         runningTotal += parseInt(elem.innerText);
     }
-    //console.log(oldScores)
-    //console.log(runningTotal)
+
     if (runningTotal === 0) {
         document.getElementById('list-title').innerText = 'All tasks completed!';
+        localStorage.clear();
     } else {
         document.getElementById('list-title').innerText = `${runningTotal} Tasks left:`;
     }
-
 }
+
+// localStorage.removeItem('main-tasks');
 
 /**
  * This function increments the counters for task activities.
@@ -264,7 +268,7 @@ function incrementActivityScores(activity) {
     } else if (activity === 'Errands') {
         document.getElementById('errands-score').innerText++;
     } else {
-        alert('Unknown category 1');
+        alert('Unknown activity');
     }
 }
 
@@ -279,7 +283,7 @@ function incrementRelevanceScores(relevance) {
     } else if (relevance === 'Chore') {
         document.getElementById('chores-score').innerText++;
     } else {
-        alert('Unknown category 3');
+        alert('Unknown relevance category');
     }
 }
 
@@ -287,18 +291,56 @@ function incrementRelevanceScores(relevance) {
 //=================================================================================
 
 
-// Wait for the DOM to finish loading before running the game
-// Get the button elements and add event listeners to them:
-document.addEventListener('DOMContentLoaded', function () {
-    // Add callbacks to the task entry form buttons events:
+// Add callbacks to the task entry form buttons events:
+if (!localStorage.getItem('main-tasks')) {
+
+    /** 
+    * Wait for the DOM to finish loading before running the game
+    * Get the button elements and add event listeners to them:
+    */
+
+    //let oldMain = document.getElementById('main-tasks').innerHTML;
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
+        document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
+        document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
+        document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
+        for (let elem of document.getElementsByClassName('remove-span')) {
+            elem.addEventListener('click', removeTasks);
+        }
+        for (let elem of document.getElementsByClassName('edit-span')) {
+            elem.addEventListener('click', editTasks);
+        }
+        localStorage.clear();
+        localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
+    })
+
+} else {
+
+    document.getElementById('main-tasks').innerHTML = localStorage.getItem('main-tasks');
+
     document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
     document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
     document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
     document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
-});
+
+  
+    for (let elem of document.getElementsByClassName('remove-span')) {
+        elem.addEventListener('click', removeTasks);
+    }
+    for (let elem of document.getElementsByClassName('edit-span')) {
+        elem.addEventListener('click', editTasks);
+    }
+
+}
 
 
-let selected
+
+/**
+ * Declare the Array for storing the task data objects
+ * Declare the data structure for creating the task HTML elements
+ */
 let taskObjectsArray = [];
 let taskObjectTemplate = {
     taskDescription: [],
@@ -306,78 +348,11 @@ let taskObjectTemplate = {
     taskScores: { Personal: [], Professional: [], Errands: [], Urgent: [], Chore: [] },
     taskId: []
 };
-//--------------- Callbacks to Handle events for Task Category buttons:
-//https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time
 
-
-
-function selectOneCategoryBtn() {
-    const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
-    let colorActivities = [];
-    let namesActivities = [];
-    let activityBtns = document.getElementById('task-activity-div').children;
-
-    for (let i = 0; i < activityBtns.length; i++) {
-        activityBtns[i].addEventListener('click', function () {
-            for (let j = 0; j < activityBtns.length; j++) {
-                // on click, remove event from the previously selected button and reset
-                activityBtns[j].classList.remove('selected');
-                activityBtns[j].style.backgroundColor = '';
-            }
-            this.style.backgroundColor = colorActivitiesList[i];
-            colorActivities[0] = this.style.backgroundColor;
-            namesActivities[0] = this.innerText;
-        });
-    }
-
-    const colorRelevanceList = ['rgba(235, 16, 16, 0.81)', 'rgba(61, 175, 60, 0.81)']
-    let colorRelevance = [];
-    let namesRelevance = [];
-    let relevanceBtns = document.getElementById('task-importance-div').children;
-    for (let i = 0; i < relevanceBtns.length; i++) {
-        relevanceBtns[i].addEventListener('click', function () {
-            for (let j = 0; j < relevanceBtns.length; j++) {
-                relevanceBtns[j].classList.remove('selected');
-                relevanceBtns[j].style.backgroundColor = '';
-            }
-            this.style.backgroundColor = colorRelevanceList[i];
-            colorRelevance[0] = this.style.backgroundColor;
-            namesRelevance[0] = this.innerText;
-        });
-    }
-
-    sessionStorage.setItem("selected", JSON.stringify(
-        {colorActivities: colorActivities, 
-        namesActivities: namesActivities,
-        colorRelevance: colorRelevance, 
-        namesRelevance: namesRelevance}
-    ));
-}
-
-
-function selectOneRelevanceBtn() {
-    const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
-    let colorActivities = [];
-    let namesActivities = [];
-    let activityBtns = document.getElementById('task-activity-div').children;
-
-    for (let i = 0; i < activityBtns.length; i++) {
-        activityBtns[i].addEventListener('click', function () {
-            for (let j = 0; j < activityBtns.length; j++) {
-                // on click, remove event from the previously selected button and reset
-                activityBtns[j].classList.remove('selected');
-                activityBtns[j].style.backgroundColor = '';
-            }
-            this.style.backgroundColor = colorActivitiesList[i];
-            colorActivities[0] = this.style.backgroundColor;
-            namesActivities[0] = this.innerText;
-        });
-    }
-
-    sessionStorage.setItem("selected", JSON.stringify({ colorActivities: colorActivities, namesActivities: namesActivities }));
-}
-
-/*
+/**
+ * Callbacks to Handle events for Task Category buttons:
+ * (https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time)
+ */
 const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
 let colorActivities = [];
 let namesActivities = [];
@@ -395,7 +370,6 @@ for (let i = 0; i < activityBtns.length; i++) {
         namesActivities[0] = this.innerText;
     });
 }
-*/
 
 const colorRelevanceList = ['rgba(235, 16, 16, 0.81)', 'rgba(61, 175, 60, 0.81)']
 let colorRelevance = [];
@@ -412,6 +386,8 @@ for (let i = 0; i < relevanceBtns.length; i++) {
         namesRelevance[0] = this.innerText;
     });
 }
+
+
 
 //===================================================================================================//
 /**
