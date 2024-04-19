@@ -333,43 +333,55 @@ main {
     max-width: 280px;
     background-color: #ede576;
     border-radius: 1.5rem;
-
-    .input-field {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-items: center;
-        flex: 1;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-
-        .task-def {
-            font-size: 130%;
-            width: 260px;
-            min-height: 3rem;
-            text-wrap: wrap;
-            overflow: scroll;
-            border-radius: 1rem;
-        }
-    }
 }
 
+.input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    flex: 1;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.task-def {
+    font-size: 130%;
+    width: 260px;
+    min-height: 3rem;
+    text-wrap: wrap;
+    overflow: scroll;
+    border-radius: 1rem;
+    
+}
+.task-def:focus{
+    outline: none !important;
+    border-color:red;
+    border: 3px solid rgb(231, 123, 80);
+}
+
+
 .btn {
+    border: 2px solid black;
     background-color: #fafafa;
     color: #202020;
     margin: 0 auto;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.2s;
     text-align: center;
+    
 }
 
 .btn:focus {
-    outline: none;
+    outline: none !important;
+    border-color:red;
+    border: 3px solid rgb(231, 123, 80);
 }
 
 .btn:hover {
     background-color: #5473d0;
     color: #fafafa;
+    border: 2px solid black;
 }
 
 
@@ -451,12 +463,47 @@ main {
     }
     
 }
-.edit-span, 
-.remove-span{
-    margin:0 1rem;
-    float:right;
+
+.handle-task{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+  
+}
+.task-title{
+    margin: 0 auto;
     cursor: pointer;
 }
+.task-tile-strike{
+    margin: 0 auto;
+    cursor: pointer;
+    text-decoration: line-through;
+    text-decoration-color: 'lime';
+    
+}
+
+.edit-div{
+    right:2rem;
+    border-radius: 50%;
+}
+
+.edit-div > i{
+    background-color: white;
+    border-radius: 50%;
+}
+
+.remove-div{
+    float: right;
+}
+.edit-div, 
+.remove-div{
+    padding: 1rem 1rem;
+    cursor: pointer;
+    font-size: 150%;
+    transition: 0.5s;
+}
+
 
 .innerHTML-task-category {
     display: flex;

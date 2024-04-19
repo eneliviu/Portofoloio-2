@@ -8,6 +8,7 @@ function taskCardDisplay() {
     let taskCard = document.getElementById("task-cards-section");
     taskCard.style.display = (taskCard.style.display !== 'block' ? 'block' : 'none');
     document.getElementById("task-description-field").focus();
+
     document.getElementById("task-description-field").addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
             event.preventDefault();
@@ -53,7 +54,6 @@ function addTaskToTaskList() {
     newTask.className = 'task-item';
 
     let newTaskType = document.createElement("div");
-    newTaskType.id = newTask.id;
     newTaskType.className = 'innerHTML-task-category';
 
     let newTaskActivity = document.createElement("span");
@@ -88,16 +88,20 @@ function addTaskToTaskList() {
     // Add the task description to DOM:
     if (taskDescription.length >= 3) {
         taskObject.taskDescription = taskDescription.slice();
-        newTask.innerHTML = `<h3>
-                                ${taskDescription}
-                                    <span class="edit-span">
-                                        <i class="fa-solid fa-pen-to-square"></i>
-                                    </span>
-                                    <span class="remove-span">
-                                        <i class="fa-regular fa-trash-can"></i>
-                                    </span>
-                            </h3>
+        newTask.innerHTML = `<div class="handle-task">
+                                <div class="edit-div">
+                                    <i class="fa-regular fa-circle"></i>
+                                </div>
+                                <div class="task-title">                        
+                                    <h3>${taskDescription}</h3>
+                                </div>
+                                
+                                <div class="remove-div">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </div>
+                            </div>
                             `;
+        newTask.dataset.id = newTask.id;
 
     } else {
         alert(`Please enter a task using at least three characters:`);
@@ -105,7 +109,7 @@ function addTaskToTaskList() {
         document.getElementById('add-task-btn').click();
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
-        throw 'Unknown task - Aborting!';
+        throw errMessageUnknownTask;
     }
 
     // Add the task activity:
@@ -119,8 +123,7 @@ function addTaskToTaskList() {
         document.getElementById('add-task-btn').click();
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
-        console.log(taskObjectsArray);
-        throw 'Unknown activity - Aborting!';
+        throw errMessageUnknownActivity;
     }
 
     // Add the task relevance:
@@ -134,8 +137,7 @@ function addTaskToTaskList() {
         document.getElementById('add-task-btn').click();
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
-        console.log(taskObjectsArray);
-        throw 'Unknown activity - Aborting!';
+        throw errMessageUnknownCateg;
     }
 
     // Update (increment) scores with the new added task 
@@ -152,18 +154,64 @@ function addTaskToTaskList() {
     document.getElementById('list-title').innerText = "Today's task list:";
 
     taskObjectsArray = [...taskObjectsArray, taskObject];
+    //localStorage.setItem('taskObjectsArray', JSON.stringify(taskObjectsArray));
 
     //debugger
-    /*
-    for (let elem of document.getElementsByClassName('remove-span')) {
+    for (let elem of document.getElementsByClassName('remove-div')) {
         elem.addEventListener('click', removeTasks);
     }
-    for (let elem of document.getElementsByClassName('edit-span')) {
+    for (let elem of document.getElementsByClassName('edit-div')) {
         elem.addEventListener('click', editTasks);
     }
-    */
-    //localStorage.clear();
-    //localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
+    for (let elem of document.getElementsByClassName('task-title')) {
+        elem.addEventListener('click', editTaskDescription);
+    }
+    for (let elem of document.getElementsByClassName('task-item')) {
+        elem.addEventListener('click', function(){
+        
+            let idx = -1; //undefined
+            for (let i = 0; i < taskObjectsArray.length; i++) {
+                console.log(taskObjectsArray[i].taskId)
+                console.log(this.dataset.id)
+                if (this.dataset.id === taskObjectsArray[i].taskId) {
+                    idx = i;
+                    console.log(idx)
+                    break; // exit when the HTML task elem found
+                }
+            }
+            if (idx === -1) {
+                throw new Error('Cannot find task ID - Aborting');
+            } else {
+                return idx;
+            }
+        
+        } );
+}
+
+}
+
+
+/**
+ * This function returns the ID of the selected task item
+ * @param {*} taskObjectsArray 
+ * @returns 
+ */
+function getObjId(event, taskObjectsArray) {
+    let idx = -1; //undefined
+    for (let i = 0; i < taskObjectsArray.length; i++) {
+        console.log(taskObjectsArray[i].taskId)
+        console.log(this.dataset.id)
+        if (this.dataset.id === taskObjectsArray[i].taskId) {
+            idx = i;
+            console.log(idx)
+            break; // exit when the HTML task elem found
+        }
+    }
+    if (idx === -1) {
+        throw new Error('Cannot find task ID - Aborting');
+    } else {
+        return idx;
+    }
 
 }
 
@@ -172,51 +220,38 @@ function addTaskToTaskList() {
  * Internally it calls the function for decrementing the counters for 
  * task activities and relevance.  
 */
-
 function removeTasks() {
     if (confirm('Remove task?') === true) {
-        //console.log(taskObjectsArray)
-        let idx; //undefined
-        for (let i = 0; i < taskObjectsArray.length; i++) {
-            if (this.parentNode.parentNode.id === taskObjectsArray[i].taskId) {
-                idx = i;
-                break; // exit when the HTML task elem found
-            }
-        }
+        // extract and remove the task obj from array 
+        let objToRemove = taskObjectsArray.splice(getObjId(taskObjectsArray), 1)[0];
+        //let objToRemove = structuredClone(taskObjectsArray.slice(getObjId(taskObjectsArray))[0]);
 
-        if (idx === -1) { //cannot find the index for some reasons
-            throw new Error('Task cannot be retrieved - Aborting!');
-        } else {
-            // extract and remove the task obj from array 
-            let objToRemove = taskObjectsArray.splice(idx, 1)[0];
-            // remove task from DOM
-            this.parentNode.parentNode.remove();
-            // Update scores
-            decrementActivityScores(objToRemove);
-            decrementRelevanceScores(objToRemove);
-            updateListTitle();
-            localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
-        }
+        //localStorage.setItem('taskObjectsArray', JSON.stringify(taskObjectsArray));
+
+        // remove task from DOM
+        this.parentNode.parentNode.remove();
+        // Update scores
+        decrementActivityScores(objToRemove.taskCategories.namesActivities[0]);
+        decrementRelevanceScores(objToRemove.taskCategories.namesRelevance[0]);
+        updateListTitle();
     }
 }
-
 
 /**
  * This function decrements the counters for task activities
  * Takes the removed task object as argument.  
  * @param {*} removedObj 
  */
-function decrementActivityScores(removedObj) {
-    if (removedObj.taskCategories.namesActivities[0] === 'Personal') {
+function decrementActivityScores(activity) {
+    if (activity === 'Personal') {
         document.getElementById('personal-score').innerText--;
-    } else if (removedObj.taskCategories.namesActivities[0] === 'Professional') {
+    } else if (activity === 'Professional') {
         document.getElementById('professional-score').innerText--;
-    } else if (removedObj.taskCategories.namesActivities[0] === 'Errands') {
+    } else if (activity === 'Errands') {
         document.getElementById('errands-score').innerText--;
     } else {
-        alert('Unknown activity');
+        alert(alertMessageActivity);
     }
-    
 }
 
 /**
@@ -224,13 +259,13 @@ function decrementActivityScores(removedObj) {
  * Takes the removed task object as argument.  
  * @param {*} removedObj 
  */
-function decrementRelevanceScores(removedObj) {
-    if (removedObj.taskCategories.namesRelevance[0] === 'Urgent') {
+function decrementRelevanceScores(relevance) {
+    if (relevance === 'Urgent') {
         document.getElementById('urgent-score').innerText--;
-    } else if (removedObj.taskCategories.namesRelevance[0] === 'Chore') {
+    } else if (relevance === 'Chore') {
         document.getElementById('chores-score').innerText--;
     } else {
-        alert('Unknown relevance category');
+        alert(alertMessageCateg);
     }
 }
 
@@ -238,7 +273,6 @@ function decrementRelevanceScores(removedObj) {
  * This function changes the title of the task list upon the task completion. 
  */
 function updateListTitle() {
-    
     let runningTotal = 0;
     let scoreItemList = document.getElementsByClassName('score-activity-span');
     for (let elem of scoreItemList) {
@@ -247,13 +281,10 @@ function updateListTitle() {
 
     if (runningTotal === 0) {
         document.getElementById('list-title').innerText = 'All tasks completed!';
-        localStorage.clear();
     } else {
         document.getElementById('list-title').innerText = `${runningTotal} Tasks left:`;
     }
 }
-
-// localStorage.removeItem('main-tasks');
 
 /**
  * This function increments the counters for task activities.
@@ -268,7 +299,7 @@ function incrementActivityScores(activity) {
     } else if (activity === 'Errands') {
         document.getElementById('errands-score').innerText++;
     } else {
-        alert('Unknown activity');
+        alert(alertMessageActivity);
     }
 }
 
@@ -283,58 +314,106 @@ function incrementRelevanceScores(relevance) {
     } else if (relevance === 'Chore') {
         document.getElementById('chores-score').innerText++;
     } else {
-        alert('Unknown relevance category');
+        alert(alertMessageCateg);
     }
 }
+
+/**
+ * This function re-opens the input HTML element on click for editing the text of an existing task. 
+ */
+function editTaskDescription(event) {
+    let newText = prompt("Do you want to edit task?", this.children[0].innerHTML);
+    // newText -> null on Cancel/Esc
+    // newText -> empty string ('') if OK and no entry -> evaluates false    
+    if (newText !== null) {
+        let strLength = parseInt((newText === '') ? 0 : newText.length);
+        //check for valid entry
+        if (strLength < minTextLength) {
+            while (strLength < minTextLength) {
+                newText = prompt(`Please enter a task name using at least three characters:`);
+                strLength = ((!newText || newText === '') ? 0 : newText.length)
+            }
+        }
+        this.children[0].innerHTML = newText;
+    }
+}
+
+/**
+ * This function edits the check icon to confirm that a task is completed.
+ */
+function editTasks() {
+
+    if (this.children[0].classList[1] === 'fa-circle') {
+        if (confirm('Is the task completed?') === true) {
+            this.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+            this.style.color = 'lime';
+            this.nextElementSibling.className = 'task-tile-strike';
+
+            //console.log(taskObjectsArray)
+
+            //let objToRemove = structuredClone(taskObjectsArray.slice(getObjId()));
+
+            //decrementActivityScores(objToRemove.taskCategories.namesActivities[0]);
+            //decrementRelevanceScores(objToRemove.taskCategories.namesRelevance[0]);
+            //updateListTitle();
+        }
+
+        /*
+        if(localStorage.getItem('taskObjectsArray') === null){
+            //console.log('object loaded')
+            idx = getObjId(taskObjectsArray);
+        }else{
+            let taskObjectsArray = JSON.parse(localStorage.getItem('taskObjectsArray'));
+            //console.log(taskObjectsArray)
+            idx = getObjId(taskObjectsArray);
+        } 
+        */
+
+        //let objToRemove = taskObjectsArray.splice(idx, 1)[0];
+
+
+    } else if (this.children[0].classList[1] === 'fa-circle-check') {
+        if (confirm('Reactivate the task?') === true) {
+            this.innerHTML = '<i class="fa-regular fa-circle"></i>';
+            this.nextElementSibling.className = 'task-tile';
+            this.style.color = 'white';
+        }
+
+        //console.log(this.parentNode.parentNode.lastChild.children[0].innerText)
+        //console.log(this.parentNode.parentNode.lastChild.children[2].innerText)
+        incrementActivityScores(this.parentNode.parentNode.lastChild.children[0].innerText);
+        incrementRelevanceScores(this.parentNode.parentNode.lastChild.children[2].innerText);
+        console.log(this.parentNode.parentNode.lastChild.children[0].innerText)
+        console.log(this.parentNode.parentNode.lastChild.children[2].innerText)
+
+        updateListTitle();
+
+
+    } else {
+        throw errMessageUnknownIcon;
+    }
+}
+
 
 //=================================================================================
 //=================================================================================
 
+/**
+ * Declare  alert and error messages
+ */
 
-// Add callbacks to the task entry form buttons events:
-if (!localStorage.getItem('main-tasks')) {
-
-    /** 
-    * Wait for the DOM to finish loading before running the game
-    * Get the button elements and add event listeners to them:
-    */
-
-    //let oldMain = document.getElementById('main-tasks').innerHTML;
-
-    document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
-        document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
-        document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
-        document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
-        for (let elem of document.getElementsByClassName('remove-span')) {
-            elem.addEventListener('click', removeTasks);
-        }
-        for (let elem of document.getElementsByClassName('edit-span')) {
-            elem.addEventListener('click', editTasks);
-        }
-        localStorage.clear();
-        localStorage.setItem('main-tasks', document.getElementById('main-tasks').innerHTML);
-    })
-
-} else {
-
-    document.getElementById('main-tasks').innerHTML = localStorage.getItem('main-tasks');
-
-    document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
-    document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
-    document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
-    document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
-
-  
-    for (let elem of document.getElementsByClassName('remove-span')) {
-        elem.addEventListener('click', removeTasks);
-    }
-    for (let elem of document.getElementsByClassName('edit-span')) {
-        elem.addEventListener('click', editTasks);
-    }
-
-}
-
+let alertMessageText = `Please enter a task using at least three characters:`;
+let alertMessageCateg = 'Unknown relevance category';
+let alertMessageActivity = 'Unknown activity';
+let errMessageIdxUnknown = 'Task cannot be retrieved - Aborting!';
+let errMessageUnknownTask = 'Unknown task - Aborting!';
+let errMessageUnknownActivity = 'Unknown activity - Aborting!';
+let errMessageUnknownCateg = 'Unknown task relevance categry - Aborting!';
+let errMessageUnknownIcon = 'Unknown icon class';
+/**
+ * Minimum text length for task description 
+ */
+const minTextLength = parseInt(3);
 
 
 /**
@@ -349,8 +428,21 @@ let taskObjectTemplate = {
     taskId: []
 };
 
+
+/** 
+* Wait for the DOM to finish loading before running the game
+* Get the button elements and add event listeners to them:
+*/
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.getElementById('add-task-btn').addEventListener('click', taskCardDisplay); //Add Task + button
+    document.getElementById('add-activity-btn').addEventListener('click', taskActivityDisplay); // Add Activity + button
+    document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
+    document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
+})
+
 /**
- * Callbacks to Handle events for Task Category buttons:
+ * Callbacks to handling events for Task Category buttons:
  * (https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time)
  */
 const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
@@ -387,23 +479,6 @@ for (let i = 0; i < relevanceBtns.length; i++) {
     });
 }
 
-
-
-//===================================================================================================//
-/**
- * TODO:
- * This function re-opens the HTML div on click for editing an existing task.
- * @param {*} event 
- */
-function editTasks() {
-    //this.parentNode.parentNode.addEventListener('click', taskCardDisplay);
-    alert(this.parentNode.parentNode.id)
-    //this.parentNode.parentNode.remove(); 
-    let taskElem = document.getElementById(this.parentNode.parentNode.id);
-    console.log(taskElem)
-
-
-}
 //===================================================================================================//
 
 
