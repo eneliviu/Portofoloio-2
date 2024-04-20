@@ -1,205 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<!-- UPDATE DESCRIPTION AND KEYWORDS -->
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!--LovinTasks, -->
-  <title> LovinPlans </title>
+    <title> LovinPlans </title>
 
-  <meta name="description" content="Purrfecto. A haven for cat enthusiasts." />
-  <meta name="keywords" content="Cat photos, adorable kittens, feline cuteness, 
-                  cat lovers' community, whiskers and paws, charming kitty moments, 
-                  cat photography, cat enthusiasts, meow-worthy images" />
-
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/cb-favicon180x180.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/cb-favicon32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/cb-favicon16x16.png">
-  <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <meta name="description" content="LovinPlans.Streamline your daily tasks." />
+    <meta name="keywords" content="To-do list, task management, productivity, organization, prioritization, 
+    reminders, checklist, categories, subtask, user interface(UI)"/>
 
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
-    rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
 
-  <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 
+<!-- 
+    HTML DateTime input reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date 
+    with link to https://jqueryui.com/datepicker/ 
+-->
+
+
 <body>
 
-  <header id="header">
+    <!-- DONE -->
+    <header id="header">
 
-    <a href="index.html">
-      <h1 id="logo"> LovinPlans </h1>
-    </a>
-
-    <input id="nav-toggle" type="checkbox" name="nav-toggle">
-    <label for="nav-toggle" id="nav-toggle-label">
-      <i class="fa-solid fa-bars"></i>
-    </label>
-
-    <nav id="navbar">
-      <div class="menu-item"> <a href="index.html" class="active"> Home </a> </div>
-      <div class="menu-item"> <a href="tasks.html"> My Tasks </a> </div>
-      <div class="menu-item"> <a href="help.html"> Help </a> </div>
-      <div class="menu-item"> <a href="contact.html"> Contact </a> </div>
-    </nav>
-
-
-  </header>
-
-  <main id = 'main'>
-
-    <section id="hero" aria-label="Hero Section">
-      <div id="cover-text">
-        <h2> 
-          <i class="fa-solid fa-rectangle-list"></i>  
-          Streamline Your Tasks, Supercharge Your Efficiency! 
-        </h2>
-      </div>
-    </section>
-    <br>
-
-    <div id="tasks-header">
-      
-      <h2>
-        Welcome to LovinPlans - your ultimate solution for effortless task management. 
-      </h2>  
-      <br>
-
-      <h3>
-        Stay organized, maintain focus, and take charge of your daily agenda with ease.
-      </h3>
-    </div>
-    
-
-    <div class="submit-btn">
-      <button type="submit" id="submit">
-          Get started!
-      </button>
-    </div>
-
-    <section id="additional-content" aria-label="Reasons for using a TODO app">
-      <h2 class="hidden-heading">Reasons for using a TODO app</h2>
-      <article>
-        <div class="reason">
-          <h3> Stress Relief <i class="fa-solid fa-heart"></i></h3>
-          <hr>
-
-          <ul>
-            <li>
-              Cats bring joy with their playful antics.
-            </li>
-            <li>
-              Whether chasing laser pointers or exploring boxes, they provide
-              entertainment and can reduce stress.
-            </li>
-            <li>
-              The calming effect of a purring cat is known to promote relaxation.
-            </li>
-          </ul>
-
-
-        </div>
-      </article>
-
-      <article>
-        <div class="reason">
-          <h3> Low Maintenance <i class="fa-solid fa-heart"></i>
-          </h3>
-          <hr>
-          <ul>
-            <li>Cats are easy to care for.</li>
-            <li>Cats appreciate their independence, but they also enjoy spending quality time with their owners. </li>
-            <li>They are ideal for people with busy lives who still want the joy of having a pet.</li>
-          </ul>
-        </div>
-      </article>
-
-      <article>
-        <div class="reason">
-          <h3>
-            Companionship
-            <i class="fa-solid fa-heart"></i>
-          </h3>
-          <hr>
-          <ul>
-            <li>Contrary to the common misconception, cats are incredibly affectionate.</li>
-            <li>They express affection through purring, snuggling, and headbutts.</li>
-            <li>Cats are known for their ability to adapt to various living environments.</li>
-          </ul>
-        </div>
-      </article>
-
-      <article>
-        <div class="reason">
-          <h3> Cleanliness <i class="fa-solid fa-heart"></i>
-          </h3>
-          <hr>
-          <ul>
-            <li>Cats are meticulous groomers, and they often keep themselves clean.</li>
-            <li>They groom themselves, use a litter box, and are independent.</li>
-            <li>This trait contributes to a generally tidy living environment for cat owners.</li>
-          </ul>
-        </div>
-      </article>
-
-    </section>
-
-
-
-
-
-  </main>
-
-  <footer>
-    <div id="social-networks">
-
-      <div>
-        <a href="https://www.facebook.com/" target="_blank" rel="noopener"
-          aria-label="Visit our Facebook page (opens in a new tab)">
-          <i class="fa-brands fa-facebook"></i>
+        <a href="index.html">
+            <h1 id="logo"> <i class="fa-solid fa-list-check"></i> LovinPlans
+            </h1>
         </a>
-      </div>
 
-      <div>
-        <a href="https://www.twitter.com/" target="_blank" rel="noopener"
-          aria-label="Visit our Twitter page (opens in a new tab)">
-          <i class="fa-brands fa-twitter"></i>
-        </a>
-      </div>
+        <!--
+        <input id="nav-toggle" type="checkbox" name="nav-toggle">
+        <label for="nav-toggle" id="nav-toggle-label">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+       
 
-      <div>
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener"
-          aria-label="Visit our Youtube channel (opens in a new tab)">
-          <i class="fa-brands fa-square-youtube"></i>
-        </a>
-      </div>
+        <nav id="navbar">
+            <div class="menu-item"> <a href="index.html"> Home </a> </div>
+            <div class="menu-item"> <a href="tasks.html" class="active"> My Tasks </a> </div>
+            <div class="menu-item"> <a href="help.html"> Help </a> </div>
+            <div class="menu-item"> <a href="contact.html"> Contact </a> </div>
+        </nav>
+         -->
 
-      <div>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener"
-          aria-label="Visit our Instagram page (opens in a new tab)">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-      </div>
+    </header>
 
-    </div>
+    <main id="main-tasks">
 
-  </footer>
 
-  <script src="https://kit.fontawesome.com/498c29f243.js" crossorigin="anonymous"></script>
- 
+
+
+        <section id="task-list-header">
+            <h1 id="todo-header">
+                <i class="fa-solid fa-list-check"></i>
+                ToDo List
+            </h1>
+            <ul id="todo-header-list">
+                <li>
+                    Streamline Your Tasks!
+                </li> 
+                <li>
+                    Supercharge Your Efficiency!
+                </li>
+               
+            </ul>
+        </section>
+        <br>
+
+
+        <section id="score-area">
+            <h2 id="list-title"> Add Your tasks for today:</h2>
+            <ul class="score-area-list">
+                <li class='score-item'>Personal:<span class='score-activity-span' id="personal-score"> 0</span></li>
+                <li class='score-item'>Work:<span class='score-activity-span' id="work-score"> 0</span>
+                </li>
+                <li class='score-item'>Errands:<span class='score-activity-span' id="errands-score"> 0</span></li>
+            </ul>
+            <!--side tasks/chore/nagging-->
+            <ul class="score-area-list">
+                <li class='score-item'>Urgent: <span class='score-relevance-span' id="urgent-score">0</span></li>
+                <li class='score-item'>Chore: <span class='score-relevance-span' id="chores-score">0</span></li>
+            </ul>
+        </section>
+        <br>
+
+        <button type="submit" class='btn btn--task' id="add-task-btn">
+            Add task <i class="fa-solid fa-plus"></i>
+        </button>
+
+
+        <section id="task-cards-section">
+
+            <div class="task-card">
+
+                <div class="input-field" id="task-description">
+                    <input type="text" class="task-def" name="task-description" id="task-description-field"
+                        aria-label="Enter task description" placeholder="Enter task description: e.g., Buy bread"
+                        value='' autocomplete="on" maxlength="70" required>
+                </div>
+
+                <button class='btn btn--categ' id="add-activity-btn">
+                    Add activity: <i class="fa-solid fa-plus"></i>
+                </button>
+                <div id="task-activity-div">
+                    <button type="submit" class='btn categ' id="personal-categ-btn">Personal</button>
+                    <button type="submit" class='btn categ' id="professional-categ-btn">Work</button>
+                    <button type="submit" class='btn categ' id="errands-categ-btn">Errands</button>
+                </div>
+
+                <button class='btn btn--categ' id="add-relevance-btn">
+                    Add relevance: <i class="fa-solid fa-plus"></i>
+                </button>
+                <div id="task-importance-div">
+                    <button type="submit" class="btn categ" id="urgent-categ-btn">Urgent</button>
+                    <button type="submit" class="btn categ" id="chores-categ-btn">Chore</button>
+                </div>
+
+                <button type="submit" class='btn btn--categ' id="add-task-ok-btn">
+                    OK
+                </button>
+
+
+            </div>
+
+        </section>
+        <br>
+
+
+
+        <section id="text-container">
+
+        </section>
+
+
+
+    </main>
+
+
+    <!-- DONE 
+    <footer>
+
+
+        <div id="social-networks">
+            <div>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                    aria-label="Visit our Facebook page (opens in a new tab)">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+            </div>
+            <div>
+                <a href="https://www.twitter.com/" target="_blank" rel="noopener"
+                    aria-label="Visit our Twitter page (opens in a new tab)">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+            <div>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener"
+                    aria-label="Visit our Youtube channel (opens in a new tab)">
+                    <i class="fa-brands fa-square-youtube"></i>
+                </a>
+            </div>
+            <div>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                    aria-label="Visit our Instagram page (opens in a new tab)">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    -->
+    <script src="https://kit.fontawesome.com/498c29f243.js" crossorigin="anonymous"></script>
+    <script src="assets/js/tasks5.js"></script>
+
 
 </body>
-
 
 
 </html>
