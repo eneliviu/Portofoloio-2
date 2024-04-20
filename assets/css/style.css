@@ -281,9 +281,12 @@ main {
 /*=====================================================================*/
 /* TASKS.HTML*/
 
+#task-list-header{
+    padding-top: 1rem;
+    margin: 0 auto;
+}
 #todo-header {
     font-size: 3rem;
-    margin: 0 auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }

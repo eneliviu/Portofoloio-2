@@ -307,7 +307,7 @@ function updateListTitle() {
     if (runningTotal === 0) {
         document.getElementById('list-title').innerText = 'All tasks completed!';
     } else {
-        document.getElementById('list-title').innerText = `${runningTotal} Tasks to do:`;
+        document.getElementById('list-title').innerText = `${runningTotal} Tasks to finish:`;
     }
 }
 
