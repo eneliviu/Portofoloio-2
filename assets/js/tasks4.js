@@ -164,13 +164,13 @@ function addTaskToTaskList() {
     for (let elem of document.getElementsByClassName('task-title')) {
         elem.addEventListener('click', editTaskDescription);
     }
+
+    /*
     for (let elem of document.getElementsByClassName('task-item')) {
         elem.addEventListener('click', function () {
             let idx = -1; //undefined
             for (let i = 0; i < taskObjectsArray.length; i++) {
-                //console.log(taskObjectsArray[i].taskId)
-                //console.log(this.dataset.id)
-                if (this.dataset.id === taskObjectsArray[i].taskId) {
+                if (this.id === taskObjectsArray[i].taskId) {
                     idx = i;
                     //console.log(idx)
                     break; // exit when the HTML task elem found
@@ -184,26 +184,25 @@ function addTaskToTaskList() {
 
         });
     }
+    */
     for (let elem of document.getElementsByClassName('remove-div')) {
         elem.addEventListener('click', removeTasks);
     }
 
 }
 
-
 /**
- * This function returns the ID of the selected task item
- * @param {*} taskObjectsArray 
+ * This function returns the list array index of the selected task item
+ * @param {*} taskId 
+ * @param {*} objectArray 
  * @returns 
  */
-function getObjId() {
+function getObjId(taskId, objectArray) {
     let idx = -1; //undefined
-    for (let i = 0; i < taskObjectsArray.length; i++) {
+    for (let i = 0; i < objectArray.length; i++) {
         //console.log(taskObjectsArray[i].taskId)
-        //console.log(this.dataset.id)
-        if (this.dataset.id === taskObjectsArray[i].taskId) {
+        if (taskId === objectArray[i].taskId) {
             idx = i;
-            console.log(idx)
             break; // exit when the HTML task elem found
         }
     }
@@ -212,7 +211,6 @@ function getObjId() {
     } else {
         return idx;
     }
-
 }
 
 /**
@@ -221,13 +219,12 @@ function getObjId() {
  * task activities and relevance.  
 */
 function removeTasks() {
+
     if (confirm('Remove task?') === true) {
         // extract and remove the task obj from array 
         //let objToRemove = taskObjectsArray.splice(getObjId(taskObjectsArray), 1)[0];
 
-        
-
-
+        /*
         let idx = -1; //undefined
         for (let i = 0; i < taskObjectsArray.length; i++) {
             //console.log(taskObjectsArray[i].taskId)
@@ -243,15 +240,21 @@ function removeTasks() {
             console.log(this.dataset.id)
             throw new Error('Cannot find task ID - Aborting');
         } 
+        */
 
+        let idx = getObjId(this.dataset.id, taskObjectsArray);
         let objToRemove = structuredClone(taskObjectsArray.slice(idx)[0]);
-
         //localStorage.setItem('taskObjectsArray', JSON.stringify(taskObjectsArray));
-        
-        // Update scores
-        decrementActivityScores(objToRemove.taskCategories.namesActivities[0]);
-        decrementRelevanceScores(objToRemove.taskCategories.namesRelevance[0]);
-        //updateListTitle();
+
+
+        //if(this.children[0].classList[1] === 'fa-circle-check')
+
+        if (this.parentNode.children[0].children[0].classList[1] === "fa-circle") {
+            // Update scores
+            decrementActivityScores(objToRemove.taskCategories.namesActivities[0]);
+            decrementRelevanceScores(objToRemove.taskCategories.namesRelevance[0]);
+            updateListTitle();
+        }
 
         // Remove HTML element from DOM:
         this.parentNode.parentNode.remove();
@@ -304,7 +307,7 @@ function updateListTitle() {
     if (runningTotal === 0) {
         document.getElementById('list-title').innerText = 'All tasks completed!';
     } else {
-        document.getElementById('list-title').innerText = `${runningTotal} Tasks left:`;
+        document.getElementById('list-title').innerText = `${runningTotal} Tasks to do:`;
     }
 }
 
@@ -364,21 +367,24 @@ function editTaskDescription(event) {
  * This function edits the check icon to confirm that a task is completed.
  */
 function editTasks() {
-
+    let idx = getObjId(this.dataset.id, taskObjectsArray);
     if (this.children[0].classList[1] === 'fa-circle') {
         if (confirm('Is the task completed?') === true) {
             this.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
             this.style.color = 'lime';
             this.nextElementSibling.className = 'task-tile-strike';
 
-            //console.log(taskObjectsArray)
+            let objToRemove = structuredClone(taskObjectsArray.slice(idx)[0]);
+            console.log(this.children[0])
+            decrementActivityScores(objToRemove.taskCategories.namesActivities[0]);
+            decrementRelevanceScores(objToRemove.taskCategories.namesRelevance[0]);
+            updateListTitle();
 
-            //let objToRemove = structuredClone(taskObjectsArray.slice(getObjId()));
-
-            //decrementActivityScores(objToRemove.taskCategories.namesActivities[0]);
-            //decrementRelevanceScores(objToRemove.taskCategories.namesRelevance[0]);
-            //updateListTitle();
+            if (confirm('Remove task?')){
+                removeTasks()
+            };
         }
+
 
         /*
         if(localStorage.getItem('taskObjectsArray') === null){
