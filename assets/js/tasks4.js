@@ -55,6 +55,7 @@ function addTaskToTaskList() {
 
     let newTaskType = document.createElement("div");
     newTaskType.className = 'innerHTML-task-category';
+    newTaskType.dataset.id = newTask.id;
 
     let newTaskActivity = document.createElement("span");
     newTaskActivity.className = 'activity-span';
@@ -89,19 +90,19 @@ function addTaskToTaskList() {
     if (taskDescription.length >= 3) {
         taskObject.taskDescription = taskDescription.slice();
         newTask.innerHTML = `<div class="handle-task">
-                                <div class="edit-div">
+                                <div class="edit-div" data-id=${newTask.id}>
                                     <i class="fa-regular fa-circle"></i>
                                 </div>
-                                <div class="task-title">                        
+                                <div class="task-title" data-id=${newTask.id}>                        
                                     <h3>${taskDescription}</h3>
                                 </div>
                                 
-                                <div class="remove-div">
+                                <div class="remove-div" data-id=${newTask.id}>
                                     <i class="fa-regular fa-trash-can"></i>
                                 </div>
                             </div>
                             `;
-        newTask.dataset.id = newTask.id;
+        console.log(newTask)
 
     } else {
         alert(`Please enter a task using at least three characters:`);
@@ -157,9 +158,6 @@ function addTaskToTaskList() {
     //localStorage.setItem('taskObjectsArray', JSON.stringify(taskObjectsArray));
 
     //debugger
-    for (let elem of document.getElementsByClassName('remove-div')) {
-        elem.addEventListener('click', removeTasks);
-    }
     for (let elem of document.getElementsByClassName('edit-div')) {
         elem.addEventListener('click', editTasks);
     }
@@ -167,15 +165,14 @@ function addTaskToTaskList() {
         elem.addEventListener('click', editTaskDescription);
     }
     for (let elem of document.getElementsByClassName('task-item')) {
-        elem.addEventListener('click', function(){
-        
+        elem.addEventListener('click', function () {
             let idx = -1; //undefined
             for (let i = 0; i < taskObjectsArray.length; i++) {
-                console.log(taskObjectsArray[i].taskId)
-                console.log(this.dataset.id)
+                //console.log(taskObjectsArray[i].taskId)
+                //console.log(this.dataset.id)
                 if (this.dataset.id === taskObjectsArray[i].taskId) {
                     idx = i;
-                    console.log(idx)
+                    //console.log(idx)
                     break; // exit when the HTML task elem found
                 }
             }
@@ -184,9 +181,12 @@ function addTaskToTaskList() {
             } else {
                 return idx;
             }
-        
-        } );
-}
+
+        });
+    }
+    for (let elem of document.getElementsByClassName('remove-div')) {
+        elem.addEventListener('click', removeTasks);
+    }
 
 }
 
@@ -196,11 +196,11 @@ function addTaskToTaskList() {
  * @param {*} taskObjectsArray 
  * @returns 
  */
-function getObjId(event, taskObjectsArray) {
+function getObjId() {
     let idx = -1; //undefined
     for (let i = 0; i < taskObjectsArray.length; i++) {
-        console.log(taskObjectsArray[i].taskId)
-        console.log(this.dataset.id)
+        //console.log(taskObjectsArray[i].taskId)
+        //console.log(this.dataset.id)
         if (this.dataset.id === taskObjectsArray[i].taskId) {
             idx = i;
             console.log(idx)
@@ -223,17 +223,39 @@ function getObjId(event, taskObjectsArray) {
 function removeTasks() {
     if (confirm('Remove task?') === true) {
         // extract and remove the task obj from array 
-        let objToRemove = taskObjectsArray.splice(getObjId(taskObjectsArray), 1)[0];
-        //let objToRemove = structuredClone(taskObjectsArray.slice(getObjId(taskObjectsArray))[0]);
+        //let objToRemove = taskObjectsArray.splice(getObjId(taskObjectsArray), 1)[0];
+
+        
+
+
+        let idx = -1; //undefined
+        for (let i = 0; i < taskObjectsArray.length; i++) {
+            //console.log(taskObjectsArray[i].taskId)
+            console.log(this.parentNode)
+            
+            if (this.dataset.id === taskObjectsArray[i].taskId) {
+                idx = i;
+                
+                break; // exit when the HTML task elem found
+            }
+        }
+        if (idx === -1) {
+            console.log(this.dataset.id)
+            throw new Error('Cannot find task ID - Aborting');
+        } 
+
+        let objToRemove = structuredClone(taskObjectsArray.slice(idx)[0]);
 
         //localStorage.setItem('taskObjectsArray', JSON.stringify(taskObjectsArray));
-
-        // remove task from DOM
-        this.parentNode.parentNode.remove();
+        
         // Update scores
         decrementActivityScores(objToRemove.taskCategories.namesActivities[0]);
         decrementRelevanceScores(objToRemove.taskCategories.namesRelevance[0]);
-        updateListTitle();
+        //updateListTitle();
+
+        // Remove HTML element from DOM:
+        this.parentNode.parentNode.remove();
+
     }
 }
 
