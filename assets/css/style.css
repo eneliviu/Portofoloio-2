@@ -8,21 +8,6 @@
     --box-shadow-header-col: #202020;
     --font-col-logo: #1d1c1b;
     --font-col-h: #eba0a0;
-
-    --bgk-col-nav: #393E46;
-    --favi-nav-col: #eeddcc;
-
-    --favi-hearts-col: rgb(238, 53, 53);
-    --favi-likes-col: rgba(238, 231, 228, 0.7);
-
-    --card-border-col: #e1f1f2;
-    --h-col-light: #eba0a0;
-    --bgk-likes-col: rgba(49, 51, 48, 0.6);
-
-    --bkg-contact-col: rgba(60, 60, 60, 0.5);
-    --contact-border-col: #e94545;
-    --submit-btn-col: #454b1b;
-    --go-back-col: rgb(243, 236, 233);
 }
 
 
@@ -51,19 +36,12 @@ a {
     text-decoration: none;
 }
 
-
 h1,
 h2,
 h3 {
     text-transform: capitalize;
     letter-spacing: 2px;
 }
-
-/* Utility function to hide elements from the user but still be available for search engines*/
-.hidden-heading {
-    display: none;
-}
-
 
 #header {
     background-color: var(--bkg-col-header);
@@ -77,60 +55,11 @@ h3 {
     z-index: 99;
 }
 
-
 #logo {
     color: var(--font-col-logo);
     font-size: 3rem;
     font-family: 'Roboto', sans-serif;
 }
-
-
-#navbar {
-    position: absolute;
-    background-color: #e1f1f2;
-    left: 0;
-    width: 100%;
-    display: none;
-    top: 100%;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-    padding: 0.5rem;
-}
-
-.active {
-    border-bottom: 1px solid #1d1c1b;
-}
-
-#navbar a {
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: #1d1c1b;
-}
-
-#navbar a:hover {
-    scale: 1.25;
-    color: #1d1c1b;
-}
-
-#nav-toggle {
-    display: none;
-}
-
-#nav-toggle:checked~nav {
-    display: block;
-}
-
-#nav-toggle-label {
-    font-size: 3rem;
-    color: var(--font-col-logo);
-}
-
 
 main {
     display: flex;
@@ -140,96 +69,21 @@ main {
 }
 
 
-#social-networks {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    margin-top: auto;
-    bottom: 0;
-    height: 4rem;
-    width: 100%;
-    font-size: 250%;
-    background-color: var(--bgk-col-nav);
-
-}
-
-#social-networks a>i {
-    color: var(--favi-nav-col);
-    opacity: 0.6;
-}
-
-#social-networks a>i:hover {
-    opacity: 1;
-    scale: 1.25;
-}
-
-/*=====================================================================*/
-/* INDEX.HTML */
-
-#hero {
-    position: relative;
-    height: 40rem;
-    width: 100%;
-    background: url("/assets/images/surja-sen-das-raj-y16ku6si6xI-unsplash.jpg") no-repeat center center/cover;
-    /* 
-    https://unsplash.com/photos/a-notebook-with-a-pen-on-top-of-it-y16ku6si6xI?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash
-    */
-}
-
-#cover-text {
-    display: inline-block;
-    position: absolute;
-    bottom: 2rem;
-    width: 75%;
-    padding-left: 1rem;
-    min-height: 6rem;
-    font-size: 200%;
-    background-color: var(--bkg-col-header);
-    color: var(--font-col-logo);
-}
-
-#cover-text>h2 {
-    padding: 0.5rem 0.5rem;
-    color: var(--font-col-header);
-    font-family: 'Roboto', sans-serif;
-}
-
-
-#add-tasks {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    justify-content: baseline;
-    margin: 0 auto;
-    padding-bottom: 3rem;
-}
-
-
-#tasks-header {
-    margin: 1rem 0.5rem;
-    text-align: center;
-    color: var(--font-col-h);
-    padding: 0.5rem 0.5rem;
-    font-size: 200%;
-}
-
-/*=====================================================================*/
-/* TASKS.HTML*/
-
-#task-list-header{
+#task-list-header {
     margin: 1rem auto;
 }
+
 #todo-header {
-    font-size: 4rem; 
+    font-size: 4rem;
+    margin: 1rem 0;
 }
-#todo-header-list{
+
+#todo-header-list {
     font-size: 200%;
     line-height: 150%;
-    text-align: center; 
+    text-align: center;
 }
+
 #score-area {
     margin: 0 auto;
     display: flex;
@@ -237,15 +91,18 @@ main {
     align-items: center;
     justify-items: center;
     padding-bottom: 0.5rem;
-    h2{
-        text-align: center;
-        padding-bottom: 0.5rem;
-    }
 }
-#list-title{
+
+#score-area h2 {
+    text-align: center;
+    padding-bottom: 0.5rem;
+}
+
+#list-title {
     font-size: 200%;
     margin: 1rem 0;
 }
+
 .score-area-list {
     margin: 0.5rem auto;
     font-size: 180%;
@@ -256,6 +113,7 @@ main {
     display: inline-block;
     padding: 0 0.5rem;
 }
+
 .score-activity-span,
 .score-relevance-span {
     color: lime;
@@ -286,7 +144,7 @@ main {
     flex: 1;
     padding-top: 0.5rem;
     padding-bottom: 1rem;
-  
+
 }
 
 .task-def {
@@ -294,12 +152,13 @@ main {
     width: 100%;
     min-height: 4rem;
     text-wrap: wrap;
-    overflow:scroll;
+    overflow: scroll;
     border-radius: 1rem;
 }
-.task-def:focus{
+
+.task-def:focus {
     outline: none !important;
-    border-color:red;
+    border-color: red;
     border: 3px solid rgb(231, 123, 80);
 }
 
@@ -315,7 +174,7 @@ main {
 
 .btn:focus {
     outline: none !important;
-    border-color:red;
+    border-color: red;
     border: 3px solid rgb(231, 123, 80);
 }
 
@@ -362,9 +221,8 @@ main {
     width: 95%;
     display: block;
     margin: 1rem auto;
-    
-}
 
+}
 
 .categ {
     width: 100%;
@@ -402,23 +260,26 @@ main {
 .task-item h2 {
     text-align: center;
 }
+
 .task-item h3 {
     padding-left: 1rem;
 }
 
-.handle-task{
+.handle-task {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-items: center;
-  
+
 }
-.task-title{
+
+.task-title {
     margin: 0 auto;
     cursor: pointer;
     font-size: 150%;
 }
-.task-tile-strike{
+
+.task-tile-strike {
     margin: 0 auto;
     cursor: pointer;
     text-decoration: line-through;
@@ -428,22 +289,22 @@ main {
     margin: 0 auto;
 }
 
-.edit-div{
-    right:2rem;
+.edit-div {
+    right: 2rem;
     border-radius: 50%;
 }
 
-.edit-div > i{
+.edit-div>i {
     background-color: white;
     border-radius: 50%;
 }
 
-.remove-div{
+.remove-div {
     float: right;
 }
 
-.edit-div, 
-.remove-div{
+.edit-div,
+.remove-div {
     padding: 1rem 1rem;
     cursor: pointer;
     font-size: 150%;
@@ -456,94 +317,67 @@ main {
     justify-content: space-around;
     align-items: center;
 }
-.activity-span, 
-.relevance-span{
+
+.activity-span,
+.relevance-span {
     border-radius: 2rem;
     margin: 0.5rem;
     padding: 0.2rem 0.75rem;
     width: 8rem;
     font-size: 130%;
     text-align: center;
-    
+
 }
 
 
-/*=====================================================================*/
-
 @media screen and (min-width: 567px) {
 
-    #additional-content {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-
+    #text-container {
+        min-width: 40rem;
+        font-size: 150%;
     }
 
-    #img-container {
-        columns: 2;
+    .activity-span,
+    .relevance-span {
+        border-radius: 2rem;
+        margin: 0.5rem;
+        padding: 0.2rem 0.75rem;
+        width: 12rem;
+
     }
-
-
-    #map {
-        width: 567px;
-        height: 400px;
-    }
-
 }
 
 @media screen and (min-width: 768px) {
 
-    #nav-toggle-label,
-    #nav-toggle {
-        display: none;
+    #text-container {
+        min-width: 60rem;
+        font-size: 150%;
     }
 
-    #navbar {
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        box-shadow: none;
-        width: fit-content;
-        padding-right: 4rem;
-        justify-content: space-between;
-        gap: 3rem;
-        font-size: 1.75rem;
-        align-items: center;
-    }
+    .activity-span,
+    .relevance-span {
+        border-radius: 2rem;
+        margin: 0.5rem;
+        padding: 0.2rem 0.75rem;
+        width: 12rem;
 
-    #navbar div>a {
-        color: #1d1c1b;
     }
-
-    #img-container {
-        columns: 3;
-    }
-
-    #cover-text {
-        right: 8rem;
-        max-width: 25rem;
-    }
-
-    #map {
-        width: 768px;
-        height: 400px;
-    }
-
 }
 
 @media screen and (min-width: 992px) {
 
-    #additional-content {
-        columns: 4;
+    #text-container {
+        min-width: 70rem;
+        font-size: 180%;
     }
 
-    #img-container {
-        columns: 4;
+    .activity-span,
+    .relevance-span {
+        border-radius: 2rem;
+        margin: 0.5rem;
+        padding: 0.2rem 0.75rem;
+        width: 16rem;
+
     }
 
-    #map {
-        width: 992px;
-        height: 400px;
-
-    }
 }

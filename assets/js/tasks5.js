@@ -110,9 +110,9 @@ function addTaskToTaskList(event) {
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
         document.getElementById("task-description-field").focus();
-        
+
         throw errMessageUnknownTask;
-        
+
     }
 
     // Add the task activity:
@@ -314,7 +314,7 @@ function editTasks() {
             decrementRelevanceScores(objToRemove.taskCategories.namesRelevance[0]);
             updateListTitle();
 
-             // Remove HTML element from the DOM:
+            // Remove HTML element from the DOM:
             if (confirm('Remove task?')) {
                 this.parentNode.parentNode.remove();
             };
@@ -353,8 +353,8 @@ function removeTasks() {
             // Remove HTML element from the DOM:
             this.parentNode.parentNode.remove();
         }
-    }else{ // At confirmation after task completion
-        
+    } else { // At confirmation after task completion
+
     }
 }
 
@@ -403,6 +403,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('add-relevance-btn').addEventListener('click', taskRelevanceDisplay); // Add relevance + button
     document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
 })
+
+
 
 /**
  * The rest of the code below sets callbacks for handling events for task activity and relevance buttons:
@@ -454,6 +456,16 @@ for (let i = 0; i < relevanceBtns.length; i++) {
         namesRelevance[0] = this.innerText;
     });
 }
+
+
+/*
+let userName = prompt('Enter your name:');
+if (userName != null) {
+    document.getElementById('todo-header').children[0].innerText = `  ${userName}'s ToDO List`;
+}else {
+    document.getElementById('todo-header').children[0].innerText = '  My ToDo List';
+}
+*/
 
 //===================================================================================================//
 
