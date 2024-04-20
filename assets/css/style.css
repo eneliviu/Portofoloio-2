@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
-
 
 :root {
     --bgk-col-body: #222831;
@@ -286,12 +284,13 @@ main {
     margin: 0 auto;
 }
 #todo-header {
-    font-size: 3rem;
+    font-size: 4rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
 #score-area {
+    margin: 0 auto;
     padding-top: 1rem;
     padding-bottom: 0.5rem;
     h2{
@@ -300,7 +299,7 @@ main {
     }
 }
 #list-title{
-    font-size: 200%;
+    font-size: 250%;
 }
 .score-area-list {
     margin: 0 auto;
