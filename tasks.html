@@ -50,13 +50,16 @@
     <header id="header">
 
         <a href="index.html">
-            <h1 id="logo"> LovinPlans </h1>
+            <h1 id="logo"> <i class="fa-solid fa-list-check"></i> LovinPlans
+            </h1>
         </a>
 
+        <!--
         <input id="nav-toggle" type="checkbox" name="nav-toggle">
         <label for="nav-toggle" id="nav-toggle-label">
             <i class="fa-solid fa-bars"></i>
         </label>
+       
 
         <nav id="navbar">
             <div class="menu-item"> <a href="index.html"> Home </a> </div>
@@ -64,16 +67,29 @@
             <div class="menu-item"> <a href="help.html"> Help </a> </div>
             <div class="menu-item"> <a href="contact.html"> Contact </a> </div>
         </nav>
+         -->
 
     </header>
-    
+
     <main id="main-tasks">
+
+
+
 
         <section id="task-list-header">
             <h1 id="todo-header">
                 <i class="fa-solid fa-list-check"></i>
                 ToDo List
             </h1>
+            <ul id="todo-header-list">
+                <li>
+                    Streamline Your Tasks!
+                </li> 
+                <li>
+                    Supercharge Your Efficiency!
+                </li>
+               
+            </ul>
         </section>
         <br>
 
@@ -82,7 +98,7 @@
             <h2 id="list-title"> Add Your tasks for today:</h2>
             <ul class="score-area-list">
                 <li class='score-item'>Personal:<span class='score-activity-span' id="personal-score"> 0</span></li>
-                <li class='score-item'>Professional:<span class='score-activity-span' id="professional-score"> 0</span>
+                <li class='score-item'>Work:<span class='score-activity-span' id="work-score"> 0</span>
                 </li>
                 <li class='score-item'>Errands:<span class='score-activity-span' id="errands-score"> 0</span></li>
             </ul>
@@ -105,7 +121,7 @@
 
                 <div class="input-field" id="task-description">
                     <input type="text" class="task-def" name="task-description" id="task-description-field"
-                        aria-label="Enter task description" placeholder="Enter task description: e.g., Buy groceries"
+                        aria-label="Enter task description" placeholder="Enter task description: e.g., Buy bread"
                         value='' autocomplete="on" maxlength="70" required>
                 </div>
 
@@ -114,7 +130,7 @@
                 </button>
                 <div id="task-activity-div">
                     <button type="submit" class='btn categ' id="personal-categ-btn">Personal</button>
-                    <button type="submit" class='btn categ' id="professional-categ-btn">Professional</button>
+                    <button type="submit" class='btn categ' id="professional-categ-btn">Work</button>
                     <button type="submit" class='btn categ' id="errands-categ-btn">Errands</button>
                 </div>
 

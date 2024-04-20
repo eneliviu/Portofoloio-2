@@ -3,24 +3,24 @@
 /**
  * Display task card on click on 'Add Task +" button" 
  */
-function taskCardDisplay() {
+function taskCardDisplay(event) {
 
     let taskCard = document.getElementById("task-cards-section");
     taskCard.style.display = (taskCard.style.display !== 'block' ? 'block' : 'none');
-    document.getElementById("task-description-field").focus();
-
     document.getElementById("task-description-field").addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
             event.preventDefault();
             document.getElementById("add-activity-btn").focus();
         }
     });
+
+    document.getElementById("task-description-field").focus();
 }
 
 /**
  * Display activity selection buttons on click on 'Add Activity' button
  */
-function taskActivityDisplay() {
+function taskActivityDisplay(event) {
     let taskActiv = document.getElementById("task-activity-div");
     taskActiv.style.display = (taskActiv.style.display !== 'flex' ? 'flex' : 'none');
 }
@@ -40,7 +40,7 @@ function taskRelevanceDisplay(event) {
  * Each new object is pushed into an array for temporary storage.
  * Passes the callabck functions to handle each of the tasks (edit, remove, task info updates).   
  */
-function addTaskToTaskList() {
+function addTaskToTaskList(event) {
 
     document.getElementById("task-description-field").focus();
 
@@ -105,10 +105,14 @@ function addTaskToTaskList() {
     } else {
         alert(`Please enter a task using at least three characters:`);
         // Reset:
+        //debugger
         document.getElementById('add-task-btn').click();
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
+        document.getElementById("task-description-field").focus();
+        
         throw errMessageUnknownTask;
+        
     }
 
     // Add the task activity:
@@ -122,6 +126,7 @@ function addTaskToTaskList() {
         document.getElementById('add-task-btn').click();
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
+        document.getElementById("task-description-field").focus();
         throw errMessageUnknownActivity;
     }
 
@@ -136,6 +141,7 @@ function addTaskToTaskList() {
         document.getElementById('add-task-btn').click();
         document.getElementById('add-activity-btn').click();
         document.getElementById('add-relevance-btn').click();
+        document.getElementById("task-description-field").focus();
         throw errMessageUnknownCateg;
     }
 
@@ -196,8 +202,8 @@ function getObjId(taskId, objectArray) {
 function decrementActivityScores(activity) {
     if (activity === 'Personal') {
         document.getElementById('personal-score').innerText--;
-    } else if (activity === 'Professional') {
-        document.getElementById('professional-score').innerText--;
+    } else if (activity === 'Work') {
+        document.getElementById('work-score').innerText--;
     } else if (activity === 'Errands') {
         document.getElementById('errands-score').innerText--;
     } else {
@@ -233,7 +239,7 @@ function updateListTitle() {
     if (runningTotal === 0) {
         document.getElementById('list-title').innerText = 'All tasks completed!';
     } else {
-        document.getElementById('list-title').innerText = `${runningTotal} Tasks to finish:`;
+        document.getElementById('list-title').innerText = `${runningTotal} Tasks to complete:`;
     }
 }
 
@@ -245,8 +251,8 @@ function updateListTitle() {
 function incrementActivityScores(activity) {
     if (activity === 'Personal') {
         document.getElementById('personal-score').innerText++;
-    } else if (activity === 'Professional') {
-        document.getElementById('professional-score').innerText++;
+    } else if (activity === 'Work') {
+        document.getElementById('work-score').innerText++;
     } else if (activity === 'Errands') {
         document.getElementById('errands-score').innerText++;
     } else {
@@ -316,7 +322,7 @@ function editTasks() {
     } else if (this.children[0].classList[1] === 'fa-circle-check') {
         if (confirm('Reactivate the task?') === true) {
             this.innerHTML = '<i class="fa-regular fa-circle"></i>';
-            this.nextElementSibling.className = 'task-tile';
+            this.nextElementSibling.className = 'task-title';
             this.style.color = 'white';
         }
         incrementActivityScores(this.parentNode.parentNode.lastChild.children[0].innerText);
@@ -382,7 +388,7 @@ let taskObjectsArray = [];
 let taskObjectTemplate = {
     taskDescription: [],
     taskCategories: { namesActivities: [], namesRelevance: [] },
-    taskScores: { Personal: [], Professional: [], Errands: [], Urgent: [], Chore: [] },
+    taskScores: { Personal: [], Work: [], Errands: [], Urgent: [], Chore: [] },
     taskId: []
 };
 
