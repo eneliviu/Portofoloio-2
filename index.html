@@ -12,7 +12,7 @@
 
     <meta name="description" content="LovinPlans.Streamline your daily tasks." />
     <meta name="keywords" content="To-do list, task management, productivity, organization, prioritization, 
-    reminders, checklist, categories, subtask, user interface(UI)"/>
+    reminders, checklist, categories, subtask, user interface(UI)" />
 
 
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -51,23 +51,20 @@
 
     <main id="main-tasks">
 
-
-
-
         <section id="task-list-header">
             <h1 id="todo-header">
-                <i class="fa-solid fa-list-check"></i>
-                <!--My ToDo List -->
+                
+                <!--<i class="fa-solid fa-list-check"></i> -->
                 My ToDo List
             </h1>
             <ul id="todo-header-list">
                 <li>
                     Streamline Your Tasks!
-                </li> 
+                </li>
                 <li>
                     Supercharge Your Efficiency!
                 </li>
-               
+
             </ul>
         </section>
         <br>
@@ -108,17 +105,17 @@
                     Add activity: <i class="fa-solid fa-plus"></i>
                 </button>
                 <div id="task-activity-div">
-                    <button type="submit" class='btn categ' id="personal-categ-btn">Personal</button>
-                    <button type="submit" class='btn categ' id="professional-categ-btn">Work</button>
-                    <button type="submit" class='btn categ' id="errands-categ-btn">Errands</button>
+                    <button type="submit" class='btn  btn--subcateg categ' id="personal-categ-btn">Personal</button>
+                    <button type="submit" class='btn  btn--subcateg categ' id="professional-categ-btn">Work</button>
+                    <button type="submit" class='btn  btn--subcateg categ' id="errands-categ-btn">Errands</button>
                 </div>
 
                 <button class='btn btn--categ' id="add-relevance-btn">
                     Add relevance: <i class="fa-solid fa-plus"></i>
                 </button>
                 <div id="task-importance-div">
-                    <button type="submit" class="btn categ" id="urgent-categ-btn">Urgent</button>
-                    <button type="submit" class="btn categ" id="chores-categ-btn">Chore</button>
+                    <button type="submit" class="btn btn--subcateg categ" id="urgent-categ-btn">Urgent</button>
+                    <button type="submit" class="btn btn--subcateg categ" id="chores-categ-btn">Chore</button>
                 </div>
 
                 <button type="submit" class='btn btn--categ' id="add-task-ok-btn">
@@ -141,6 +138,14 @@
 
     </main>
 
+    <footer>
+        <div id="footer-div">
+            <p>
+                <i class="fa-solid fa-list-check"></i>
+                LovinPlans - Empowering productivity! &copy; 2024.
+            </p>
+        </div>
+    </footer>
 
     <script src="https://kit.fontawesome.com/498c29f243.js" crossorigin="anonymous"></script>
     <script src="assets/js/tasks5.js"></script>
