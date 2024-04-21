@@ -285,9 +285,9 @@ function editTaskDescription(event) {
     if (newText !== null) {
         let strLength = parseInt((newText === '') ? 0 : newText.length);
         //check for valid entry
-        if (strLength < minTextLength) {
-            while (strLength < minTextLength) {
-                newText = prompt(`Please enter a task name using at least three characters:`);
+        if ( (strLength < minTextLength) || (newText.length > 140) )  {
+            while ( (strLength < minTextLength) || (newText.length > 140)) {
+                newText = prompt(`Please enter a task using at 3-140 characters:`);
                 strLength = ((!newText || newText === '') ? 0 : newText.length)
             }
         }

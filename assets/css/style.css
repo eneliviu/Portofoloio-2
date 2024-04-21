@@ -284,8 +284,9 @@ main {
 }
 
 .task-title h3 {
-    max-width: 28rem;
+    max-width: 100%;
     font-size: 150%;
+    padding: 0.5rem;
 }
 
 .task-tile-strike {
@@ -296,7 +297,6 @@ main {
     text-decoration-color: lime;
     text-decoration-thickness: 0.3rem;
 }
-
 
 
 .edit-div>i {
@@ -330,8 +330,6 @@ main {
     text-align: center;
 }
 
-
-
 #footer-div {
     display: flex;
     margin-top: auto;
@@ -350,9 +348,7 @@ main {
     }
 }
 
-
 /*-------------------------------------------------------*/
-
 
 @media screen and (min-width: 567px) {
 
@@ -361,10 +357,12 @@ main {
         font-size: 150%;
     }
 
-    .task-title h3 {
-        max-width: 55rem;
-        text-align: left;
+    .task-title, 
+    .task-tile-strike > h3 {
+        max-width: 50rem;
+        text-align:left;
     }
+
 
     .activity-span,
     .relevance-span {
@@ -381,7 +379,7 @@ main {
     }
 
     .task-title h3 {
-        max-width: 85rem;
+        max-width: 70rem;
         text-align: left;
     }
 
@@ -401,12 +399,12 @@ main {
 @media screen and (min-width: 992px) {
 
     #text-container {
-        min-width: 90rem;
+        min-width: 98rem;
         font-size: 180%;
     }
 
     .task-title h3 {
-        max-width: 85rem;
+        max-width: 90rem;
         text-align: left;
     }
 
