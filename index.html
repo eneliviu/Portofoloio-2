@@ -2,17 +2,17 @@
 <html lang="en">
 
 
-<!-- UPDATE DESCRIPTION AND KEYWORDS -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title> LovinPlans </title>
+    <title> 
+        LovinPlans 
+    </title>
 
     <meta name="description" content="LovinPlans.Streamline your daily tasks." />
     <meta name="keywords" content="To-do list, task management, productivity, organization, prioritization, 
-    reminders, checklist, categories, subtask, user interface(UI)" />
+        reminders, checklist, categories, subtask, user interface(UI)" />
 
 
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -20,23 +20,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="manifest" href="assets/favicon/site.webmanifest">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
 
-
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-
-
-<!-- 
-    HTML DateTime input reference: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date 
-    with link to https://jqueryui.com/datepicker/ 
--->
 
 
 <body>
@@ -44,14 +36,17 @@
     <header id="header">
 
         <a href="index.html">
-            <h1 id="logo"> <i class="fa-solid fa-list-check"></i> LovinPlans
+            <h1 id="logo"> 
+                <i class="fa-solid fa-list-check"></i> 
+                LovinPlans
             </h1>
         </a>
+
     </header>
 
-    <main id="main-tasks">
+    <main>
 
-        <section id="task-list-header">
+        <section id="task-list-header" aria-label="task list header">
             <h1 id="todo-header">
                 
                 <!--<i class="fa-solid fa-list-check"></i> -->
@@ -70,7 +65,7 @@
         <br>
 
 
-        <section id="score-area">
+        <section id="score-area" aria-label="task tracker">
             <h2 id="list-title"> Add Your tasks for today:</h2>
             <ul class="score-area-list">
                 <li class='score-item'>Personal: <span class='score-activity-span' id="personal-score">0</span></li>
@@ -86,39 +81,39 @@
         </section>
         <br>
 
-        <button type="submit" class='btn btn--task' id="add-task-btn">
+        <button type="submit" class='btn btn--task' id="add-task-btn" aria-label="open dialog box to create a new task">
             Add task <i class="fa-solid fa-plus"></i>
         </button>
 
 
-        <section id="task-cards-section">
+        <section id="task-cards-section" aria-label="task creation dialog box">
 
             <div class="task-card">
 
-                <div class="input-field" id="task-description">
-                    <input type="text" class="task-def" name="task-description" id="task-description-field"
-                        aria-label="Enter task description" placeholder="Enter task description: e.g., Buy bread"
-                        value='' autocomplete="on" maxlength="70" required>
+                <div id="input-field" id="task-description">
+                    <input type="text" id="task-description-field" name="task-description" 
+                        aria-label="enter task description" placeholder="Enter task description: e.g., Buy bread"
+                        value='' autocomplete="on" maxlength="40" required>
                 </div>
 
-                <button class='btn btn--categ' id="add-activity-btn">
+                <button class='btn btn--categ' id="add-activity-btn" aria-label="open dialog box to select an activity">
                     Add activity: <i class="fa-solid fa-plus"></i>
                 </button>
                 <div id="task-activity-div">
-                    <button type="submit" class='btn  btn--subcateg categ' id="personal-categ-btn">Personal</button>
-                    <button type="submit" class='btn  btn--subcateg categ' id="professional-categ-btn">Work</button>
-                    <button type="submit" class='btn  btn--subcateg categ' id="errands-categ-btn">Errands</button>
+                    <button type="submit" class='btn  btn--subcateg categ' id="personal-categ-btn" aria-label="select personal task">Personal</button>
+                    <button type="submit" class='btn  btn--subcateg categ' id="professional-categ-btn" aria-label= "select work task">Work</button>
+                    <button type="submit" class='btn  btn--subcateg categ' id="errands-categ-btn" aria-label = "select errands">Errands</button>
                 </div>
 
                 <button class='btn btn--categ' id="add-relevance-btn">
                     Add relevance: <i class="fa-solid fa-plus"></i>
                 </button>
                 <div id="task-importance-div">
-                    <button type="submit" class="btn btn--subcateg categ" id="urgent-categ-btn">Urgent</button>
-                    <button type="submit" class="btn btn--subcateg categ" id="chores-categ-btn">Chore</button>
+                    <button type="submit" class="btn btn--subcateg categ" id="urgent-categ-btn" aria-label="mark an urget task">Urgent</button>
+                    <button type="submit" class="btn btn--subcateg categ" id="chores-categ-btn" aria-label="mark a normal task">Chore</button>
                 </div>
 
-                <button type="submit" class='btn btn--categ' id="add-task-ok-btn">
+                <button type="submit" class='btn btn--categ' id="add-task-ok-btn" aria-label="add new task to the list">
                     OK
                 </button>
 
@@ -129,11 +124,8 @@
         <br>
 
 
-
-        <section id="text-container">
-
+        <section id="text-container" aria-label="task list">
         </section>
-
 
 
     </main>
@@ -150,8 +142,6 @@
     <script src="https://kit.fontawesome.com/498c29f243.js" crossorigin="anonymous"></script>
     <script src="assets/js/tasks5.js"></script>
 
-
 </body>
-
 
 </html>

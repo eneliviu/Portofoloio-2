@@ -7,6 +7,7 @@ function taskCardDisplay(event) {
 
     let taskCard = document.getElementById("task-cards-section");
     taskCard.style.display = (taskCard.style.display !== 'block' ? 'block' : 'none');
+    document.getElementById("task-description-field").focus();
     document.getElementById("task-description-field").addEventListener('keydown', function (event) {
         if (event.key === 'Enter') {
             event.preventDefault();
@@ -14,7 +15,7 @@ function taskCardDisplay(event) {
         }
     });
 
-    document.getElementById("task-description-field").focus();
+    
 }
 
 /**
@@ -103,7 +104,7 @@ function addTaskToTaskList(event) {
                             `;
 
     } else {
-        alert(`Please enter a task using at least three characters:`);
+        alert(`Please enter a task using at 3 to 40 characters:`);
         // Reset:
         //debugger
         document.getElementById('add-task-btn').click();
@@ -285,9 +286,9 @@ function editTaskDescription(event) {
     if (newText !== null) {
         let strLength = parseInt((newText === '') ? 0 : newText.length);
         //check for valid entry
-        if ( (strLength < minTextLength) || (newText.length > 140) )  {
-            while ( (strLength < minTextLength) || (newText.length > 140)) {
-                newText = prompt(`Please enter a task using at 3-140 characters:`);
+        if ( (strLength < minTextLength) || (newText.length > 40) )  {
+            while ( (strLength < minTextLength) || (newText.length > 40)) {
+                newText = prompt(`Please enter a task using at 3-40 characters:`);
                 strLength = ((!newText || newText === '') ? 0 : newText.length)
             }
         }
@@ -412,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function () {
  */
 
 // Declare variables for names and color coding for the activity buttons:
-const colorActivitiesList = ['rgba(43, 204, 199, 0.69)', 'rgba(92, 33, 206, 0.69)', 'rgba(204, 140, 80, 0.69)']
+const colorActivitiesList = ['#87cefa', '#d3d3d3', '#ffe4c4']
 let colorActivities = [];
 let namesActivities = [];
 
@@ -428,15 +429,17 @@ for (let i = 0; i < activityBtns.length; i++) {
             // on click, remove event from the previously selected button and reset
             activityBtns[j].classList.remove('selected');
             activityBtns[j].style.backgroundColor = '';
+
         }
         this.style.backgroundColor = colorActivitiesList[i];
+        //this.style.color = 'black';
         colorActivities[0] = this.style.backgroundColor;
         namesActivities[0] = this.innerText;
     });
 }
 
 // Declare variables for names and color coding for the relevance category buttons:
-const colorRelevanceList = ['rgba(235, 16, 16, 0.81)', 'rgba(61, 175, 60, 0.81)']
+const colorRelevanceList = ['#f08080', '#90ee90' ]
 let colorRelevance = [];
 let namesRelevance = [];
 /**
@@ -453,6 +456,7 @@ for (let i = 0; i < relevanceBtns.length; i++) {
         }
         this.style.backgroundColor = colorRelevanceList[i];
         colorRelevance[0] = this.style.backgroundColor;
+        //this.style.color = 'black';
         namesRelevance[0] = this.innerText;
     });
 }
