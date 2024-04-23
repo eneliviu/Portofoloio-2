@@ -1,23 +1,23 @@
-# The **LovinPlans** Todo List Webb App
+# The ***LovinPlans*** Todo List Web App
 
 
 ## Overview
-The main purpose of this project is to build up a web application that allows the user to dynamically create a simple TODO list and to follow up the tasks as they are executed.The **LovinPlans**-app provides a user-friendly interface to create, edit, and track your tasks effortlessly, adn thus helps the users to stay focused and productive.
+The main purpose of this project is to build up a web application that allows the user to dynamically create a simple TODO list and to follow up the tasks as they are executed.The ***LovinPlans***-app provides a user-friendly interface to create, edit, and track your tasks effortlessly, adn thus helps the users to stay focused and productive.
 
 This application was developed as part of Milestone Project 2 for the Diploma in Full Stack Software Development program at Code Institute. The objective was to create an interactive front-end website utilizing HTML5, CSS3, and JavaScript.
 
 ## Target audience
-* The **LovinPlans** app is designed to cater to a diverse range of users seeking a simple yet powerful task management solution. 
+* The ***LovinPlans*** app is designed to cater to a diverse range of users seeking a simple yet powerful task management solution. 
 * The target audience for the app comprises tech-savvy, goal-oriented, and organized individuals who prioritize personal productivity. Additionally, the app is designed to be inclusive, aiming to accommodate users from diverse geographic regions, cultures, and backgrounds on a global scale.
 
 ## Features
 ### **1. User-friendly interface**
-* **LovinPlans** is a one-page interactive application with a clean and intutive inteface that doesn't require a steep learning curve to start using it.
+* ***LovinPlans*** is a one-page interactive application with a clean and intutive inteface that doesn't require a steep learning curve to start using it.
 * The app was built followig the responsive design principles, ensuring a consistent user experience on various devices, such that the user can stay focused on the tasks without getting distracted when a context switch occurs.
 * The styling of the app has been kept simple for not distracting the user, while providing a high color contrast to help identifying relevant information at a glance.
 * The styling of the text entry and the buttons changes on hovering and focus in order to keep the user's atention in the right spot on the screen.
 * The app utilizes the Roboto font from Google Fonts, which offers a clean and functional appearance.
-[![Roboto font style](/assets/images/fonts.webp)
+[![Roboto font style]](/assets/images/fonts.webp)
 
 ### **2. Task Creation and Editing**
 * Users can effortlessly create new tasks and edit existing ones with just a few clicks.
