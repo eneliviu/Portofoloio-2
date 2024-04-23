@@ -131,11 +131,11 @@ The JS code was also run in the Chrome developer tool Console for direct access 
 
 **5.Tracking the tack completion**
 
-[![Add task dialig box]](/assets/images/task1.webp "Add task: opening the dialog box")
-[![Select activity dialig box]](/assets/images/task2.webp "Add task: select activity")
-[![Select task relevance dialig box]](/assets/images/task3.webp "Add task: select task relevance")
-[![Add task to the Todo list]](/assets/images/task4.webp "Add new task to the list")
-[![Add task to the Todo list]](/assets/images/task4.webp "Add new task to the list")
+![Add task dialig box](/assets/images/task1.webp "Add task: opening the dialog box")
+![Select activity dialig box](/assets/images/task2.webp "Add task: select activity")
+![Select task relevance dialig box](/assets/images/task3.webp "Add task: select task relevance")
+![Add task to the Todo list](/assets/images/task4.webp "Add new task to the list")
+![Add task to the Todo list](/assets/images/task4.webp "Add new task to the list")
 
 
 ## Known bugs and issues
