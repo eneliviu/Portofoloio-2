@@ -1,50 +1,91 @@
+# The **LovinPlans** Todo List Webb App
 
 
+## Overview
+The main purpose of this project is to build up a web application that allows the user to dynamically create a simple TODO list and to follow up the tasks as they are executed.The **LovinPlans**-app provides a user-friendly interface to create, edit, and track your tasks effortlessly, adn thus helps the users to stay focused and productive.
 
-Commit types include:
-* Feat: feature
-* Fix: bug fixes
-* Docs: changes to the documentation like README
-* Style: style or formatting change 
-* Perf: improves code performance
-* Test: test a feature
+This application was developed as part of Milestone Project 2 for the Diploma in Full Stack Software Development program at Code Institute. The objective was to create an interactive front-end website utilizing HTML5, CSS3, and JavaScript.
 
+## Target audience
+* The **LovinPlans** app is designed to cater to a diverse range of users seeking a simple yet powerful task management solution. 
+* The target audience for the app comprises tech-savvy, goal-oriented, and organized individuals who prioritize personal productivity. Additionally, the app is designed to be inclusive, aiming to accommodate users from diverse geographic regions, cultures, and backgrounds on a global scale.
 
-# Overview
-The main purpose of this project is to build up a web application that allows the user to dynamically create a simple TODO list and to follow up the tasks as they are executed.
-The **LovinPlans**-app provides a user-friendly interface to create, edit, and track your tasks effortlessly, adn thus helps the users to stay focused and productive.
-
-# Features
-**1. User-friendly interface**
-**LovinPlans** is one-page application with a clean and intutive inteface, and it does not require a steep learning curve to start using it.
-The app was built followig the responsive design principles, ensuring a consistent user experience on various devices, such that the user can stay focused on the tasks without getting distracted when a context switch occurs.
-The styling of the app has been kept simple for not distracting the user, while providing a high color contrast to help identifying and  at a glance.      
-**2. Task Creation and Editing**
-Users can effortlessly create new tasks and edit existing ones with just a few clicks. 
-The app allows users to enter task details and to specify several task attributes (personal activity, work-related or errands), as well as the task priority (urgent/chore).
-The task attributes are displayed on he task cards with different colors  
-**3. Task Categorization**
-
-**4. Task Prioritization**
-
-img[src*='#center'] {
-    display: block;
-    margin: auto;
-}
+## Features
+### **1. User-friendly interface**
+* **LovinPlans** is a one-page interactive application with a clean and intutive inteface that doesn't require a steep learning curve to start using it.
+* The app was built followig the responsive design principles, ensuring a consistent user experience on various devices, such that the user can stay focused on the tasks without getting distracted when a context switch occurs.
+* The styling of the app has been kept simple for not distracting the user, while providing a high color contrast to help identifying relevant information at a glance.
+* The styling of the text entry and the buttons changes on hovering and focus in order to keep the user's atention in the right spot on the screen.
+* The app utilizes the Roboto font from Google Fonts, which offers a clean and functional appearance.
 [![Roboto font style](/assets/images/fonts.webp)
 
+### **2. Task Creation and Editing**
+* Users can effortlessly create new tasks and edit existing ones with just a few clicks.
 
-**6. Cross-Platform Accessibility**
-The app can bu used on any device (mobile, tablet, laptop/desktop) that is connected to internet.      
+### **3. Task Categorization and Prioritization**
+* The app allows users to enter task details and to specify several task attributes (personal activity, work-related or errands), as well as the task priority (urgent/chore).
+* On the editing menu, the task attributes are displayed on the task cards using colors with high contrast.
+* After selection, the task attributes are also visible on the task card   
 
-2. A task (or more) can be removed by the user in the following situatsions:
-* after completions, without raising any warnings
-* before task(s) completion, when a warning is raised to comfirm the deletion.   
-3. Misc validations:
-* duplicated tasks
-* empty entries
+### **4. Cross-Platform Accessibility**
+* The app can bu used on any device (mobile, tablet, laptop/desktop) that is connected to internet.  
 
-4. The user can group the task by categories. The app allows the user to categorizes the tasks by type ("work", "home", "chores","errands"), importance ('Urgent', 'Important', 'Normal') and by time ('Upcomming' - with settings for 30, 15 and 5 min before for the sheduled time).
+
+
+## Technologies Used
+### HTML (Hypertext Markup Language)
+The structure of the app is provided in the HTML (index.html)   
+### CSS (Cascading Style Sheets)
+CSS is responsible for styling the elements created with HTML, ensuring that the app has a consistent appearance across different devices and browsers. CSS is used to define the layout, colors, fonts, spacing, and other visual aspects of the app's user interface. 
+
+
+### JavaScript
+JavaScript provides the interactivity and functionality of the app, allowing users to interact with the interface, manipulate tasks, and perform actions dynamically without reloading the page. The JavaScript code for DOM manipulation (script.js) handles user inputs, edits and updates the task lists in real-time.
+
+
+### Deployment & Local Development
+The app is deployed suing the github page and can be visited at
+
+### Testing
+#### HTML and CSS Validators
+- The .html and .css files were checked using the validator available at https://validator.w3.org/nu/ via direct text input, and apparently no errors nor warnings were found.
+#### Lighthouse
+- Chrome's Lighthouse developer tool was used to check the app's performance: 
+- The color contrast for the styling was checked using the tools provided by WebAIM (https://webaim.org/resources/contrastchecker/).
+
+
+#### Additional tools and services
+- The favicon for the website was generated from text using the https://favicon.io/ tools.
+- All the other icons were obtained from fontawesome.com
+- The use of ChatGPT was restrictes to getting sensible inputs for the text content in the website and for proof-checking the Readme-file. No code was produced using AI-models.
+
+
+#### Additional testing
+Additional testing was performed on my private devices Windows 11 devices (desktop and laptop), as well as
+on my smartphone (Samsung Galaxy S21) operating on Android OS, using the following web browsers: 
+- Google Chrome: Version 123.0.6312.124
+- Brave: version 1.65.114 Chromium: 124.0.6367.60 (Official Build) (64-bit)
+- Microsoft Edge: Version 124.0.2478.51 (Official build) (64-bit)
+
+The following features were tested:
+- add new task (pass)
+    - text editing and error checking for imin/max text length
+    - task activity selection (one at the time)
+- text editing for an existing task (pass)
+    - update the text in the task card
+    - check for min/max text length  
+- incrementing the task tracking score when adding a new task
+    - incrementing the task tracking score when reactivating a previously completed task
+    - decrementing the task tracking score 
+
+
+### Responsive design
+* The app uses responsive design principles such media queries and flexible layouts to ensure proper interaction across various devices and screen sizes. 
+* The app interface adapts dynamically based on the device's viewport size, providing a seamless and consistent user experience on desktops/laptops, tablets, or smartphones.
+
+### Accessibility
+* Aria-labels for screen readers were included in the sections, input and button HTML elements of the app to ensure semantic elements and enhance accessibility. This approach helps improve the semantic understanding of the content and ensures that the web page becomes easy to navigate and to be understood by all users, especially those using screen readers. 
+
 
 # Technologies Used
 ## HTML (Hypertext Markup Language)
