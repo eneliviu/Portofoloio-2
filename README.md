@@ -19,14 +19,8 @@ This application was developed as part of Milestone Project 2 for the Diploma in
 
 ![Roboto font style](/assets/images/fonts.webp "Roboto Google font")
 
-<div style="text-align:center;">
-    <img src="/assets/images/fonts.webp" alt="Roboto Google font">
-    <p>Roboto Google font.</p>
-</div>
-
 ### **2. Task Creation and Editing**
 - Users can effortlessly create new tasks and edit existing ones with just a few clicks.
-
 
 ### **3. Task Categorization and Prioritization**
 * The app allows users to enter task details and to specify several task attributes (personal activity, work-related or errands), as well as the task priority (urgent/chore).
@@ -34,23 +28,22 @@ This application was developed as part of Milestone Project 2 for the Diploma in
 * After selection, the task attributes are also visible on the task card   
 
 ### **4. Cross-Platform Accessibility**
-* The app can bu used on any device (mobile, tablet, laptop/desktop) that is connected to internet.  
+* The app can be used on any device (mobile, tablet, laptop/desktop) that is connected to internet.  
 
+
+ More details about the app functionality are provided in the [Usage and screenshots](#usage-and-screenshots) section.
 
 
 ## Technologies Used
 ### HTML (Hypertext Markup Language)
-The structure of the app is provided in the HTML (index.html)   
+The structure of the app is provided in the [index.html file](index.html) that containts the static components of the app.   
 ### CSS (Cascading Style Sheets)
-CSS is responsible for styling the elements created with HTML, ensuring that the app has a consistent appearance across different devices and browsers. CSS is used to define the layout, colors, fonts, spacing, and other visual aspects of the app's user interface. 
-
-
+The CSS3 file [style.css](assets/css/style.css) is responsible for styling the elements created with HTML, ensuring that the app has a consistent appearance across different devices and browsers. CSS is used to define the layout, colors, fonts, spacing, and other visual aspects of the app's user interface.
 ### JavaScript
-JavaScript provides the interactivity and functionality of the app, allowing users to interact with the interface, manipulate tasks, and perform actions dynamically without reloading the page. The JavaScript code for DOM manipulation (script.js) handles user inputs, edits and updates the task lists in real-time.
-
+JavaScript provides the interactivity and functionality of the app, allowing users to interact with the interface, manipulate tasks, and perform actions dynamically without reloading the page. The JavaScript code for DOM manipulation [script.js](assets/js/script.js) provides the app interactivity and handles user inputs, edits and updates the task lists in real-time.
 
 ### Deployment & Local Development
-The app is deployed suing the github page and can be visited at
+The app is currently deployed on github and can be accessed at https://eneliviu.github.io/Portofoloio-2/. 
 
 ### Testing
 #### HTML and CSS Validators
@@ -116,7 +109,7 @@ The developement was done in VSCode using the Live Server extension for running 
 The JS code was also run in the Chrome developer tool Console for direct access to the variables and debugging.
 
  
-# Usage and screenshots
+## Usage and screenshots
 
 **1. Creating a Task**
 * To create a new task, click on the "Add Task" button or the plus icon located at the top or bottom of the task list.
@@ -135,31 +128,32 @@ The JS code was also run in the Chrome developer tool Console for direct access 
 ![Select activity dialig box](/assets/images/task2.webp "Add task: select activity")
 ![Select task relevance dialig box](/assets/images/task3.webp "Add task: select task relevance")
 ![Add task to the Todo list](/assets/images/task4.webp "Add new task to the list")
-![Add task to the Todo list](/assets/images/task4.webp "Add new task to the list")
+![Add task to the Todo list](/assets/images/task5.webp "Add new task to the list")
 
 
 ## Known bugs and issues
-The text input is not 
-The promt windows  
+- The text input is not restored after the error checking is run: the app behaviour is to reset all the inputs such that the user starts with a clean dialog window.   
+- The browser specific promt windows triggered by the error checks doesn't contain a No-button (but the Cancel button has the same role): creating custom promt windows would improve the overall user experience.  
+- There is a unfortunate typo in the name of the respository ('Portololoio' instead of 'Portofolio') that has to be fixed.
 
 ## Possible improvements
 ### Functionality for user accounts and data storage. 
 In its current state, the app can only be user not provide storage for the task list and tracking data. The consequence is that each time the page is refreshed, all the information is gone. 
 It would be nice to include user account and database connection such that 
 ### Filtering and Sorting Tasks
-* Filter and sort options to organize and view the tasks according to specific criteria.
-* Possible filters: 
-** task status (e.g., active or ccompleted tasks)
-** activity type (work, leisure, etc)
-** task relevance/importance (urgent, c)
-** By due date or incoming within a certain time horizon.
+- Filter and sort options to organize and view the tasks according to specific criteria.
+- Possible filters: 
+    - task status (e.g., active or ccompleted tasks)
+    - activity type (work, leisure, etc)
+    - task relevance/importance (urgent, chore) by due date or incoming within a certain time horizon.
 ### Reminders
-* Set due dates with automatic reminder to receive timely notifications for upcoming tasks and deadlines.
-* Day-time picker
-* Check for task overlapp and possible collisions
+- Set due dates with automatic reminder to receive timely notifications for upcoming tasks and deadlines.
+- Day-time picker
+- Check for task overlapp and possible collisions
+
 ### Dialog windows/menus
-* Replace the prompt windows in the browsers with custom forms. For instance, it would a better user experience to replace the 'Cancel' button in the promt windows that pop-up during task editing and handling with a 'No' button.
-* Add intercativity to all task features, including re-catogorizing and re-styling the theme (dark/light) and the button colors. 
+- Replace the prompt windows in the browsers with custom forms. For instance, it would a better user experience to replace the 'Cancel' button in the promt windows that pop-up during task editing and handling with a 'No' button.
+- Add intercativity to all task features, including re-catogorizing and re-styling the theme (dark/light) and the button colors. 
 ### Collaboration tools
 - Include features for inviting people to participate in various tasks, sharing task lists and/or assigning tasks to team members.
 - Add the tools to allow the collaborators would have access to view, edit, and comment on the tasks.

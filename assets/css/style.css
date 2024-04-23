@@ -344,12 +344,13 @@ main {
     height: 4rem;
     width: 100%;
     background-color: var(--bkg-col-header);
-    p {
-        text-align: center;
-        font-size: 120%;
-        color: var(--font-col-header);
-        font-weight: bold;
-    }
+}
+
+#footer-div p {
+    text-align: center;
+    font-size: 120%;
+    color: var(--font-col-header);
+    font-weight: bold;
 }
 
 @media screen and (min-width: 567px) {
