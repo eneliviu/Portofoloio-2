@@ -288,7 +288,7 @@ function editTaskDescription(event) {
         //check for valid entry
         if ( (strLength < minTextLength) || (newText.length > 40) )  {
             while ( (strLength < minTextLength) || (newText.length > 40)) {
-                newText = prompt(`Please enter a task using at 3-40 characters:`);
+                newText = prompt(`Too long! Please enter a task using at 3-40 characters:`);
                 strLength = ((!newText || newText === '') ? 0 : newText.length)
             }
         }
