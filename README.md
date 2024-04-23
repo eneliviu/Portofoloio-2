@@ -17,7 +17,12 @@ This application was developed as part of Milestone Project 2 for the Diploma in
 * The styling of the text entry and the buttons changes on hovering and focus in order to keep the user's atention in the right spot on the screen.
 * The app utilizes the Roboto font from Google Fonts, which offers a clean and functional appearance.
 
-[![Roboto font style]](/assets/images/fonts.webp "Roboto Google font")
+![Roboto font style](/assets/images/fonts.webp "Roboto Google font")
+
+<div style="text-align:center;">
+    <img src="/assets/images/fonts.webp" alt="Roboto Google font">
+    <p>Roboto Google font.</p>
+</div>
 
 ### **2. Task Creation and Editing**
 - Users can effortlessly create new tasks and edit existing ones with just a few clicks.
