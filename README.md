@@ -1,5 +1,4 @@
-# The ***LovinPlans*** Todo List Web App
-
+# ***LovinPlans***: A Todo List Web App
 
 ## Overview
 The main purpose of this project is to build up a web application that allows the user to dynamically create a simple TODO list and to follow up the tasks as they are executed.The ***LovinPlans***-app provides a user-friendly interface to create, edit, and track your tasks effortlessly, adn thus helps the users to stay focused and productive.
@@ -17,10 +16,12 @@ This application was developed as part of Milestone Project 2 for the Diploma in
 * The styling of the app has been kept simple for not distracting the user, while providing a high color contrast to help identifying relevant information at a glance.
 * The styling of the text entry and the buttons changes on hovering and focus in order to keep the user's atention in the right spot on the screen.
 * The app utilizes the Roboto font from Google Fonts, which offers a clean and functional appearance.
-[![Roboto font style]](/assets/images/fonts.webp)
+
+[![Roboto font style]](/assets/images/fonts.webp "Roboto Google font")
 
 ### **2. Task Creation and Editing**
-* Users can effortlessly create new tasks and edit existing ones with just a few clicks.
+- Users can effortlessly create new tasks and edit existing ones with just a few clicks.
+
 
 ### **3. Task Categorization and Prioritization**
 * The app allows users to enter task details and to specify several task attributes (personal activity, work-related or errands), as well as the task priority (urgent/chore).
@@ -58,7 +59,6 @@ The app is deployed suing the github page and can be visited at
 - The favicon for the website was generated from text using the https://favicon.io/ tools.
 - All the other icons were obtained from fontawesome.com
 - The use of ChatGPT was restrictes to getting sensible inputs for the text content in the website and for proof-checking the Readme-file. No code was produced using AI-models.
-
 
 #### Additional testing
 Additional testing was performed on my private devices Windows 11 devices (desktop and laptop), as well as
@@ -107,9 +107,12 @@ By the app interface adapts dynamically based on the device's viewport size, pro
 The main page structure is defined in the index.html file. The page has   
 
 # Javascript coding
-The developement was done in VSCode using the Live Server extension for running the app, and the JS code was also run in the Chrome developer tool Console. 
+The developement was done in VSCode using the Live Server extension for running the app during the development phase.
+The JS code was also run in the Chrome developer tool Console for direct access to the variables and debugging.
+
  
 # Usage and screenshots
+
 **1. Creating a Task**
 * To create a new task, click on the "Add Task" button or the plus icon located at the top or bottom of the task list.
 * Enter the task details such as title, description, due date, priority, and category in the provided input fields.
@@ -123,36 +126,41 @@ The developement was done in VSCode using the Live Server extension for running 
 
 **5.Tracking the tack completion**
 
+[![Add task dialig box]](/assets/images/task1.webp "Add task: opening the dialog box")
+[![Select activity dialig box]](/assets/images/task2.webp "Add task: select activity")
+[![Select task relevance dialig box]](/assets/images/task3.webp "Add task: select task relevance")
+[![Add task to the Todo list]](/assets/images/task4.webp "Add new task to the list")
+[![Add task to the Todo list]](/assets/images/task4.webp "Add new task to the list")
 
 
-# Known bugs and issues
+## Known bugs and issues
 The text input is not 
 The promt windows  
 
-# Possible improvements
-## Functionality for user accounts and data storage. 
+## Possible improvements
+### Functionality for user accounts and data storage. 
 In its current state, the app can only be user not provide storage for the task list and tracking data. The consequence is that each time the page is refreshed, all the information is gone. 
 It would be nice to include user account and database connection such that 
-## Filtering and Sorting Tasks
+### Filtering and Sorting Tasks
 * Filter and sort options to organize and view the tasks according to specific criteria.
 * Possible filters: 
 ** task status (e.g., active or ccompleted tasks)
 ** activity type (work, leisure, etc)
 ** task relevance/importance (urgent, c)
 ** By due date or incoming within a certain time horizon.
-## Reminders
+### Reminders
 * Set due dates with automatic reminder to receive timely notifications for upcoming tasks and deadlines.
 * Day-time picker
 * Check for task overlapp and possible collisions
-## Dialog windows/menus
+### Dialog windows/menus
 * Replace the prompt windows in the browsers with custom forms. For instance, it would a better user experience to replace the 'Cancel' button in the promt windows that pop-up during task editing and handling with a 'No' button.
 * Add intercativity to all task features, including re-catogorizing and re-styling the theme (dark/light) and the button colors. 
-## Collaboration tools
+### Collaboration tools
 - Include features for inviting people to participate in various tasks, sharing task lists and/or assigning tasks to team members.
 - Add the tools to allow the collaborators would have access to view, edit, and comment on the tasks.
  
-# Contributing
+## Contributing
 
-# License
+## License
 
-# Acknowledgements
+## Acknowledgements
