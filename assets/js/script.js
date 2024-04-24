@@ -161,7 +161,7 @@ function addTaskToTaskList(event) {
 
     taskObjectsArray = [...taskObjectsArray, taskObject];
 
-    //debugger
+    // debugger
     for (let elem of document.getElementsByClassName('edit-div')) {
         elem.addEventListener('click', editTasks);
     }
@@ -405,8 +405,6 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('add-task-ok-btn').addEventListener('click', addTaskToTaskList); // OK button
 })
 
-
-
 /**
  * The rest of the code below sets callbacks for handling events for task activity and relevance buttons:
  * (https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time)
@@ -461,15 +459,6 @@ for (let i = 0; i < relevanceBtns.length; i++) {
     });
 }
 
-
-/*
-let userName = prompt('Enter your name:');
-if (userName != null) {
-    document.getElementById('todo-header').children[0].innerText = `  ${userName}'s ToDO List`;
-}else {
-    document.getElementById('todo-header').children[0].innerText = '  My ToDo List';
-}
-*/
 
 //===================================================================================================//
 
