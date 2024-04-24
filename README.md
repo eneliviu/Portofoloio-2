@@ -5,7 +5,13 @@
 - [Target audience](#item-two)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Additional testing](#additional-testing)
 - [Known bugs and issues](#known-bugs-and-issues)
+- [Possible improvements](#possible-improvements)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+
 
 ## Overview
 This application was developed as part of Milestone Project 2 for the Diploma in Full Stack Software Development program at Code Institute. The objective was to create an interactive front-end website utilizing HTML5, CSS3, and JavaScript.
@@ -208,8 +214,8 @@ It would be nice to include user account and database connections such that the 
 ### Collaboration tools
 - Include features for inviting people to participate in various tasks, sharing task lists and/or assigning tasks to team members.
 - Add the tools to allow the collaborators would have access to view, edit, and comment on the tasks.
-## Contributing
 
+## Contributing
 To contribute to the ***LovinPlans*** project:
 - Fork the repository on GitHub to create your own copy.
 - Clone the forked repository to your local machine.
