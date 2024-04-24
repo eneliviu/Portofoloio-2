@@ -109,7 +109,7 @@ Apparently, no errors were found.
 ![Select task relevance dialig box](/assets/images/task3.webp "Add task: select task relevance")
 
 ##### Once you've filled out the task details, click the "OK" button to add the task to your list.
-##### The task entries contains:
+##### The task entry contains:
 - A task name field that can be edited on click action.
 - Edit butoon on the left side  
 - A Bin Trash icon on the right side
@@ -122,20 +122,40 @@ Apparently, no errors were found.
 
 ### **2. Editing a Task**
 - By clicking on the task name enables a prompt window for editing the text. 
-- The 
+- The new text input is validated before utpading the task name 
 
 ![Add task to the Todo list](/assets/images/task5.webp "Add new task to the list")
 
-### **3. Marking a Task as Complete**
 
-### **4. Deleting a Task**
+### **3. Complete/reactivate tasks**
+- A left click on the edit button (lef side) opens a confirmation window 
+- For OK selection, the task name is striked and font size reduces, while the edit button is checked.
+    - The task tracking *decrements* the scores for active tasks
+    - If all task are completed, the message "All Task Completed" marks the event.
+- Note that pressing the Cancel button on the task completion confirmation window will delete the task  
+
+![Add task to the Todo list](/assets/images/task6.webp "Add new task to the list")
+
+- To reactivate a task, click on the edit button and press the OK button on the confirmation window.
+    - The task name and edit button are restored to previous styling
+    - The task tracking *increments* the scores for active tasks
+
+![Add task to the Todo list](/assets/images/task7.webp "Add new task to the list")
+
+
+### **4. Deleting a task**
+Removing a task from the list can be done in two ways: 
+- Clicking on the Bin Trash icon opens a confirmation window. 
+    - Press OK to permanently remove the task from the list 
+or 
+- Press the Cancel button on the task completion from the confirmation window  (see [Complete/reactivate tasks](#3.-complete/reactivate-tasks) section)
+
+![Add task to the Todo list](/assets/images/task8.webp "Add new task to the list")
+
 
 ### **5.Tracking the task list**
 - When a task is marked as completed and/or removed from the list, the task tracking field updates the counters by task activities and categories.
-
-
-![Add task to the Todo list](/assets/images/task5.webp "Add new task to the list")
-
+- If all task are completed, the message "All Task Completed" marks the event.
 
 ## Additional testing
 
@@ -172,7 +192,7 @@ on my smartphone (Samsung Galaxy S21) operating on Android OS, using the followi
 ## Possible improvements
 ### Functionality for user accounts and data storage. 
 In its current state, the app can only be user not provide storage for the task list and tracking data. The consequence is that each time the page is refreshed, all the information is gone. 
-It would be nice to include user account and database connection such that 
+It would be nice to include user account and database connections such that the information is stored permanatly and the users can login in their accounts.
 ### Filtering and Sorting Tasks
 - Filter and sort options to organize and view the tasks according to specific criteria.
 - Possible filters: 
@@ -183,17 +203,26 @@ It would be nice to include user account and database connection such that
 - Set due dates with automatic reminder to receive timely notifications for upcoming tasks and deadlines.
 - Day-time picker
 - Check for task overlapp and possible collisions
-
 ### Dialog windows/menus
 - Replace the prompt windows in the browsers with custom forms. For instance, it would a better user experience to replace the 'Cancel' button in the promt windows that pop-up during task editing and handling with a 'No' button.
 - Add intercativity to all task features, including re-catogorizing and re-styling the theme (dark/light) and the button colors. 
 ### Collaboration tools
 - Include features for inviting people to participate in various tasks, sharing task lists and/or assigning tasks to team members.
 - Add the tools to allow the collaborators would have access to view, edit, and comment on the tasks.
- 
 ## Contributing
 
+To contribute to the ***LovinPlans*** project:
+- Fork the repository on GitHub to create your own copy.
+- Clone the forked repository to your local machine.
+- Make your desired changes, whether it's fixing a bug, adding a feature, or updating documentation.
+- Commit your changes with clear messages.
+- Push your commits to your forked repository on GitHub.
+- Submit a pull request detailing your changes and their benefits.
+
 ## License
+### Open Source
+As an open-source project, the ***LovinPlans*** app encourages transparency, and community involvement. 
+The code of the app is available on GitHub, such that developers can view, fork, and contribute to the project if they wish so.
 
 ## Acknowledgements
 The code for setting callbacks to handle the events for task activities and relevance buttons was adapted from the *Stack Overflow* post available at: 
