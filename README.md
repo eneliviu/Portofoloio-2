@@ -98,7 +98,7 @@ Apparently, no errors were found.
 ## Usage and screenshots
 ###  **1. Creating a Task**
 #### To create a new task, click on the "Add Task" button or the plus icon located at the top or bottom of the task list.
-##### Enter the task description in the text input field 
+#### Enter the task description in the text input field. 
 
 ![Add task dialig box](/assets/images/task1.webp "Add task: opening the dialog box")
 
@@ -108,8 +108,8 @@ Apparently, no errors were found.
 #### Select the task priority (urgent/chore).
 ![Select task relevance dialig box](/assets/images/task3.webp "Add task: select task relevance")
 
-##### Once you've filled out the task details, click the "OK" button to add the task to your list.
-##### The task entry contains:
+#### Once you've filled out the task details, click the "OK" button to add the task to your list.
+#### The task entry contains:
 - A task name field that can be edited on click action.
 - Edit butoon on the left side  
 - A Bin Trash icon on the right side
@@ -125,7 +125,6 @@ Apparently, no errors were found.
 - The new text input is validated before utpading the task name 
 
 ![Add task to the Todo list](/assets/images/task5.webp "Add new task to the list")
-
 
 ### **3. Complete/reactivate tasks**
 - A left click on the edit button (lef side) opens a confirmation window 
@@ -147,7 +146,7 @@ Apparently, no errors were found.
 Removing a task from the list can be done in two ways: 
 - Clicking on the Bin Trash icon opens a confirmation window. 
     - Press OK to permanently remove the task from the list 
-or 
+#### or 
 - Press the Cancel button on the task completion from the confirmation window  (see [Complete/reactivate tasks](#3.-complete/reactivate-tasks) section)
 
 ![Add task to the Todo list](/assets/images/task8.webp "Add new task to the list")
