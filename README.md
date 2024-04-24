@@ -230,7 +230,7 @@ To contribute to the ***LovinPlans*** project:
 
 ## License
 ### Open Source
-As an open-source project, the ***LovinPlans*** app encourages transparency, and community involvement. 
+As an open-source project, ***LovinPlans*** encourages transparency, and community involvement. 
 The code of the app is available on GitHub, such that developers can view, fork, and contribute to the project if they wish so.
 
 ## Acknowledgements
