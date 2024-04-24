@@ -189,7 +189,7 @@ function getObjId(taskId, objectArray) {
         }
     }
     if (idx === -1) {
-        throw new Error('Cannot find task ID - Aborting');
+        throw errMessageUnknownTaskID;
     } else {
         return idx;
     }
@@ -375,7 +375,7 @@ let errMessageUnknownTask = 'Unknown task - Aborting!';
 let errMessageUnknownActivity = 'Unknown activity - Aborting!';
 let errMessageUnknownCateg = 'Unknown task relevance categry - Aborting!';
 let errMessageUnknownIcon = 'Unknown icon class';
-
+let errMessageUnknownTaskID = 'Cannot find task ID - Aborting';
 /**
  * Minimum text length for task description 
  */
