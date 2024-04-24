@@ -1,15 +1,26 @@
 # ***LovinPlans***: A Todo List Web App
 
-## Overview
-The main purpose of this project is to build up a web application that allows the user to dynamically create a simple TODO list and to follow up the tasks as they are executed.The ***LovinPlans***-app provides a user-friendly interface to create, edit, and track your tasks effortlessly, adn thus helps the users to stay focused and productive.
+### **Table of content:**
+- [Overview](#overview)
+- [Target audience](#item-two)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Known bugs and issues](#known-bugs-and-issues)
 
+## Overview
 This application was developed as part of Milestone Project 2 for the Diploma in Full Stack Software Development program at Code Institute. The objective was to create an interactive front-end website utilizing HTML5, CSS3, and JavaScript.
 
+The main purpose of this project is to build up a web application that allows the user to dynamically create a simple TODO list and to follow up the tasks as they are executed.
+The ***LovinPlans***-app provides a user-friendly interface to create, edit, and track your tasks effortlessly, adn thus helps the users to stay focused and productive. Nevertheless, the app is not a fully developed product, but rather a proof of acquired skills for manipulating the DOM using vanilla JavaScript.
+
 ## Target audience
-* The ***LovinPlans*** app is designed to cater to a diverse range of users seeking a simple yet powerful task management solution. 
+* Theoretically, the ***LovinPlans*** app is designed to cater to a diverse range of users seeking a simple yet powerful task management solution. 
 * The target audience for the app comprises tech-savvy, goal-oriented, and organized individuals who prioritize personal productivity. Additionally, the app is designed to be inclusive, aiming to accommodate users from diverse geographic regions, cultures, and backgrounds on a global scale.
 
 ## Features
+
+A quick demonstration of using the app can be found here [***here.***](assets/images/Demo-functionality.gif)
+
 ### **1. User-friendly interface**
 * ***LovinPlans*** is a one-page interactive application with a clean and intutive inteface that doesn't require a steep learning curve to start using it.
 * The app was built followig the responsive design principles, ensuring a consistent user experience on various devices, such that the user can stay focused on the tasks without getting distracted when a context switch occurs.
@@ -20,10 +31,10 @@ This application was developed as part of Milestone Project 2 for the Diploma in
 ![Roboto font style](/assets/images/fonts.webp "Roboto Google font")
 
 ### **2. Task Creation and Editing**
-- Users can effortlessly create new tasks and edit existing ones with just a few clicks.
+- Users can effortlessly create new tasks and edit existing ones with just a few clicks. 
 
 ### **3. Task Categorization and Prioritization**
-* The app allows users to enter task details and to specify several task attributes (personal activity, work-related or errands), as well as the task priority (urgent/chore).
+* The app allows users to enter task details and to specify several task attributes.
 * On the editing menu, the task attributes are displayed on the task cards using colors with high contrast.
 * After selection, the task attributes are also visible on the task card   
 
@@ -36,46 +47,45 @@ This application was developed as part of Milestone Project 2 for the Diploma in
 
 ## Technologies Used
 ### HTML (Hypertext Markup Language)
-The structure of the app is provided in the [index.html file](index.html) that containts the static components of the app.   
+The structure of the app is provided in the [index.html file](index.html) that containts the static components of the app. Since the purpose of the project is not focused on the design, the HTML structure was kept simple. 
+The HTML provides:
+- Header and a footer to frame the task-related content.
+- Task 
+- Semantic elements were used to improve the accessibility. 
+
+The building blocks for task tracking and task creation were set up. The rest of the DOM (i.e., the task list) is created dynamically following the user inputs. 
 ### CSS (Cascading Style Sheets)
-The CSS3 file [style.css](assets/css/style.css) is responsible for styling the elements created with HTML, ensuring that the app has a consistent appearance across different devices and browsers. CSS is used to define the layout, colors, fonts, spacing, and other visual aspects of the app's user interface.
+The CSS3 file [style.css](assets/css/style.css) is responsible for styling the elements created with HTML, ensuring that the app has a consistent appearance across different devices and browsers. 
+CSS is used to define the layout, colors, fonts, spacing, and other visual aspects of the app's user interface.
+Using CSS, the dialog windows for task creation were hidden by default. They are activated/inactivated by the user actions.    
 ### JavaScript
-JavaScript provides the interactivity and functionality of the app, allowing users to interact with the interface, manipulate tasks, and perform actions dynamically without reloading the page. The JavaScript code for DOM manipulation [script.js](assets/js/script.js) provides the app interactivity and handles user inputs, edits and updates the task lists in real-time.
+JavaScript provides the interactivity and functionality of the app, allowing users to interact with the interface, manipulate tasks, and perform actions dynamically without reloading the page. 
+The JavaScript code for DOM manipulation [script.js](assets/js/script.js) provides the app interactivity and handles user inputs, edits and updates the task lists in real-time.
+### Responsive design
+The app uses responsive design principles such media queries and flexible layouts to ensure proper interaction across various devices and screen sizes. 
+By the app interface adapts dynamically based on the device's viewport size, providing a seamless and consistent user experience on desktops/laptops, tablets, or smartphones.
 
 ### Deployment & Local Development
 The app is currently deployed on github and can be accessed at https://eneliviu.github.io/Portofoloio-2/. 
+The developement was done in VSCode using the Live Server extension for running the app.
+The JS code was also run in the Chrome developer tool Console for direct access to the variables and debugging.
 
 ### Testing
 #### HTML and CSS Validators
-- The .html and .css files were checked using the validator available at https://validator.w3.org/nu/ via direct text input, and apparently no errors nor warnings were found.
+The Markup Validatiopn Service (https://validator.w3.org/#validate_by_input) was used to check the HTML file [index.html file](index.html), and CSS Validation Service (https://jigsaw.w3.org/css-validator/) 
+for assessing the styling [style.css file](style.css)
+Apparently, no errors were found.
+
 #### Lighthouse
 - Chrome's Lighthouse developer tool was used to check the app's performance: 
 - The color contrast for the styling was checked using the tools provided by WebAIM (https://webaim.org/resources/contrastchecker/).
 
+![Lighthouse validation](/assets/images/lighthouse1.webp "Google Chrome dev tools: Lighthouse assessment")
 
 #### Additional tools and services
 - The favicon for the website was generated from text using the https://favicon.io/ tools.
-- All the other icons were obtained from fontawesome.com
-- The use of ChatGPT was restrictes to getting sensible inputs for the text content in the website and for proof-checking the Readme-file. No code was produced using AI-models.
-
-#### Additional testing
-Additional testing was performed on my private devices Windows 11 devices (desktop and laptop), as well as
-on my smartphone (Samsung Galaxy S21) operating on Android OS, using the following web browsers: 
-- Google Chrome: Version 123.0.6312.124
-- Brave: version 1.65.114 Chromium: 124.0.6367.60 (Official Build) (64-bit)
-- Microsoft Edge: Version 124.0.2478.51 (Official build) (64-bit)
-
-The following features were tested:
-- add new task (pass)
-    - text editing and error checking for imin/max text length
-    - task activity selection (one at the time)
-- text editing for an existing task (pass)
-    - update the text in the task card
-    - check for min/max text length  
-- incrementing the task tracking score when adding a new task
-    - incrementing the task tracking score when reactivating a previously completed task
-    - decrementing the task tracking score 
-
+- All the other icons were obtained from fontawesome.com website.
+- The use of ChatGPT was restrictes to getting sensible inputs for the text content in the website and for proof-checking the language.
 
 ### Responsive design
 * The app uses responsive design principles such media queries and flexible layouts to ensure proper interaction across various devices and screen sizes. 
@@ -85,51 +95,74 @@ The following features were tested:
 * Aria-labels for screen readers were included in the sections, input and button HTML elements of the app to ensure semantic elements and enhance accessibility. This approach helps improve the semantic understanding of the content and ensures that the web page becomes easy to navigate and to be understood by all users, especially those using screen readers. 
 
 
-# Technologies Used
-## HTML (Hypertext Markup Language)
-The structure of the app is provided in the HTML (index.html)   
-## CSS (Cascading Style Sheets)
-CSS is responsible for styling the elements created with HTML, ensuring that the app has a consistent appearance across different devices and browsers. CSS is used to define the layout, colors, fonts, spacing, and other visual aspects of the app's user interface. 
-
-## JavaScript
-JavaScript provides the interactivity and functionality of the app, allowing users to interact with the interface, manipulate tasks, and perform actions dynamically without reloading the page. The JavaScript code for DOM manipulation (script.js) handles user inputs, edits and updates the task lists in real-time.
-
-## Libraries and frameworks
-The app does not use exter
-## Responsive design
-The app uses responsive design principles such media queries and flexible layouts to ensure proper interaction across various devices and screen sizes. 
-By the app interface adapts dynamically based on the device's viewport size, providing a seamless and consistent user experience on desktops/laptops, tablets, or smartphones.
-
-## Main Page
-### Structure
-The main page structure is defined in the index.html file. The page has   
-
-# Javascript coding
-The developement was done in VSCode using the Live Server extension for running the app during the development phase.
-The JS code was also run in the Chrome developer tool Console for direct access to the variables and debugging.
-
- 
 ## Usage and screenshots
-
-**1. Creating a Task**
-* To create a new task, click on the "Add Task" button or the plus icon located at the top or bottom of the task list.
-* Enter the task details such as title, description, due date, priority, and category in the provided input fields.
-* Once you've filled out the task details, click the "Save" or "Add" button to add the task to your list.
-
-**2. Editing a Task**
-
-**3. Marking a Task as Complete**
-
-**4. Deleting a Task**
-
-**5.Tracking the tack completion**
+###  **1. Creating a Task**
+#### To create a new task, click on the "Add Task" button or the plus icon located at the top or bottom of the task list.
+##### Enter the task description in the text input field 
 
 ![Add task dialig box](/assets/images/task1.webp "Add task: opening the dialog box")
+
+#### Select an activity (personal activity, work-related or errands).
 ![Select activity dialig box](/assets/images/task2.webp "Add task: select activity")
+
+#### Select the task priority (urgent/chore).
 ![Select task relevance dialig box](/assets/images/task3.webp "Add task: select task relevance")
+
+##### Once you've filled out the task details, click the "OK" button to add the task to your list.
+##### The task entries contains:
+- A task name field that can be edited on click action.
+- Edit butoon on the left side  
+- A Bin Trash icon on the right side
+- The selected task attributes are below the task name, on the left and the right side respectivelly.
+- When a task is entered, the task tracking field updates the counters by task activities and categories.
+- Error checks are placed to prevent submitting an invalid text entry (3-40 characters required for a valid task name)
+    or ill formatted task (missing attributes).
+
 ![Add task to the Todo list](/assets/images/task4.webp "Add new task to the list")
+
+### **2. Editing a Task**
+- By clicking on the task name enables a prompt window for editing the text. 
+- The 
+
 ![Add task to the Todo list](/assets/images/task5.webp "Add new task to the list")
 
+### **3. Marking a Task as Complete**
+
+### **4. Deleting a Task**
+
+### **5.Tracking the task list**
+- When a task is marked as completed and/or removed from the list, the task tracking field updates the counters by task activities and categories.
+
+
+![Add task to the Todo list](/assets/images/task5.webp "Add new task to the list")
+
+
+## Additional testing
+
+### Devices and browsers
+Additional testing was performed on my private devices Windows 11 devices (desktop and laptop), as well as
+on my smartphone (Samsung Galaxy S21) operating on Android OS, using the following web browsers: 
+- Google Chrome: Version 123.0.6312.124
+- Brave: version 1.65.114 Chromium: 124.0.6367.60 (Official Build) (64-bit)
+- Microsoft Edge: Version 124.0.2478.51 (Official build) (64-bit)
+
+### Tested features:
+- add new tasks (*pass*)
+    - text editing and error checking for min/max text length
+    - task activity selection (one at the time)
+- text editing for an existing task (*pass*)
+    - update the text in the task card
+    - check for min/max text length  
+- incrementing the task tracking score when adding a new task (*pass*)
+    - incrementing the task tracking score when reactivating a previously completed task
+    - decrementing the task tracking score
+- mark a task as completed (*pass*)
+    - editing tool action (press OK button on the 'Is the task completed?' prompt window )
+    - bin trash icon action (press OK button on the prompt window)
+- remove a task (*pass*)
+    - editing tool action after task copletion confirmation (press OK button on the 'Remove task?' prompt window)
+    - using the bin trash icon action (press OK button on the prompt window)
+- responsiveness on various screen sizes (*pass*)   
 
 ## Known bugs and issues
 - The text input is not restored after the error checking is run: the app behaviour is to reset all the inputs such that the user starts with a clean dialog window.   
@@ -163,3 +196,6 @@ It would be nice to include user account and database connection such that
 ## License
 
 ## Acknowledgements
+The code for setting callbacks to handle the events for task activities and relevance buttons was adapted from the *Stack Overflow* post available at: 
+
+https://stackoverflow.com/questions/71346490/how-do-i-make-only-one-button-can-be-selected-at-time
