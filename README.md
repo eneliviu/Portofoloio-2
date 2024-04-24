@@ -20,7 +20,7 @@ The result of the project is the ***LovinPlans***-app that provides a user-frien
 
 ## Target audience
 * Theoretically, the ***LovinPlans*** app is designed to cater to a diverse range of users seeking a simple yet powerful task management solution. 
-* The target audience for the app comprises tech-savvy, goal-oriented, and organized individuals who prioritize personal productivity. Additionally, the app is designed to be inclusive, aiming to accommodate users from diverse geographic regions, cultures, and backgrounds on a global scale.
+* The target audience for the app comprises tech-savy, goal-oriented, and organized individuals who prioritize personal productivity. Additionally, the app is designed to be inclusive, aiming to accommodate users from diverse geographic regions, cultures, and backgrounds on a global scale.
 
 ## Features
 
@@ -67,7 +67,7 @@ Using CSS, the dialog windows for task creation were hidden by default. They are
 ### JavaScript
 JavaScript provides the interactivity and functionality of the app, allowing users to interact with the interface, manipulate tasks, and perform actions dynamically without reloading the page. 
 
-The JavaScript code for DOM manipulation [script.js](assets/js/script.js) provides the app interactivity and handles user inputs, edits and updates the task lists in real-time.
+The JavaScript code [script.js](assets/js/script.js) for DOM manipulation provides the app interactivity and handles user inputs, edits and updates the task lists in real-time.
 
 The script utilizes a functional design approach that (hopefully) adheres to the DRY (Don't Repeat Yourself) principles.
 
@@ -84,18 +84,17 @@ The JS code was also run in the Chrome developer tool Console for direct access 
 
 ### Testing
 #### HTML and CSS Validators
-The Markup Validatiopn Service (https://validator.w3.org/#validate_by_input) was used to check the HTML file [index.html file](index.html), and CSS Validation Service (https://jigsaw.w3.org/css-validator/) 
-for assessing the styling [style.css file](style.css). Apparently, no errors were found.
+The [Markup Validatiopn Service](https://validator.w3.org/#validate_by_input) was used to check the HTML file [index.html file](index.html), and [CSS Validation Service](https://jigsaw.w3.org/css-validator/) for assessing the styling [style.css](style.css) file. Apparently, no errors were found.
 
 #### Lighthouse
 - Chrome's Lighthouse developer tool was used to check the app's performance: 
-- The color contrast for the styling was checked using the tools provided by WebAIM (https://webaim.org/resources/contrastchecker/).
+- The color contrast for the styling was checked using the tools provided by [WebAIM](https://webaim.org/resources/contrastchecker/).
 
 ![Lighthouse validation](/assets/images/lighthouse1.webp "Google Chrome dev tools: Lighthouse assessment")
 
 #### Additional tools and services
-- The favicon for the website was generated from text using the https://favicon.io/ tools.
-- All the other icons were obtained from fontawesome.com website.
+- The [***favicon***](/assets/favicon/favicon.ico) for the website was generated from text using the [favicon.io](https://favicon.io/) tools.
+- All the other icons were obtained from [fontawesome.com](https://fontawesome.com/) website.
 - The use of ChatGPT was restrictes to getting sensible inputs for the text content in the website and for proof-checking the language.
 
 ### Responsive design
@@ -220,7 +219,7 @@ It would be nice to include user account and database connections such that the 
 - Add the tools to allow the collaborators would have access to view, edit, and comment on the tasks.
 
 ## Contributing
-To contribute to the ***LovinPlans*** project:
+### To contribute to the ***LovinPlans*** project:
 - Fork the repository on GitHub to create your own copy.
 - Clone the forked repository to your local machine.
 - Make your desired changes, whether it's fixing a bug, adding a feature, or updating documentation.
